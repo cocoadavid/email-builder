@@ -1,0 +1,53 @@
+{
+  "emails": [
+    {
+      "id": "1",
+      "subjectLine": "Welcome to Our Service",
+      "previewText": "Thank you for signing up! We are excited to have you.",
+      "projectName": "Welcome Campaign",
+      "wfNumber": "WF001"
+    },
+    {
+      "id": "2",
+      "subjectLine": "Test subject line",
+      "previewText": "Thank you for signing up!",
+      "projectName": "Thank you Campaign",
+      "wfNumber": "WF002"
+    },
+    {
+      "id": "4520",
+      "subjectLine": "new emailbuilder",
+      "previewText": "awesome!",
+      "projectName": "Awesome Project",
+      "wfNumber": "WF8888"
+    },
+    {
+      "id": "4a61",
+      "wfNumber": "WF55345",
+      "projectName": "dalolok mint a delulu",
+      "subjectLine": "sanyika",
+      "previewText": "manyika"
+    },
+    {
+      "id": "d999",
+      "wfNumber": "WF4343244",
+      "projectName": "ffsdfd",
+      "subjectLine": "gfdg",
+      "previewText": "gfdf"
+    },
+    {
+      "id": "ab74",
+      "wfNumber": "WF8787878",
+      "projectName": "Ez live jon letre vajon",
+      "subjectLine": "nagyon remelem",
+      "previewText": "has sikerul nagyon fasza"
+    },
+    {
+      "id": "cc22",
+      "wfNumber": "WF7823782379",
+      "projectName": "utso teszt",
+      "subjectLine": "aztan pihi",
+      "previewText": "juhuuu"
+    }
+  ]
+}
