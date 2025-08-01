@@ -1,35 +1,35 @@
 {
   "emails": [
     {
-      "id": "WF001-First-Project-oft",
-      "wfNumber": "WF001",
-      "projectName": "First Project",
-      "subjectLine": "subject line",
-      "previewText": "preview text",
+      "id": "WF0001-first_project-eloqua",
+      "wfNumber": "WF0001",
+      "projectName": "first project",
+      "subjectLine": "test subject",
+      "previewText": "test preview",
+      "type": "eloqua"
+    },
+    {
+      "id": "WF1111-3434-oft",
+      "wfNumber": "WF1111",
+      "projectName": "3434",
+      "subjectLine": "ewt",
+      "previewText": "retertrt",
       "type": "oft"
     },
     {
-      "id": "WF223-4324-eloqua",
-      "wfNumber": "WF223",
-      "projectName": "4324",
-      "subjectLine": "4ewr",
-      "previewText": "retrtre",
-      "type": "eloqua"
+      "id": "WF007-Secret_Agent-oft",
+      "wfNumber": "WF007",
+      "projectName": "Secret Agent",
+      "subjectLine": "My name is Bond",
+      "previewText": "James Bond",
+      "type": "oft"
     },
     {
-      "id": "WF5555-css-eloqua",
-      "wfNumber": "WF5555",
-      "projectName": "css",
-      "subjectLine": "content test",
-      "previewText": "previeeeeew",
-      "type": "eloqua"
-    },
-    {
-      "id": "WF46756765-css_test_2-eloqua",
-      "wfNumber": "WF46756765",
-      "projectName": "css test 2",
-      "subjectLine": "inline",
-      "previewText": "offline",
+      "id": "WF0078-Agent_2-eloqua",
+      "wfNumber": "WF0078",
+      "projectName": "Agent 2",
+      "subjectLine": "TOP",
+      "previewText": "SECRET",
       "type": "eloqua"
     }
   ]

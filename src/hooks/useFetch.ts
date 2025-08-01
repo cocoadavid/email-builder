@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Email } from "../types/email.type";
+import type { Email } from "@/types/email.type";
 
 const useFetch = (url: string) => {
     const [data, setData] = useState<Email[] | []>([]);

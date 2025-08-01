@@ -18,15 +18,16 @@ emails.forEach((email) => {
     fs.mkdirSync(emailDir, { recursive: true });
 
     const componentCode = `import './email.css';
+import Wrapper from '@/components/email/Wrapper';
+import EmailHeader from '@/components/email/EmailHeader';
+import EmailIntro from '@/components/email/EmailIntro';
 
 const Email = () => {
   return (
-    <div>
-      <p><strong>WF Number:</strong> ${email.wfNumber}</p>
-      <p><strong>Email Type:</strong> ${email.type}</p>
-      <p>SL: ${email.subjectLine}</p>
-      <p>PT: ${email.previewText}</p>
-    </div>
+    <Wrapper>
+      <EmailHeader imgUrl={''} />
+      <EmailIntro />
+    </Wrapper>
   );
 };
 
