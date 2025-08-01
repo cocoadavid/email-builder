@@ -8,14 +8,17 @@ const CreatePage = () => {
     const [projectName, setProjectName] = useState('');
     const [subjectLine, setSubjectLine] = useState('');
     const [previewText, setPreviewText] = useState('');
+    const [type, setType] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const emailData = {
+            id:`WF${wfNumber}-${projectName.replace(/\s+/g, '_')}-${type}`,
             wfNumber: `WF${wfNumber}`,
             projectName,
             subjectLine,
             previewText,
+            type,
         };
         setIsPending(true);
         fetch('http://localhost:8000/emails', {
@@ -31,47 +34,84 @@ const CreatePage = () => {
         navigate('/'); // Redirect to home page after submission
     };
     return (
-        <div className='create'>
-            <h2>Create new email</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="max-w-xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-8 space-y-6 border border-sky-100">
+            <h2 className="text-2xl font-bold text-sky-700 border-b border-sky-200 pb-2">Create New Email</h2>
+            <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                    <label>Workfront Number:</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">Workfront Number</label>
                     <input
                         type="number"
                         value={wfNumber}
                         onChange={(e) => setWfNumber(e.target.value)}
                         required
+                        className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
                     />
                 </div>
+
                 <div>
-                    <label>Project name:</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">Project Name</label>
                     <input
                         type="text"
                         value={projectName}
                         onChange={(e) => setProjectName(e.target.value)}
                         required
+                        className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
                     />
                 </div>
+
                 <div>
-                    <label>Subject Line:</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">Subject Line</label>
                     <input
                         type="text"
                         value={subjectLine}
                         onChange={(e) => setSubjectLine(e.target.value)}
                         required
+                        className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
                     />
                 </div>
+
                 <div>
-                    <label>Preview Text:</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">Preview Text</label>
                     <input
                         type="text"
                         value={previewText}
                         onChange={(e) => setPreviewText(e.target.value)}
                         required
+                        className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
                     />
                 </div>
-                {!isPending && <button type="submit">Create Email</button>}
-                {isPending && <button disabled>Creating email...</button>}
+
+                <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+                    <select
+                        value={type}
+                        onChange={(e) => setType(e.target.value)}
+                        required
+                        className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white text-gray-800"
+                    >
+                        <option value="">Select type</option>
+                        <option value="eloqua">Eloqua</option>
+                        <option value="oft">OFT</option>
+                        <option value="highspot">Highspot</option>
+                        <option value="thirdparty">Thirdparty</option>
+                    </select>
+                </div>
+
+                {!isPending ? (
+                    <button
+                        type="submit"
+                        className="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 rounded-md transition duration-200"
+                    >
+                        Create Email
+                    </button>
+                ) : (
+                    <button
+                        disabled
+                        className="w-full bg-gray-300 text-gray-600 font-semibold py-2 rounded-md"
+                    >
+                        Creating email...
+                    </button>
+                )}
             </form>
         </div>
     );

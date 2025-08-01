@@ -7,21 +7,25 @@ const emails = emailsData.emails;
 
 const outputBaseDir = path.join(__dirname, '../src/emails');
 
+const defaultCssContent = `/* Default CSS for email components */`;
+
 emails.forEach((email) => {
-  const emailDir = path.join(outputBaseDir, `${email.wfNumber}-${email.projectName.replace(/\s+/g, '_')}`);
+  const emailDir = path.join(outputBaseDir, `${email.id}`);
   const emailFilePath = path.join(emailDir, 'Email.tsx');
+  const cssFilePath = path.join(emailDir, 'email.css');
 
   if (!fs.existsSync(emailFilePath)) {
     fs.mkdirSync(emailDir, { recursive: true });
 
-    const componentCode = `import React from 'react';
+    const componentCode = `import './email.css';
 
 const Email = () => {
   return (
     <div>
-      <h1>${email.subjectLine}</h1>
-      <p>${email.previewText}</p>
       <p><strong>WF Number:</strong> ${email.wfNumber}</p>
+      <p><strong>Email Type:</strong> ${email.type}</p>
+      <p>SL: ${email.subjectLine}</p>
+      <p>PT: ${email.previewText}</p>
     </div>
   );
 };
@@ -33,5 +37,12 @@ export default Email;
     console.log(`✅ Generated: ${emailFilePath}`);
   } else {
     console.log(`⏭️ Skipped (already exists): ${emailFilePath}`);
+  }
+
+  if (!fs.existsSync(cssFilePath)) {
+    fs.writeFileSync(cssFilePath, defaultCssContent);
+    console.log(`🎨 Generated: ${cssFilePath}`);
+  } else {
+    console.log(`⏭️ Skipped (already exists): ${cssFilePath}`);
   }
 });
