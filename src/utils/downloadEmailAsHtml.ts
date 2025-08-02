@@ -29,17 +29,24 @@ export const downloadEmailAsHtml = async (selectedEmailId: string) => {
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
     <title>Email Preview</title>
     <style type="text/css">
 /* Base styles */
 ${baseCss}
-
 /* Email-specific styles */
 ${cssContent}
+<!--[if (mso)>
+<style type="text/css">
+a {
+    text-decoration: none;
+    }
+</style>
+<![endif]--> 
 </style>
 
   </head>
-  <body>
+  <body class="body">
     ${htmlContent}
   </body>
 </html>`;

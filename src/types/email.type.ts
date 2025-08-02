@@ -6,4 +6,6 @@ export type Email = {
     previewText: string;
     type: string;
     createdAt: string;
+    sourceId?: string;
+    suffix?: string;
 }

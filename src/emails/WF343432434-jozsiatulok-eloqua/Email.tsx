@@ -8,7 +8,7 @@ const Email = () => {
     <Wrapper>
       <EmailHeader imgUrl={''} />
       <EmailIntro />
-      <p>jjaj, sanyibazmeg</p>
+      <p className='pink'>itt már lehet ékezet</p>
     </Wrapper>
   );
 };

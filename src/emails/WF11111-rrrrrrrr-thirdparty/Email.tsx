@@ -8,7 +8,6 @@ const Email = () => {
     <Wrapper>
       <EmailHeader imgUrl={''} />
       <EmailIntro />
-      <p className='deepskyblue'>teszt</p>
     </Wrapper>
   );
 };

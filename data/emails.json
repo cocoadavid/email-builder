@@ -71,6 +71,56 @@
       "previewText": "élkgf",
       "type": "oft",
       "createdAt": "2025-08-02T12:09:04.572Z"
+    },
+    {
+      "id": "WF7777-ezt_fogom_copyzni-oft",
+      "wfNumber": "7777",
+      "projectName": "ezt fogom copyzni",
+      "subjectLine": "source",
+      "previewText": "source",
+      "type": "oft",
+      "createdAt": "2025-08-02T16:29:26.813Z"
+    },
+    {
+      "id": "WF7777-ezt_fogom_copyzni-eloqua",
+      "wfNumber": "7777",
+      "projectName": "ezt fogom copyzni",
+      "subjectLine": "source",
+      "previewText": "source",
+      "type": "eloqua",
+      "createdAt": "2025-08-02T16:29:26.813Z",
+      "sourceId": "WF7777-ezt_fogom_copyzni-oft"
+    },
+    {
+      "id": "WF343432434-jozsiatulok-eloqua",
+      "wfNumber": "343432434",
+      "projectName": "józsi a tülök",
+      "subjectLine": "csávóka",
+      "previewText": "fdsfd",
+      "type": "eloqua",
+      "createdAt": "2025-08-02T18:47:11.374Z"
+    },
+    {
+      "id": "WF343432434-jozsiatulok-resend-eloqua",
+      "wfNumber": "343432434",
+      "projectName": "józsi a tülök",
+      "subjectLine": "csávóka resend",
+      "previewText": "fdsfd",
+      "type": "eloqua",
+      "createdAt": "2025-08-02T18:49:22.390Z",
+      "sourceId": "WF343432434-jozsiatulok-eloqua",
+      "suffix": "resend"
+    },
+    {
+      "id": "WF343432434-jozsiatulok-OFT-oft",
+      "wfNumber": "343432434",
+      "projectName": "józsi a tülök",
+      "subjectLine": "csávóka",
+      "previewText": "fdsfd",
+      "type": "oft",
+      "createdAt": "2025-08-02T18:55:59.535Z",
+      "sourceId": "WF343432434-jozsiatulok-eloqua",
+      "suffix": "OFT"
     }
   ]
 }

@@ -1,4 +1,5 @@
-/* Default CSS for email components */
-p {
-    color: deeppink !important;
+@media screen and (max-width: 600px) {
+    p {
+        color: deeppink !important;
+    }
 }

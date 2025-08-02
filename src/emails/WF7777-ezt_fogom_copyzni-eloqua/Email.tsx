@@ -8,7 +8,7 @@ const Email = () => {
     <Wrapper>
       <EmailHeader imgUrl={''} />
       <EmailIntro />
-      <p>jjaj, sanyibazmeg</p>
+      <p>this is going to be copied</p>
     </Wrapper>
   );
 };

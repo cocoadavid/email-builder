@@ -1,8 +1,9 @@
 import { useState, Suspense, lazy, useEffect } from 'react';
-import useFetch from '@/hooks/useFetch.ts';
+import useFetchList from '@/hooks/useFetchList';
 import type { Email } from '@/types/email.type.ts';
 import { downloadEmailAsHtml } from '@/utils/downloadEmailAsHtml.ts';
 import { copyEmailAsHtml } from '@/utils/copyEmailAsHtml.ts';
+import { useNavigate } from 'react-router-dom';
 
 // Glob import Email.tsx files for preview components
 const previewModules = import.meta.glob<{ default: React.ComponentType<any> }>('/src/emails/*/Email.tsx');
@@ -12,12 +13,13 @@ const getPreviewComponent = (id: string) => {
 };
 
 const HomePage = () => {
-    const { data: emails, isPending, error } = useFetch('http://localhost:8000/emails');
+    const { data: emails, isPending, error } = useFetchList('http://localhost:8000/emails');
     const [selectedEmailId, setSelectedEmailId] = useState<string>('');
     const selectedEmailObj = emails.find((email: Email) => email.id === selectedEmailId);
     // Lazy load PreviewComponent only if selectedEmailId is set and the module exists
     // This prevents unnecessary loading of components when no email is selected
     const PreviewComponent = selectedEmailId ? getPreviewComponent(selectedEmailId) : null;
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!selectedEmailId) return;
@@ -52,7 +54,7 @@ const HomePage = () => {
                             .sort((a, b) => b.wfNumber - a.wfNumber)
                             .map((email: Email) => (
                                 <option key={email.id} value={email.id}>
-                                    {email.wfNumber} | {email.projectName} | {email.type}
+                                    {email.wfNumber} | {email.projectName} | {email.suffix && `${email.suffix} | `}{email.type}
                                 </option>
                             ))
                     ) : (
@@ -76,8 +78,13 @@ const HomePage = () => {
                         >
                             Download HTML
                         </button>
+                        <button
+                            onClick={() => navigate(`/duplicate/${selectedEmailId}`)}
+                            className="mb-4 px-4 py-2 bg-sky-600 text-white rounded hover:bg-sky-700"
+                        >
+                            Duplicate Html
+                        </button>
                     </div>
-
                     <Suspense fallback={<div className="text-gray-400">Loading preview...</div>}>
                         <PreviewComponent email={selectedEmailObj} />
                     </Suspense>

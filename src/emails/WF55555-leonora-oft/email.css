@@ -1,4 +1,5 @@
-/* Default CSS for email components */
-p {
-    color: skyblue !important;
+@media screen and (max-width: 600px) {
+    .text-14 {
+        color: skyblue !important;
+    }
 }

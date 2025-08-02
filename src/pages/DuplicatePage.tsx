@@ -1,12 +1,18 @@
-import { cleanProjectName } from '@/utils/cleanProjectName';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import useFetchSingle from '@/hooks/useFetchSingle';
+import { cleanProjectName } from '@/utils/cleanProjectName.ts';
 
 const CreatePage = () => {
+    const { sourceId } = useParams<{ sourceId: string }>();
+    const {data: email} = useFetchSingle(`http://localhost:8000/emails/${sourceId}`);
+
     const navigate = useNavigate();
     const [isPending, setIsPending] = useState(false);
-    const [wfNumber, setWfNumber] = useState('');
+    const [wfNumber, setWfNumber] = useState(0);
     const [projectName, setProjectName] = useState('');
+    const [suffix, setSuffix] = useState('');
     const [subjectLine, setSubjectLine] = useState('');
     const [previewText, setPreviewText] = useState('');
     const [type, setType] = useState('');
@@ -15,13 +21,15 @@ const CreatePage = () => {
         e.preventDefault();
         const createdAt = new Date().toISOString();
         const emailData = {
-            id: `WF${wfNumber}-${cleanProjectName(projectName)}-${type}`,
+            id: `WF${wfNumber}-${cleanProjectName(projectName)}-${suffix}-${type}`,
             wfNumber: wfNumber,
             projectName,
             subjectLine,
             previewText,
             type,
             createdAt,
+            sourceId,
+            suffix
         };
         setIsPending(true);
         fetch('http://localhost:8000/emails', {
@@ -38,17 +46,26 @@ const CreatePage = () => {
         });
     };
 
+    useEffect(() => {
+        if (sourceId && email) {
+            setWfNumber(email.wfNumber);
+            setProjectName(email.projectName);
+            setSubjectLine(email.subjectLine);
+            setPreviewText(email.previewText);
+            setType(email.type);        
+        }}, [sourceId, email])  ;
+
 
     return (
         <div className="max-w-xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-8 space-y-6 border border-sky-100">
-            <h2 className="text-2xl font-bold text-sky-700 border-b border-sky-200 pb-2">Create New Email</h2>
+            <h2 className="text-2xl font-bold text-sky-700 border-b border-sky-200 pb-2">Duplicate Email</h2>
             <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Workfront Number</label>
                     <input
                         type="number"
                         value={wfNumber}
-                        onChange={(e) => setWfNumber(e.target.value)}
+                        onChange={(e) => setWfNumber(Number(e.target.value))}
                         required
                         className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
                     />
@@ -61,6 +78,18 @@ const CreatePage = () => {
                         value={projectName}
                         onChange={(e) => setProjectName(e.target.value)}
                         required
+                        className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+                    />
+                </div>
+
+                <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">Suffix</label>
+                    <input
+                        type="text"
+                        value={suffix}
+                        onChange={(e) => setSuffix(e.target.value)}
+                        required
+                        placeholder='eg. resend'
                         className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
                     />
                 </div>

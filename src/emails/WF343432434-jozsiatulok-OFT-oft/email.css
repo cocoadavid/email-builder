@@ -1,0 +1,9 @@
+.pink {
+  color: deeppink;
+}
+
+@media screen and (max-width: 600px) {
+    .pink {
+        color: lightpink !important;
+    }
+}

@@ -1,4 +1,3 @@
-// generateEmails.cjs
 const fs = require('fs');
 const path = require('path');
 
@@ -15,21 +14,6 @@ emails.forEach((email) => {
   const emailFilePath = path.join(emailDir, 'Email.tsx');
   const cssFilePath = path.join(emailDir, 'email.css');
 
-  // 1. Ha van 'source' mező, és a target még nem létezik, másolás
-  if (email.sourceId && !fs.existsSync(emailDir)) {
-    const sourceDir = path.join(outputBaseDir, email.sourceId);
-
-    if (fs.existsSync(sourceDir)) {
-      fs.cpSync(sourceDir, emailDir, { recursive: true });
-      console.log(`📁 Duplicated "${email.sourceId}" to "${email.id}"`);
-      return; // Kilép, nem futtatja le az alábbi generálást
-    } else {
-      console.warn(`❌ Source "${email.sourceId}" does not exist.`);
-      // Ilyenkor továbbmegy, mintha nem lenne source
-    }
-  }
-
-  // 2. Ha nincs 'source', vagy a fenti feltételek nem teljesültek, default generálás
   if (!fs.existsSync(emailFilePath)) {
     fs.mkdirSync(emailDir, { recursive: true });
 

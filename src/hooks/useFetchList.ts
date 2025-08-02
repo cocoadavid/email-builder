@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import type { Email } from "@/types/email.type";
 
-const useFetch = (url: string) => {
-    const [data, setData] = useState<Email[] | []>([]);
+const useFetchList = (url: string) => {
+    const [data, setData] = useState<Email[]>([]);
     const [isPending, setIsPending] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -21,9 +21,7 @@ const useFetch = (url: string) => {
             setError(null);
             })
             .catch((err) => {
-                if(err.name === 'AbortError'){
-                    console.log("fetch aborted")
-                } else {
+                if(err.name !== 'AbortError'){
                     setIsPending(false);
                     setError(err.message);
                 }
@@ -35,4 +33,4 @@ const useFetch = (url: string) => {
     return {data, isPending, error}
 }
 
-export default useFetch;
+export default useFetchList;
