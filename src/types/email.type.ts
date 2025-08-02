@@ -5,4 +5,5 @@ export type Email = {
     subjectLine: string;
     previewText: string;
     type: string;
+    createdAt: string;
 }

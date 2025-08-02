@@ -2,10 +2,29 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import React from 'react';
 import { inlineHtmlStyle } from './inlineHtmlStyle';
 import baseCss from '../styles/emailBase.css?raw';
+const emailModules = import.meta.glob('/src/emails/*/Email.tsx');
 
-export const copyEmailAsHtml = (Component: React.ComponentType, cssContent: string, selectedEmailId: string) => {
-  console.log("Downloading email as HTML...");
+export const copyEmailAsHtml = async (selectedEmailId: string) => {
+  const modulePath = `/src/emails/${selectedEmailId}/Email.tsx`;
+  const importFn = emailModules[modulePath];
+  if (!importFn) {
+    console.error(`Email component not found at: ${modulePath}`);
+    return;
+  }
+  
+  const module = await import(
+    /* @vite-ignore */ `/src/emails/${selectedEmailId}/Email.tsx?t=${Date.now()}`
+  ) as { default: React.ComponentType };
+  const Component = module.default;
   const htmlContent = renderToStaticMarkup(React.createElement(Component));
+
+  let cssContent = "";
+  try {
+    cssContent = (await import(`../emails/${selectedEmailId}/email.css?raw`)).default;
+  } catch (error) {
+    console.error(`Failed to load CSS for ${selectedEmailId}`, error);
+  }
+
   const fullHtml = `<!DOCTYPE html>
 <html>
   <head>

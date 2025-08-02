@@ -1,36 +1,76 @@
 {
   "emails": [
     {
-      "id": "WF0001-first_project-eloqua",
-      "wfNumber": "WF0001",
-      "projectName": "first project",
-      "subjectLine": "test subject",
-      "previewText": "test preview",
-      "type": "eloqua"
+      "id": "WF1111-erwrer-eloqua",
+      "wfNumber": "1111",
+      "projectName": "erwrer",
+      "subjectLine": "fgfdg",
+      "previewText": "fdgf",
+      "type": "eloqua",
+      "createdAt": "2025-08-02T10:29:54.663Z"
     },
     {
-      "id": "WF1111-3434-oft",
-      "wfNumber": "WF1111",
-      "projectName": "3434",
-      "subjectLine": "ewt",
-      "previewText": "retertrt",
-      "type": "oft"
+      "id": "WF33333-fffg-oft",
+      "wfNumber": "33333",
+      "projectName": "fffg",
+      "subjectLine": "fgfd",
+      "previewText": "fdgfdg",
+      "type": "oft",
+      "createdAt": "2025-08-02T10:30:36.377Z"
     },
     {
-      "id": "WF007-Secret_Agent-oft",
-      "wfNumber": "WF007",
-      "projectName": "Secret Agent",
-      "subjectLine": "My name is Bond",
-      "previewText": "James Bond",
-      "type": "oft"
+      "id": "WF22222-third-eloqua",
+      "wfNumber": "22222",
+      "projectName": "third",
+      "subjectLine": "fdf",
+      "previewText": "gdfg",
+      "type": "eloqua",
+      "createdAt": "2025-08-02T10:36:59.920Z"
     },
     {
-      "id": "WF0078-Agent_2-eloqua",
-      "wfNumber": "WF0078",
-      "projectName": "Agent 2",
-      "subjectLine": "TOP",
-      "previewText": "SECRET",
-      "type": "eloqua"
+      "id": "WF4444-ttrr-eloqua",
+      "wfNumber": "4444",
+      "projectName": "ttrr",
+      "subjectLine": "dfh",
+      "previewText": "dghdghgd",
+      "type": "eloqua",
+      "createdAt": "2025-08-02T10:45:20.357Z"
+    },
+    {
+      "id": "WF666666-rrrr-eloqua",
+      "wfNumber": "666666",
+      "projectName": "rrrr",
+      "subjectLine": "ffff",
+      "previewText": "fff",
+      "type": "eloqua",
+      "createdAt": "2025-08-02T10:46:11.684Z"
+    },
+    {
+      "id": "WF11111-rrrrrrrr-thirdparty",
+      "wfNumber": "11111",
+      "projectName": "rrrrrrrr",
+      "subjectLine": "fffff",
+      "previewText": "ddd",
+      "type": "thirdparty",
+      "createdAt": "2025-08-02T10:52:09.712Z"
+    },
+    {
+      "id": "WF898989-utso_teszt_mara-oft",
+      "wfNumber": "898989",
+      "projectName": "utso teszt mara",
+      "subjectLine": "lllllleeee",
+      "previewText": "joooon",
+      "type": "oft",
+      "createdAt": "2025-08-02T11:41:47.866Z"
+    },
+    {
+      "id": "WF55555-leonora-oft",
+      "wfNumber": "55555",
+      "projectName": "leonora",
+      "subjectLine": "klklédfl",
+      "previewText": "élkgf",
+      "type": "oft",
+      "createdAt": "2025-08-02T12:09:04.572Z"
     }
   ]
 }

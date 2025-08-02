@@ -12,27 +12,32 @@ const CreatePage = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        const createdAt = new Date().toISOString();
         const emailData = {
-            id:`WF${wfNumber}-${projectName.replace(/\s+/g, '_')}-${type}`,
-            wfNumber: `WF${wfNumber}`,
+            id: `WF${wfNumber}-${projectName.replace(/\s+/g, '_')}-${type}`,
+            wfNumber: wfNumber,
             projectName,
             subjectLine,
             previewText,
             type,
+            createdAt,
         };
         setIsPending(true);
         fetch('http://localhost:8000/emails', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(emailData)
+            body: JSON.stringify(emailData),
         }).then(() => {
-            console.log("New email added");
             setIsPending(false);
-            navigate('/');
-        })
-        console.log({ subjectLine, previewText, wfNumber });
-        navigate('/'); // Redirect to home page after submission
+            localStorage.setItem('lastSelectedEmailId', emailData.id);
+            navigate('/'); 
+        }).catch(err => {
+            console.error("Error creating email:", err);
+            setIsPending(false);
+        });
     };
+
+
     return (
         <div className="max-w-xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-8 space-y-6 border border-sky-100">
             <h2 className="text-2xl font-bold text-sky-700 border-b border-sky-200 pb-2">Create New Email</h2>
