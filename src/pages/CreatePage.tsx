@@ -40,7 +40,7 @@ const CreatePage = () => {
 
 
     return (
-        <div className="max-w-xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-8 space-y-6 border border-sky-100">
+        <div className="max-w-xl mx-auto mt-4 bg-white shadow-lg rounded-2xl p-8 space-y-6 border border-sky-100">
             <h2 className="text-2xl font-bold text-sky-700 border-b border-sky-200 pb-2">Create New Email</h2>
             <form onSubmit={handleSubmit} className="space-y-5">
                 <div>

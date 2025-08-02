@@ -3,9 +3,10 @@ import React from 'react';
 import { inlineHtmlStyle } from './inlineHtmlStyle';
 import baseCss from '../styles/emailBase.css?raw';
 const emailModules = import.meta.glob('/src/emails/*/Email.tsx');
+import type { Email } from '@/types/email.type.ts';
 
-export const copyEmailAsHtml = async (selectedEmailId: string) => {
-  const modulePath = `/src/emails/${selectedEmailId}/Email.tsx`;
+export const copyEmailAsHtml = async (selectedEmailObj: Email) => {
+  const modulePath = `/src/emails/${selectedEmailObj.id}/Email.tsx`;
   const importFn = emailModules[modulePath];
   if (!importFn) {
     console.error(`Email component not found at: ${modulePath}`);
@@ -13,16 +14,16 @@ export const copyEmailAsHtml = async (selectedEmailId: string) => {
   }
   
   const module = await import(
-    /* @vite-ignore */ `/src/emails/${selectedEmailId}/Email.tsx?t=${Date.now()}`
+    /* @vite-ignore */ `/src/emails/${selectedEmailObj.id}/Email.tsx?t=${Date.now()}`
   ) as { default: React.ComponentType };
   const Component = module.default;
   const htmlContent = renderToStaticMarkup(React.createElement(Component));
 
   let cssContent = "";
   try {
-    cssContent = (await import(`../emails/${selectedEmailId}/email.css?raw`)).default;
+    cssContent = (await import(`../emails/${selectedEmailObj.id}/email.css?raw`)).default;
   } catch (error) {
-    console.error(`Failed to load CSS for ${selectedEmailId}`, error);
+    console.error(`Failed to load CSS for ${selectedEmailObj.id}`, error);
   }
 
   const fullHtml = `<!DOCTYPE html>
@@ -30,7 +31,7 @@ export const copyEmailAsHtml = async (selectedEmailId: string) => {
   <head>
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
-    <title>Email Preview</title>
+    <title>${selectedEmailObj.subjectLine}</title>
     <style type="text/css">
 /* Base styles */
 ${baseCss}

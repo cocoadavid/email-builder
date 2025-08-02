@@ -34,15 +34,6 @@ a img {
     width: 100% !important;
 }
 
-h1 {
-    margin: 0.67em 0;
-    font-size: 2em;
-}
-
-h2 {
-    margin: 0.83em 0;
-    font-size: 1.5em;
-}
 
 html[dir] h3,
 h3 {
@@ -139,7 +130,7 @@ a[x-apple-data-detectors] {
 }
 
 /* === Text Styles === */
-table, td, th, p, h1 {
+table, td, th, td p, th p, td h1, th h1, td h2, th h2, td h3, th h3, td h4, th h4, td h5, th h5, td h6, th h6 {
     font-family: Arial,Helvetica,sans-serif;
     font-weight: normal;
 }

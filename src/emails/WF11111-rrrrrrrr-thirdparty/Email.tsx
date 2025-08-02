@@ -7,7 +7,10 @@ const Email = () => {
   return (
     <Wrapper>
       <EmailHeader imgUrl={''} />
-      <EmailIntro />
+        <EmailIntro>
+          Hello David!<br/><br/>
+          Welcome to this new email builder!
+        </EmailIntro>
     </Wrapper>
   );
 };

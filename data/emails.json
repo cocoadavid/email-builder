@@ -121,6 +121,39 @@
       "createdAt": "2025-08-02T18:55:59.535Z",
       "sourceId": "WF343432434-jozsiatulok-eloqua",
       "suffix": "OFT"
+    },
+    {
+      "id": "WF55555-leonora-resend-oft",
+      "wfNumber": "55555",
+      "projectName": "leonora",
+      "subjectLine": "resendecske",
+      "previewText": "élkgf",
+      "type": "oft",
+      "createdAt": "2025-08-02T19:16:06.303Z",
+      "sourceId": "WF55555-leonora-oft",
+      "suffix": "resend"
+    },
+    {
+      "id": "WF343432434-jozsiatulok-v2-eloqua",
+      "wfNumber": "343432434",
+      "projectName": "józsi a tülök",
+      "subjectLine": "csávóka v2",
+      "previewText": "fdsfd",
+      "type": "eloqua",
+      "createdAt": "2025-08-02T20:45:25.489Z",
+      "sourceId": "WF343432434-jozsiatulok-eloqua",
+      "suffix": "v2"
+    },
+    {
+      "id": "WF55555-leonora-resend-oft",
+      "wfNumber": "55555",
+      "projectName": "leonora",
+      "subjectLine": "resend sub",
+      "previewText": "más a prevjú is",
+      "type": "oft",
+      "createdAt": "2025-08-02T20:55:24.927Z",
+      "sourceId": "WF55555-leonora-oft",
+      "suffix": "resend"
     }
   ]
 }

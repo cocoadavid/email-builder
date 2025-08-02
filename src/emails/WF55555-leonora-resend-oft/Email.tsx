@@ -8,6 +8,14 @@ const Email = () => {
     <Wrapper>
       <EmailHeader imgUrl={''} />
       <EmailIntro bgColor='#f0f0f0'>
+        Hello David,<br/><br/>
+        Welcome to this new email builder!
+      </EmailIntro>
+      <EmailIntro bgColor='#eef'>
+        Hello David!<br/><br/>
+        Welcome to this new email builder!
+      </EmailIntro>
+      <EmailIntro bgColor='#f0f0f0'>
         Hello David!<br/><br/>
         Welcome to this new email builder!
       </EmailIntro>
