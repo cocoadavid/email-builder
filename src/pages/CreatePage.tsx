@@ -15,7 +15,7 @@ const CreatePage = () => {
         e.preventDefault();
         const createdAt = new Date().toISOString();
         const emailData = {
-            id: `WF${wfNumber}-${cleanProjectName(projectName)}-${type}`,
+            id: `WF${wfNumber}-${cleanProjectName(projectName)}`,
             wfNumber: wfNumber,
             projectName,
             subjectLine,

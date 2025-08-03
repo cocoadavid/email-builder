@@ -7,17 +7,17 @@ const Email = () => {
   return (
     <Wrapper>
       <EmailHeader imgUrl={''} />
-      <EmailIntro bgColor='#f0f0f0'>
-        Hello David,<br/><br/>
-        Welcome to this new email builder!
+      <EmailIntro>
+        Hello David, <br/><br/>
+        Welcome to this new email builder! This is Highspot.
       </EmailIntro>
-      <EmailIntro bgColor='#eef'>
-        Hello David!<br/><br/>
-        Welcome to this new email builder!
+      <EmailIntro>
+        Hello David, <br/><br/>
+        Welcome to this new email builder! This is Highspot.
       </EmailIntro>
-      <EmailIntro bgColor='#f0f0f0'>
-        Hello David!<br/><br/>
-        Welcome to this new email builder!
+      <EmailIntro>
+        Hello David, <br/><br/>
+        Welcome to this new email builder! This is Highspot.
       </EmailIntro>
     </Wrapper>
   );

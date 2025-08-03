@@ -43,7 +43,7 @@ const Email = () => {
     <Wrapper>
       <EmailHeader imgUrl={''} />
       <EmailIntro>
-        Hello David,<br/><br/>
+        Hello David, <br/><br/>
         Welcome to this new email builder!
       </EmailIntro>
     </Wrapper>

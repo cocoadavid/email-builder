@@ -1,159 +1,77 @@
 {
   "emails": [
     {
-      "id": "WF1111-erwrer-eloqua",
-      "wfNumber": "1111",
-      "projectName": "erwrer",
-      "subjectLine": "fgfdg",
-      "previewText": "fdgf",
-      "type": "eloqua",
-      "createdAt": "2025-08-02T10:29:54.663Z"
-    },
-    {
-      "id": "WF33333-fffg-oft",
-      "wfNumber": "33333",
-      "projectName": "fffg",
-      "subjectLine": "fgfd",
-      "previewText": "fdgfdg",
+      "id": "WF0001-myproject",
+      "wfNumber": "0001",
+      "projectName": "my project",
+      "subjectLine": "az id eloqua, de oft lesz",
+      "previewText": "meg ezt is",
       "type": "oft",
-      "createdAt": "2025-08-02T10:30:36.377Z"
+      "createdAt": "2025-08-03T12:23:23.633Z"
     },
     {
-      "id": "WF22222-third-eloqua",
-      "wfNumber": "22222",
-      "projectName": "third",
-      "subjectLine": "fdf",
-      "previewText": "gdfg",
-      "type": "eloqua",
-      "createdAt": "2025-08-02T10:36:59.920Z"
+      "id": "WF0001-myproject-oft",
+      "wfNumber": "0001",
+      "projectName": "my project",
+      "subjectLine": "first",
+      "previewText": "first tt",
+      "type": "oft",
+      "createdAt": "2025-08-03T12:23:48.094Z",
+      "sourceId": "WF0001-myproject",
+      "suffix": "oft"
     },
     {
-      "id": "WF4444-ttrr-eloqua",
-      "wfNumber": "4444",
-      "projectName": "ttrr",
-      "subjectLine": "dfh",
-      "previewText": "dghdghgd",
-      "type": "eloqua",
-      "createdAt": "2025-08-02T10:45:20.357Z"
+      "id": "WF0002-secondprojekt",
+      "wfNumber": "0002",
+      "projectName": "secönd projekt",
+      "subjectLine": "szekönd",
+      "previewText": "preveiw",
+      "type": "highspot",
+      "createdAt": "2025-08-03T12:26:19.157Z"
     },
     {
-      "id": "WF666666-rrrr-eloqua",
-      "wfNumber": "666666",
-      "projectName": "rrrr",
-      "subjectLine": "ffff",
-      "previewText": "fff",
-      "type": "eloqua",
-      "createdAt": "2025-08-02T10:46:11.684Z"
-    },
-    {
-      "id": "WF11111-rrrrrrrr-thirdparty",
-      "wfNumber": "11111",
-      "projectName": "rrrrrrrr",
-      "subjectLine": "fffff",
-      "previewText": "ddd",
+      "id": "WF0002-secondprojekt-oft",
+      "wfNumber": "0002",
+      "projectName": "secönd projekt",
+      "subjectLine": "third",
+      "previewText": "preveiwvvv",
       "type": "thirdparty",
-      "createdAt": "2025-08-02T10:52:09.712Z"
+      "createdAt": "2025-08-03T12:27:24.216Z",
+      "sourceId": "WF0002-secondprojekt",
+      "suffix": "oft"
     },
     {
-      "id": "WF898989-utso_teszt_mara-oft",
-      "wfNumber": "898989",
-      "projectName": "utso teszt mara",
-      "subjectLine": "lllllleeee",
-      "previewText": "joooon",
+      "id": "WF0002-secondprojekt-resend",
+      "wfNumber": "0002",
+      "projectName": "secönd projekt",
+      "subjectLine": "szekönd",
+      "previewText": "preveiw",
       "type": "oft",
-      "createdAt": "2025-08-02T11:41:47.866Z"
-    },
-    {
-      "id": "WF55555-leonora-oft",
-      "wfNumber": "55555",
-      "projectName": "leonora",
-      "subjectLine": "klklédfl",
-      "previewText": "élkgf",
-      "type": "oft",
-      "createdAt": "2025-08-02T12:09:04.572Z"
-    },
-    {
-      "id": "WF7777-ezt_fogom_copyzni-oft",
-      "wfNumber": "7777",
-      "projectName": "ezt fogom copyzni",
-      "subjectLine": "source",
-      "previewText": "source",
-      "type": "oft",
-      "createdAt": "2025-08-02T16:29:26.813Z"
-    },
-    {
-      "id": "WF7777-ezt_fogom_copyzni-eloqua",
-      "wfNumber": "7777",
-      "projectName": "ezt fogom copyzni",
-      "subjectLine": "source",
-      "previewText": "source",
-      "type": "eloqua",
-      "createdAt": "2025-08-02T16:29:26.813Z",
-      "sourceId": "WF7777-ezt_fogom_copyzni-oft"
-    },
-    {
-      "id": "WF343432434-jozsiatulok-eloqua",
-      "wfNumber": "343432434",
-      "projectName": "józsi a tülök",
-      "subjectLine": "csávóka",
-      "previewText": "fdsfd",
-      "type": "eloqua",
-      "createdAt": "2025-08-02T18:47:11.374Z"
-    },
-    {
-      "id": "WF343432434-jozsiatulok-resend-eloqua",
-      "wfNumber": "343432434",
-      "projectName": "józsi a tülök",
-      "subjectLine": "csávóka resend",
-      "previewText": "fdsfd",
-      "type": "eloqua",
-      "createdAt": "2025-08-02T18:49:22.390Z",
-      "sourceId": "WF343432434-jozsiatulok-eloqua",
+      "createdAt": "2025-08-03T12:32:05.494Z",
+      "sourceId": "WF0002-secondprojekt-oft",
       "suffix": "resend"
     },
     {
-      "id": "WF343432434-jozsiatulok-OFT-oft",
-      "wfNumber": "343432434",
-      "projectName": "józsi a tülök",
-      "subjectLine": "csávóka",
-      "previewText": "fdsfd",
-      "type": "oft",
-      "createdAt": "2025-08-02T18:55:59.535Z",
-      "sourceId": "WF343432434-jozsiatulok-eloqua",
-      "suffix": "OFT"
-    },
-    {
-      "id": "WF55555-leonora-resend-oft",
-      "wfNumber": "55555",
-      "projectName": "leonora",
-      "subjectLine": "resendecske",
-      "previewText": "élkgf",
-      "type": "oft",
-      "createdAt": "2025-08-02T19:16:06.303Z",
-      "sourceId": "WF55555-leonora-oft",
-      "suffix": "resend"
-    },
-    {
-      "id": "WF343432434-jozsiatulok-v2-eloqua",
-      "wfNumber": "343432434",
-      "projectName": "józsi a tülök",
-      "subjectLine": "csávóka v2",
-      "previewText": "fdsfd",
+      "id": "WF0002-secondprojekt-resend-eloqua",
+      "wfNumber": "0002",
+      "projectName": "secönd projekt",
+      "subjectLine": "third",
+      "previewText": "preview",
       "type": "eloqua",
-      "createdAt": "2025-08-02T20:45:25.489Z",
-      "sourceId": "WF343432434-jozsiatulok-eloqua",
-      "suffix": "v2"
+      "createdAt": "2025-08-03T12:35:00.936Z",
+      "sourceId": "WF0002-secondprojekt-resend",
+      "suffix": "resend"
     },
     {
-      "id": "WF55555-leonora-resend-oft",
-      "wfNumber": "55555",
-      "projectName": "leonora",
-      "subjectLine": "resend sub",
-      "previewText": "más a prevjú is",
-      "type": "oft",
-      "createdAt": "2025-08-02T20:55:24.927Z",
-      "sourceId": "WF55555-leonora-oft",
-      "suffix": "resend"
+      "id": "WF0001-myproject-samsunggalaxy-eloqua",
+      "wfNumber": "0001",
+      "projectName": "my project",
+      "subjectLine": "first",
+      "previewText": "first tt",
+      "type": "eloqua",
+      "createdAt": "2025-08-03T12:35:29.856Z",
+      "sourceId": "WF0001-myproject",
+      "suffix": "samsung galaxy"
     }
   ]
 }
