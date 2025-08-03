@@ -18,7 +18,7 @@ export const EmailMetaEditor = ({ email, onSave }: EmailMetaEditorProps) => {
     useEffect(() => {
         setType(email.type || "");
         setSubjectLine(email.subjectLine || "");
-        setSubjectLine(email.previewText || "");
+        setPreviewText(email.previewText || "");
         setIsDirty(false);
     }, [email]);
 
