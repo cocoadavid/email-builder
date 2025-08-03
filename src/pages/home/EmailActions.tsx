@@ -32,7 +32,7 @@ const EmailActions = ({email}: EmailActionsProps) => {
                                     className="mb-4 px-4 py-2 bg-emerald-600 text-sm text-white rounded hover:bg-emerald-700 flex items-center gap-2"
                                 >
                                     <FilePlus size={16} />
-                                    Duplicate HTML
+                                    Duplicate This Email
                                 </button>
                             </div>
      );
