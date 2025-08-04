@@ -3,6 +3,7 @@ import { downloadEmailAsHtml } from '@/utils/downloadEmailAsHtml.ts';
 import { copyEmailAsHtml } from '@/utils/copyEmailAsHtml.ts';
 import { useNavigate } from 'react-router-dom';
 import type { Email } from "@/types/email.type";
+import { downloadEmailAsZip } from "@/utils/downloadEmailAsZip";
 
 type EmailActionsProps = {
     email: Email
@@ -26,6 +27,13 @@ const EmailActions = ({email}: EmailActionsProps) => {
                                 >
                                     <Download size={16} />
                                     Download HTML
+                                </button>
+                                <button
+                                    onClick={() => downloadEmailAsZip(email)}
+                                    className="mb-4 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
+                                >
+                                    <Download size={16} />
+                                    Download Zip
                                 </button>
                                 <button
                                     onClick={() => navigate(`/duplicate/${email.id}`)}

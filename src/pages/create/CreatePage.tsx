@@ -95,11 +95,11 @@ const CreatePage = () => {
                         required
                         className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white text-gray-800"
                     >
-                        <option value="">Select type</option>
-                        <option value="eloqua">Eloqua</option>
-                        <option value="oft">OFT</option>
-                        <option value="highspot">Highspot</option>
-                        <option value="thirdparty">Thirdparty</option>
+                        <option value="">Select email type</option>
+                        <option value="eloqua">eloqua</option>
+                        <option value="oft">oft</option>
+                        <option value="highspot">highspot</option>
+                        <option value="thirdparty">thirdparty</option>
                     </select>
                 </div>
 

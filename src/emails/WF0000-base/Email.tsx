@@ -2,14 +2,21 @@ import './email.css';
 import Wrapper from '@/components/emailComponents/Wrapper';
 import EmailHeader from '@/components/emailComponents/EmailHeader';
 import EmailIntro from '@/components/emailComponents/EmailIntro';
+import type { Email } from '@/types/email.type';
 
-const Email = () => {
+type EmailProps = {
+  selectedEmailObj: Email;
+};
+
+const Email = ({selectedEmailObj}: EmailProps) => {
   return (
     <Wrapper>
       <EmailHeader imgUrl={''} />
       <EmailIntro>
         Hello David, <br/><br/>
-        Welcome to this new email builder! teeeest
+        Welcome to this new email builder!<br/>
+        SL: {selectedEmailObj.subjectLine}<br/>
+        PT: {selectedEmailObj.previewText}
       </EmailIntro>
     </Wrapper>
   );

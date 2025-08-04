@@ -8,7 +8,8 @@ const emails = emailsData.emails;
 
 const outputBaseDir = path.join(__dirname, '../src/emails');
 
-const defaultCssContent = `@media screen and (max-width: 600px) {}`;
+const defaultCssContent = `/* === additional css here === */
+@media screen and (max-width: 600px) {}`;
 
 emails.forEach((email) => {
   const emailDir = path.join(outputBaseDir, `${email.id}`);
@@ -37,14 +38,21 @@ emails.forEach((email) => {
 import Wrapper from '@/components/emailComponents/Wrapper';
 import EmailHeader from '@/components/emailComponents/EmailHeader';
 import EmailIntro from '@/components/emailComponents/EmailIntro';
+import type { Email } from '@/types/email.type';
 
-const Email = () => {
+type EmailProps = {
+  selectedEmailObj: Email;
+};
+
+const Email = ({selectedEmailObj}: EmailProps) => {
   return (
     <Wrapper>
       <EmailHeader imgUrl={''} />
       <EmailIntro>
         Hello David, <br/><br/>
-        Welcome to this new email builder!
+        Welcome to this new email builder!<br/>
+        SL: {selectedEmailObj.subjectLine}<br/>
+        PT: {selectedEmailObj.previewText}
       </EmailIntro>
     </Wrapper>
   );
@@ -65,4 +73,17 @@ export default Email;
   } else {
     console.log(`⏭️ Skipped (already exists): ${cssFilePath}`);
   }
+
+    // 3. Ha a típus thirdparty, hozzon létre image mappát a public alatt
+  if (email.type === 'thirdparty') {
+    const publicImageDir = path.join(__dirname, `../public/emails/${email.id}/images`);
+    if (!fs.existsSync(publicImageDir)) {
+      fs.mkdirSync(publicImageDir, { recursive: true });
+      console.log(`🖼️ Created image folder for thirdparty: ${publicImageDir}`);
+    } else {
+      console.log(`⏭️ Skipped image folder (already exists): ${publicImageDir}`);
+    }
+  }
+
+
 });

@@ -6,9 +6,9 @@ import { EmailSelector } from './EmailSelector';
 import EmailPreviewPanel from './EmailPreviewPanel';
 
 // Glob import Email.tsx files for preview components
-const previewModules = import.meta.glob<{ default: React.ComponentType<any> }>('/src/emails/*/Email.tsx');
-const getPreviewComponent = (id: string) => {
-    const mod = previewModules[`/src/emails/${id}/Email.tsx`];
+const emailPreviewModules = import.meta.glob<{ default: React.ComponentType<any> }>('/src/emails/*/Email.tsx');
+const getEmailPreviewComponent = (id: string) => {
+    const mod = emailPreviewModules[`/src/emails/${id}/Email.tsx`];
     return mod ? lazy(mod) : null;
 };
 
@@ -19,7 +19,7 @@ const HomePage = () => {
     const [selectedEmailId, setSelectedEmailId] = useState<string>('');
     // Derived data
     const selectedEmailObj = localEmails.find((email: Email) => email.id === selectedEmailId);
-    const PreviewComponent = selectedEmailId ? getPreviewComponent(selectedEmailId) : null;
+    const EmailPreviewComponent = selectedEmailId ? getEmailPreviewComponent(selectedEmailId) : null;
     // Effects
     useEffect(() => {
         if (emails.length > 0) {
@@ -67,7 +67,7 @@ const HomePage = () => {
             {selectedEmailObj && (
                 <EmailPreviewPanel
                     email={selectedEmailObj}
-                    PreviewComponent={PreviewComponent}
+                    EmailPreviewComponent={EmailPreviewComponent}
                     onSave={handleMetaSave}
                 />
             )}

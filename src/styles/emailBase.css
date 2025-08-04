@@ -1,3 +1,6 @@
+.body {
+    background: #f5f5f5;
+}
 /* === Normalize === */
 body {
     margin: 0;
@@ -123,8 +126,24 @@ a[x-apple-data-detectors] {
 }
 
 /* === Text Styles === */
-table, td, th, td p, th p, td h1, th h1, td h2, th h2, td h3, th h3, td h4, th h4, td h5, th h5, td h6, th h6 {
-    font-family: Arial,Helvetica,sans-serif;
+table,
+td,
+th,
+td p,
+th p,
+td h1,
+th h1,
+td h2,
+th h2,
+td h3,
+th h3,
+td h4,
+th h4,
+td h5,
+th h5,
+td h6,
+th h6 {
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
 }
 
@@ -146,4 +165,23 @@ table, td, th, td p, th p, td h1, th h1, td h2, th h2, td h3, th h3, td h4, th h
 .text-20 {
     font-size: 20px;
     line-height: 1;
+}
+
+/* === Mobile Styles === */
+@media screen and (max-width: 600px) {
+    .stack {
+        width: 100% !important;
+        display: block !important;
+        padding: 0px 0px 0px 0px !important;
+    }
+
+    .thg,
+    .stack-top {
+        display: table-header-group !important;
+    }
+
+    .tfg,
+    .stack-bottom {
+        display: table-footer-group !important;
+    }
 }
