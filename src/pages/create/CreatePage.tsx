@@ -1,6 +1,7 @@
 import { cleanProjectName } from '@/utils/cleanProjectName';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const CreatePage = () => {
     const navigate = useNavigate();
@@ -11,8 +12,23 @@ const CreatePage = () => {
     const [previewText, setPreviewText] = useState('');
     const [type, setType] = useState('');
 
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    useEffect(() => {
+        return () => {
+            // Komponens unmountnál cleanup
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+        };
+    }, []);
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        if (timeoutRef.current) {
+            return; // már fut egy timeout
+        }
+        setIsPending(true);
         const createdAt = new Date().toISOString();
         const emailData = {
             id: `WF${wfNumber}-${cleanProjectName(projectName)}`,
@@ -23,19 +39,23 @@ const CreatePage = () => {
             type,
             createdAt,
         };
-        setIsPending(true);
-        fetch('http://localhost:8000/emails', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(emailData),
-        }).then(() => {
-            setIsPending(false);
-            localStorage.setItem('lastSelectedEmailId', emailData.id);
-            navigate('/'); 
-        }).catch(err => {
-            console.error("Error creating email:", err);
-            setIsPending(false);
-        });
+        const toastId = toast.loading('generating new email...');
+        timeoutRef.current = setTimeout(() => {
+            fetch('http://localhost:8000/emails', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(emailData),
+            }).then(() => {
+                setIsPending(false);
+                toast.success('New email created', { id: toastId });
+                localStorage.setItem('lastSelectedEmailId', emailData.id);
+                navigate('/');
+            }).catch(err => {
+                setIsPending(false);
+                console.error("Error creating email:", err);
+                toast.error('Something went wrong.', { id: toastId });
+            });
+        }, 1000)
     };
 
 
@@ -46,9 +66,15 @@ const CreatePage = () => {
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Workfront Number</label>
                     <input
+                        disabled={isPending}
                         type="number"
                         value={wfNumber}
                         onChange={(e) => setWfNumber(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (["e", "E", "+", "-", "."].includes(e.key)) {
+                                e.preventDefault();
+                            }
+                        }}
                         required
                         className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
                     />
@@ -57,6 +83,7 @@ const CreatePage = () => {
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Project Name</label>
                     <input
+                        disabled={isPending}
                         type="text"
                         value={projectName}
                         onChange={(e) => setProjectName(e.target.value)}
@@ -68,6 +95,7 @@ const CreatePage = () => {
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Subject Line</label>
                     <input
+                        disabled={isPending}
                         type="text"
                         value={subjectLine}
                         onChange={(e) => setSubjectLine(e.target.value)}
@@ -79,6 +107,7 @@ const CreatePage = () => {
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Preview Text</label>
                     <input
+                        disabled={isPending}
                         type="text"
                         value={previewText}
                         onChange={(e) => setPreviewText(e.target.value)}
@@ -90,6 +119,7 @@ const CreatePage = () => {
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
                     <select
+                        disabled={isPending}
                         value={type}
                         onChange={(e) => setType(e.target.value)}
                         required

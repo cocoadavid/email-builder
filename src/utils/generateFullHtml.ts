@@ -5,29 +5,42 @@ import { inlineHtmlStyle } from './inlineHtmlStyle';
 import baseCss from '@/styles/emailBase.css?raw';
 const emailModules = import.meta.glob('/src/emails/*/Email.tsx');
 
+type EmailComponentProps = {
+  email: Email;
+};
+
 
 export const generateFullHtml = async (selectedEmailObj: Email) => {
-    const modulePath = `/src/emails/${selectedEmailObj.id}/Email.tsx`;
-    const importFn = emailModules[modulePath];
-    if (!importFn) {
-        console.error(`Email component not found at: ${modulePath}`);
-        return;
-    }
+  const modulePath = `/src/emails/${selectedEmailObj.id}/Email.tsx`;
+  const importFn = emailModules[modulePath];
+  if (!importFn) {
+    console.error(`Email component not found at: ${modulePath}`);
+    return;
+  }
 
-    const module = await import(
+  const module = await import(
   /* @vite-ignore */ `/src/emails/${selectedEmailObj.id}/Email.tsx?t=${Date.now()}`
-    ) as { default: React.ComponentType };
-    const Component = module.default;
-    const htmlContent = renderToStaticMarkup(React.createElement(Component));
+  ) as { default: React.ComponentType<EmailComponentProps> };
+  const Component = module.default;
 
-    let cssContent = "";
-    try {
-        cssContent = (await import(`../emails/${selectedEmailObj.id}/email.css?raw`)).default;
-    } catch (error) {
-        console.error(`Failed to load CSS for ${selectedEmailObj.id}`, error);
-    }
+  let htmlContent = '';
+  try {
+    htmlContent = renderToStaticMarkup(
+      React.createElement(Component, { email: selectedEmailObj })
+    );
+  } catch (err) {
+    console.error(`❌ Failed to render email component for ${selectedEmailObj.id}`, err);
+    throw err;
+  }
 
-    const fullHtml = `<!DOCTYPE html>
+  let cssContent = "";
+  try {
+    cssContent = (await import(`../emails/${selectedEmailObj.id}/email.css?raw`)).default;
+  } catch (error) {
+    console.error(`Failed to load CSS for ${selectedEmailObj.id}`, error);
+  }
+
+  const fullHtml = `<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en" xml:lang="en">
   <head>
     <title>${selectedEmailObj.subjectLine}</title>
@@ -70,6 +83,6 @@ export const generateFullHtml = async (selectedEmailObj: Email) => {
   </body>
 </html>`;
 
-    const inlinedHtml = inlineHtmlStyle(fullHtml)
-    return inlinedHtml;
+  const inlinedHtml = inlineHtmlStyle(fullHtml)
+  return inlinedHtml;
 }

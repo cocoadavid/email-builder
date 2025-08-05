@@ -1,7 +1,9 @@
+import { AnimatePresence, motion } from 'framer-motion';
+import { Suspense } from "react";
 import type { Email } from "@/types/email.type";
 import EmailActions from "./EmailActions";
 import { EmailMetaEditor } from "./EmailMetaEditor";
-import { Suspense } from "react";
+import LoadingHeader from '@/components/appComponents/LoadingHeader';
 
 type EmailPreviewPanelProps = {
     email: Email;
@@ -15,9 +17,21 @@ const EmailPreviewPanel = ({ EmailPreviewComponent, email, onSave }: EmailPrevie
                 <div className="mt-4">
                     <EmailActions email={email} />
                     <EmailMetaEditor email={email} onSave={onSave} />
-                    <Suspense fallback={<div className="text-gray-400">Loading preview...</div>}>
-                        <EmailPreviewComponent email={email} selectedEmailObj={email} />
-                    </Suspense>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={email.id}
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            transition={{ duration: 0.5, ease: 'backInOut' }}
+                        >
+                            <Suspense 
+                            fallback={<LoadingHeader />}
+                            >
+                                <EmailPreviewComponent email={email} />
+                            </Suspense>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             )}
         </div>

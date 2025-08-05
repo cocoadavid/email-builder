@@ -1,3 +1,4 @@
+import { toast } from 'sonner';
 import { generateFullHtml } from './generateFullHtml';
 import type { Email } from '@/types/email.type.ts';
 
@@ -6,10 +7,10 @@ export const copyEmailAsHtml = async (selectedEmailObj: Email) => {
   if (!finalHtml) return;
   navigator.clipboard.writeText(finalHtml)
     .then(() => {
-      alert("Email HTML copied to clipboard!");
+      toast.success("Email HTML copied to clipboard!")
     })
     .catch((err) => {
       console.error("Failed to copy HTML:", err);
-      alert("Could not copy HTML to clipboard.");
+      toast.error(`Failed to copy HTML: look at the console for more details.`)
     });
 };

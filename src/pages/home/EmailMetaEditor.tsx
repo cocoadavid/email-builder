@@ -50,7 +50,7 @@ export const EmailMetaEditor = ({ email, onSave }: EmailMetaEditorProps) => {
       />
     </div>
 
-    <div className="flex items-center gap-4">
+    {/* <div className="flex items-center gap-4">
       <label className="w-24 text-sm">Type:</label>
       <select
         value={type}
@@ -63,7 +63,7 @@ export const EmailMetaEditor = ({ email, onSave }: EmailMetaEditorProps) => {
           </option>
         ))}
       </select>
-    </div>
+    </div> */}
 
     <button
       onClick={() => onSave({ type, subjectLine, previewText })}

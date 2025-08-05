@@ -1,4 +1,5 @@
 import { useState, lazy, useEffect } from 'react';
+import { toast } from "sonner";
 import useFetchList from '@/hooks/useFetchList';
 import type { Email } from '@/types/email.type.ts';
 import { updateEmailMeta } from '@/utils/updateEmailMeta';
@@ -47,9 +48,10 @@ const HomePage = () => {
                 email.id === selectedEmailId ? { ...email, ...updated } : email
             );
             setLocalEmails(updatedList);
+            toast.success("Email updated.")
         } catch (err) {
-            alert("Could not save");
             console.error(err);
+            toast.error("Something went wrong. Check console for more details.")
         }
     };
     

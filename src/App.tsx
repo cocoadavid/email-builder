@@ -5,11 +5,13 @@ import Navbar from '@/components/appComponents/Navbar'
 import HomePage from '@/pages/home/HomePage'
 import CreatePage from '@/pages/create/CreatePage'
 import DuplicatePage from '@/pages/duplicate/DuplicatePage'
+import { Toaster } from 'sonner'
 
 function App() {
 
   return (
     <Router>
+      <Toaster richColors position="top-center" duration={2500}/>
       <Navbar />
       <div className='container mx-auto'>
       <Routes>
