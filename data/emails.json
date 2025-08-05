@@ -1,141 +1,121 @@
 {
   "emails": [
     {
-      "id": "WF0000-base",
+      "id": "WF0000-test",
       "wfNumber": "0000",
-      "projectName": "base",
-      "subjectLine": "zsolti a bék",
-      "previewText": "base",
-      "type": "eloqua",
-      "createdAt": "2025-08-04T20:29:02.516Z"
-    },
-    {
-      "id": "WF3333-thirdparty",
-      "wfNumber": "3333",
-      "projectName": "thirdparty",
-      "subjectLine": "Sszabjektd",
-      "previewText": "teext",
-      "type": "thirdparty",
-      "createdAt": "2025-08-04T22:01:07.219Z"
-    },
-    {
-      "id": "WF22222-test",
-      "wfNumber": "22222",
       "projectName": "test",
-      "subjectLine": "fdf",
-      "previewText": "gfgfd",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T11:19:30.222Z"
+      "subjectLine": "first sl",
+      "previewText": "first pt",
+      "type": "oft",
+      "createdAt": "2025-08-05T21:05:05.625Z"
     },
     {
-      "id": "WF5656-teeest",
-      "wfNumber": "5656",
-      "projectName": "teeest",
-      "subjectLine": "ttr",
-      "previewText": "gfdfg",
+      "id": "WF0000-test-duplicated-oft",
+      "wfNumber": "0000",
+      "projectName": "test",
+      "subjectLine": "first sl dupla",
+      "previewText": "first pt whiskey",
+      "type": "oft",
+      "createdAt": "2025-08-05T21:10:14.081Z",
+      "templateId": "default-email",
+      "sourceId": "WF0000-test",
+      "suffix": "duplicated"
+    },
+    {
+      "id": "WF007-jamesbond",
+      "wfNumber": "007",
+      "projectName": "james bond",
+      "subjectLine": "a nevem bond",
+      "previewText": "james bond",
+      "type": "eloqua",
+      "createdAt": "2025-08-05T21:10:40.614Z",
+      "templateId": "default-email"
+    },
+    {
+      "id": "WF008-itismario",
+      "wfNumber": "008",
+      "projectName": "it is mario",
+      "subjectLine": "luigi",
+      "previewText": "yoshiii",
       "type": "thirdparty",
-      "createdAt": "2025-08-05T11:20:49.102Z"
+      "createdAt": "2025-08-05T21:16:37.897Z",
+      "templateId": "default-email"
     },
     {
-      "id": "WF9999-Ipromiseitsworking",
-      "wfNumber": "9999",
-      "projectName": "I promise it's working",
-      "subjectLine": "kldklé",
-      "previewText": "kélkldf'f",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T11:22:19.266Z"
-    },
-    {
-      "id": "WF343-rtrrtt",
-      "wfNumber": "343",
-      "projectName": "rtrrtt",
-      "subjectLine": "fdgf",
-      "previewText": "dfgf",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T11:25:01.332Z"
-    },
-    {
-      "id": "WF4455-ttttttiime",
-      "wfNumber": "4455",
-      "projectName": "ttttttiime",
-      "subjectLine": "ffgg",
-      "previewText": "fgdfgf",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T11:44:59.650Z"
-    },
-    {
-      "id": "WF4444-rerre",
-      "wfNumber": "4444",
-      "projectName": "rerre",
-      "subjectLine": "fdgf",
-      "previewText": "rewr",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T11:57:56.430Z"
-    },
-    {
-      "id": "WF434-dfgf",
-      "wfNumber": "434",
-      "projectName": "dfgf",
-      "subjectLine": "gdfdf",
-      "previewText": "fgfdg",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T11:59:01.461Z"
-    },
-    {
-      "id": "WF45435-gffd",
-      "wfNumber": "45435",
-      "projectName": "gffd",
-      "subjectLine": "dfgf",
-      "previewText": "dfgfd",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T12:00:29.353Z"
-    },
-    {
-      "id": "WF3434-rtrt",
-      "wfNumber": "3434",
-      "projectName": "rtrt",
-      "subjectLine": "fggfd",
-      "previewText": "fgfdg",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T12:18:07.703Z"
-    },
-    {
-      "id": "WF44343-timoutref",
-      "wfNumber": "44343",
-      "projectName": "timoutref",
-      "subjectLine": "fdsfds",
-      "previewText": "dffdf",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T12:27:05.923Z"
-    },
-    {
-      "id": "WF343545-eszekegyfagyi",
-      "wfNumber": "343545",
-      "projectName": "eszek egy fagyi",
-      "subjectLine": "meggy vagy pisztácia?",
-      "previewText": "sztem meggy",
+      "id": "WF9-itisyoshi-third-thirdparty",
+      "wfNumber": 9,
+      "projectName": "it is yoshi",
+      "subjectLine": "luigi",
+      "previewText": "yoshiii",
       "type": "thirdparty",
-      "createdAt": "2025-08-05T12:34:38.387Z"
+      "createdAt": "2025-08-05T21:17:40.017Z",
+      "templateId": "default-email",
+      "sourceId": "WF008-itismario",
+      "suffix": "third"
     },
     {
-      "id": "WF343545-eszekegyfagyi-pisztaciafagyi-thirdparty",
-      "wfNumber": "343545",
-      "projectName": "eszek egy fagyi",
-      "subjectLine": "meggy vagy pisztácia?",
-      "previewText": "sztem meggy",
-      "type": "thirdparty",
-      "createdAt": "2025-08-05T12:39:27.135Z",
-      "sourceId": "WF343545-eszekegyfagyi",
-      "suffix": "pisztácia fagyi"
+      "id": "WF555-deleteme",
+      "wfNumber": "555",
+      "projectName": "delete me",
+      "subjectLine": "please",
+      "previewText": "rprprp",
+      "type": "eloqua",
+      "createdAt": "2025-08-05T21:18:04.889Z",
+      "templateId": "default-email"
     },
     {
-      "id": "WF43443-ffgfd",
-      "wfNumber": "43443",
-      "projectName": "ffgfd",
-      "subjectLine": "fgdg",
-      "previewText": "44444444444",
+      "id": "WF555-deleteme-resend-oft",
+      "wfNumber": "555",
+      "projectName": "delete me",
+      "subjectLine": "please",
+      "previewText": "rprprp",
+      "type": "oft",
+      "createdAt": "2025-08-05T21:18:22.232Z",
+      "templateId": "default-email",
+      "sourceId": "WF555-deleteme",
+      "suffix": "resend"
+    },
+    {
+      "id": "WF123223-newuser",
+      "wfNumber": "123223",
+      "projectName": "new user",
+      "subjectLine": "new",
+      "previewText": "user",
       "type": "highspot",
-      "createdAt": "2025-08-05T12:41:31.176Z"
+      "createdAt": "2025-08-05T21:30:19.126Z",
+      "templateId": "default-email"
+    },
+    {
+      "id": "WF43434-deletemeeeplsss",
+      "wfNumber": "43434",
+      "projectName": "delete meee plsss",
+      "subjectLine": "rer",
+      "previewText": "ererrdfgf",
+      "type": "eloqua",
+      "createdAt": "2025-08-05T21:31:19.298Z",
+      "templateId": "default-email"
+    },
+    {
+      "id": "WF43434-deletemeeeplsss-rrrrrr-eloqua",
+      "wfNumber": "43434",
+      "projectName": "delete meee plsss",
+      "subjectLine": "rer",
+      "previewText": "ererrdfgf",
+      "type": "eloqua",
+      "createdAt": "2025-08-05T21:31:28.115Z",
+      "templateId": "default-email",
+      "sourceId": "WF43434-deletemeeeplsss",
+      "suffix": "rrrrrr"
+    },
+    {
+      "id": "WF2343434-deeel",
+      "wfNumber": "2343434",
+      "projectName": "deeel",
+      "subjectLine": "fd",
+      "previewText": "fgfdf",
+      "type": "eloqua",
+      "createdAt": "2025-08-05T21:31:46.396Z",
+      "templateId": "default-email"
     }
   ]
 }

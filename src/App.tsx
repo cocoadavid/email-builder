@@ -11,7 +11,7 @@ function App() {
 
   return (
     <Router>
-      <Toaster richColors position="top-center" duration={2500}/>
+      <Toaster richColors position="top-center" duration={1500}/>
       <Navbar />
       <div className='container mx-auto'>
       <Routes>

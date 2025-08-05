@@ -1,0 +1,9 @@
+/* === additional css here === */
+.pink {
+    color: deeppink;
+}
+@media screen and (max-width: 600px) {
+    .pink {
+        color: yellowgreen !important;
+    }
+}

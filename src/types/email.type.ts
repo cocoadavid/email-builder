@@ -6,6 +6,7 @@ export type Email = {
     previewText: string;
     type: string;
     createdAt: string;
+    templateId: string;
     sourceId?: string;
     suffix?: string;
 }

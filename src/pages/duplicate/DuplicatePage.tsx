@@ -32,7 +32,7 @@ const CreatePage = () => {
 
     useEffect(() => {
         return () => {
-            // Komponens unmountnál cleanup
+            // Component unmountn cleanup
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current);
             }
@@ -42,10 +42,11 @@ const CreatePage = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (timeoutRef.current) {
-            return; // már fut egy timeout
+            return; /// There is already a timeout
         }
         setIsPending(true);
         const createdAt = new Date().toISOString();
+        const templateId = "default-email"
         const emailData = {
             id: `WF${wfNumber}-${cleanProjectName(projectName)}-${cleanProjectName(suffix)}-${type}`,
             wfNumber: wfNumber,
@@ -54,6 +55,7 @@ const CreatePage = () => {
             previewText,
             type,
             createdAt,
+            templateId,
             sourceId,
             suffix
         };
@@ -73,7 +75,7 @@ const CreatePage = () => {
                 console.error("Error creating email:", err);
                 toast.error('Something went wrong.', { id: toastId });
             });
-        }, 1000)
+        }, 500)
     };
 
     return (
