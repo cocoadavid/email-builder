@@ -8,7 +8,7 @@ const Navbar = () => {
     ]
     return ( 
         <nav className="bg-white shadow-md border-b border-sky-100">
-            <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
                 <Link to={"/"}><h1 id="navbar-title" className="text-sky-700 tracking-tight">React Email Builder</h1></Link>
                 <ul className="flex space-x-4 ml-6">
                     {navItems.map(({ to, label }) => (

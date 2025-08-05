@@ -10,28 +10,6 @@
       "createdAt": "2025-08-05T21:05:05.625Z"
     },
     {
-      "id": "WF0000-test-duplicated-oft",
-      "wfNumber": "0000",
-      "projectName": "test",
-      "subjectLine": "first sl dupla",
-      "previewText": "first pt whiskey",
-      "type": "oft",
-      "createdAt": "2025-08-05T21:10:14.081Z",
-      "templateId": "default-email",
-      "sourceId": "WF0000-test",
-      "suffix": "duplicated"
-    },
-    {
-      "id": "WF007-jamesbond",
-      "wfNumber": "007",
-      "projectName": "james bond",
-      "subjectLine": "a nevem bond",
-      "previewText": "james bond",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T21:10:40.614Z",
-      "templateId": "default-email"
-    },
-    {
       "id": "WF008-itismario",
       "wfNumber": "008",
       "projectName": "it is mario",
@@ -39,82 +17,6 @@
       "previewText": "yoshiii",
       "type": "thirdparty",
       "createdAt": "2025-08-05T21:16:37.897Z",
-      "templateId": "default-email"
-    },
-    {
-      "id": "WF9-itisyoshi-third-thirdparty",
-      "wfNumber": 9,
-      "projectName": "it is yoshi",
-      "subjectLine": "luigi",
-      "previewText": "yoshiii",
-      "type": "thirdparty",
-      "createdAt": "2025-08-05T21:17:40.017Z",
-      "templateId": "default-email",
-      "sourceId": "WF008-itismario",
-      "suffix": "third"
-    },
-    {
-      "id": "WF555-deleteme",
-      "wfNumber": "555",
-      "projectName": "delete me",
-      "subjectLine": "please",
-      "previewText": "rprprp",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T21:18:04.889Z",
-      "templateId": "default-email"
-    },
-    {
-      "id": "WF555-deleteme-resend-oft",
-      "wfNumber": "555",
-      "projectName": "delete me",
-      "subjectLine": "please",
-      "previewText": "rprprp",
-      "type": "oft",
-      "createdAt": "2025-08-05T21:18:22.232Z",
-      "templateId": "default-email",
-      "sourceId": "WF555-deleteme",
-      "suffix": "resend"
-    },
-    {
-      "id": "WF123223-newuser",
-      "wfNumber": "123223",
-      "projectName": "new user",
-      "subjectLine": "new",
-      "previewText": "user",
-      "type": "highspot",
-      "createdAt": "2025-08-05T21:30:19.126Z",
-      "templateId": "default-email"
-    },
-    {
-      "id": "WF43434-deletemeeeplsss",
-      "wfNumber": "43434",
-      "projectName": "delete meee plsss",
-      "subjectLine": "rer",
-      "previewText": "ererrdfgf",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T21:31:19.298Z",
-      "templateId": "default-email"
-    },
-    {
-      "id": "WF43434-deletemeeeplsss-rrrrrr-eloqua",
-      "wfNumber": "43434",
-      "projectName": "delete meee plsss",
-      "subjectLine": "rer",
-      "previewText": "ererrdfgf",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T21:31:28.115Z",
-      "templateId": "default-email",
-      "sourceId": "WF43434-deletemeeeplsss",
-      "suffix": "rrrrrr"
-    },
-    {
-      "id": "WF2343434-deeel",
-      "wfNumber": "2343434",
-      "projectName": "deeel",
-      "subjectLine": "fd",
-      "previewText": "fgfdf",
-      "type": "eloqua",
-      "createdAt": "2025-08-05T21:31:46.396Z",
       "templateId": "default-email"
     }
   ]

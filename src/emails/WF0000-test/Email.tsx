@@ -14,7 +14,13 @@ const Email = ({email}: EmailProps) => {
       <EmailHeader imgUrl={''} />
       <EmailIntro>
         Hello David, <br/><br/>
-        Welcome to this new email builder!<br/>
+        <span className='pink'>Welcome to this new email builder!</span><br/>
+        SL: {email.subjectLine}<br/>
+        PT: {email.previewText}
+      </EmailIntro>
+      <EmailIntro>
+        Hello David, <br/><br/>
+        <span className='pink'>Welcome to this new email builder!</span><br/>
         SL: {email.subjectLine}<br/>
         PT: {email.previewText}
       </EmailIntro>

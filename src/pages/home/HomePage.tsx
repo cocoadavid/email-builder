@@ -5,6 +5,8 @@ import type { Email } from '@/types/email.type.ts';
 import { updateEmailMeta } from '@/utils/updateEmailMeta';
 import { EmailSelector } from './EmailSelector';
 import EmailPreviewPanel from './EmailPreviewPanel';
+import EmailMetaEditor from "./EmailMetaEditor";
+
 
 // Glob import Email.tsx files for preview components
 const emailPreviewModules = import.meta.glob<{ default: React.ComponentType<any> }>('/src/emails/*/Email.tsx');
@@ -54,17 +56,22 @@ const HomePage = () => {
             toast.error("Something went wrong. Check console for more details.")
         }
     };
-    
+
     return (
-        <div className="max-w-7xl mx-auto p-6">
+        <div className="max-w-7xl mx-auto pt-6 grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-2 items-start">
             {error && <div className="text-red-500">{error}</div>}
             {isPending && <div className="text-gray-500">Loading...</div>}
 
-            <EmailSelector
-                emails={localEmails}
-                selectedEmailId={selectedEmailId}
-                onChange={setSelectedEmailId}
-            />
+            <div className="space-y-6">
+                <EmailSelector
+                    emails={localEmails}
+                    selectedEmailId={selectedEmailId}
+                    onChange={setSelectedEmailId}
+                />
+                {selectedEmailObj && (
+                <EmailMetaEditor email={selectedEmailObj} onSave={handleMetaSave} />
+                )}
+            </div>
 
             {selectedEmailObj && (
                 <EmailPreviewPanel

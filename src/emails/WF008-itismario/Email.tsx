@@ -11,7 +11,7 @@ type EmailProps = {
 const Email = ({email}: EmailProps) => {
   return (
     <Wrapper>
-      <EmailHeader imgUrl={''} />
+      <EmailHeader imgUrl={'public/emails/WF008-itismario/images/emailheader.jpg'} />
       <EmailIntro>
         Hello David, <br/><br/>
         Welcome to this new email builder!<br/>
