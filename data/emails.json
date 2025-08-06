@@ -1,5 +1,23 @@
 {
   "emails": [
-  
+    {
+      "id": "WF0000-test",
+      "wfNumber": "0000",
+      "projectName": "test",
+      "subjectLine": "first sl",
+      "previewText": "first pt",
+      "type": "oft",
+      "createdAt": "2025-08-05T21:05:05.625Z"
+    },
+    {
+      "id": "WF008-itismario",
+      "wfNumber": "008",
+      "projectName": "it is mario",
+      "subjectLine": "luigi",
+      "previewText": "yoshiii",
+      "type": "thirdparty",
+      "createdAt": "2025-08-05T21:16:37.897Z",
+      "templateId": "default-email"
+    }
   ]
 }

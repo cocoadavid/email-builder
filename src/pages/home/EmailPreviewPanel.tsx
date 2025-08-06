@@ -2,7 +2,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Suspense } from "react";
 import type { Email } from "@/types/email.type";
 import EmailActions from "./EmailActions";
-import { EmailMetaEditor } from "./EmailMetaEditor";
 import LoadingHeader from '@/components/appComponents/LoadingHeader';
 
 type EmailPreviewPanelProps = {
@@ -12,11 +11,10 @@ type EmailPreviewPanelProps = {
 }
 const EmailPreviewPanel = ({ EmailPreviewComponent, email, onSave }: EmailPreviewPanelProps) => {
     return (
-        <div className="mt-4">
+        <div>
             {EmailPreviewComponent && (
-                <div className="mt-4">
+                <>
                     <EmailActions email={email} />
-                    <EmailMetaEditor email={email} onSave={onSave} />
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={email.id}
@@ -32,7 +30,7 @@ const EmailPreviewPanel = ({ EmailPreviewComponent, email, onSave }: EmailPrevie
                             </Suspense>
                         </motion.div>
                     </AnimatePresence>
-                </div>
+                </>
             )}
         </div>
     );

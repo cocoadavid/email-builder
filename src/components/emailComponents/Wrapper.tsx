@@ -23,6 +23,7 @@ const Wrapper = ({ children, width }: WrapperProps) => {
                             width="600"
                             cellPadding={0}
                             cellSpacing={0}
+                            className="drop-shadow-xl"
                             style={{
                                 width: width || "600px",
                                 backgroundColor: "#ffffff",

@@ -7,7 +7,7 @@ type EmailHeaderProps = {
 
 const EmailHeader = ({ imgUrl, altText }: EmailHeaderProps) => {
     return (
-        <table width="100%" cellPadding="0" cellSpacing="0" role="presentation">
+        <table width="100%" cellPadding={0} cellSpacing={0} border={0} role="presentation">
             <tbody>
                 <tr>
                     <td align="center">
