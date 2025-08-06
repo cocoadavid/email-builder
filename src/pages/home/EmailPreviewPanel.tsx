@@ -11,7 +11,7 @@ type EmailPreviewPanelProps = {
 }
 const EmailPreviewPanel = ({ EmailPreviewComponent, email, onSave }: EmailPreviewPanelProps) => {
     return (
-        <div className='flex flex-col'>
+        <div>
             {EmailPreviewComponent && (
                 <>
                     <EmailActions email={email} />

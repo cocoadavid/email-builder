@@ -16,6 +16,7 @@ const EmailHeader = ({ imgUrl, altText, imgUrlMobile }: EmailHeaderProps) => {
                             className='hide-on-mobile'
                             src={imgUrl || emailHeaderImage}
                             alt={altText || "Email Header Image"}
+                            width="600"
                             style={{
                                 display: "block",
                                 width: "100%",
