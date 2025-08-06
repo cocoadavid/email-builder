@@ -1,3 +1,14 @@
 {
-  "emails": []
+  "emails": [
+    {
+      "id": "WF0000-test",
+      "wfNumber": "0000",
+      "projectName": "test",
+      "subjectLine": "test SL",
+      "previewText": "test PT",
+      "type": "eloqua",
+      "createdAt": "2025-08-06T08:02:44.734Z",
+      "templateId": "default-email"
+    }
+  ]
 }
