@@ -13,8 +13,7 @@ const Wrapper = ({ children, width }: WrapperProps) => {
                 width: '100%',
                 borderCollapse: 'collapse',
                 margin: '0 auto',
-                backgroundColor: "#f5f5f5",
-                padding: "20px 0"
+                backgroundColor: "#eeeeee",
             }}>
             <tbody>
                 <tr>
@@ -23,7 +22,7 @@ const Wrapper = ({ children, width }: WrapperProps) => {
                             width="600"
                             cellPadding={0}
                             cellSpacing={0}
-                            className="drop-shadow-xl"
+                            className="drop-shadow-xl full-width-mobile"
                             style={{
                                 width: width || "600px",
                                 backgroundColor: "#ffffff",

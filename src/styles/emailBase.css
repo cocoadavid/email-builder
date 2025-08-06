@@ -1,6 +1,7 @@
 .body {
-    background: #f5f5f5;
+    background: #eeeeee;
 }
+
 /* === Normalize === */
 body {
     margin: 0;
@@ -20,6 +21,7 @@ img {
     line-height: 100%;
     outline: none;
     text-decoration: none;
+    display: block;
 }
 
 a img {
@@ -147,28 +149,90 @@ th h6 {
     font-weight: normal;
 }
 
+.text-0 {
+    font-size: 0px;
+    line-height: 0;
+}
+
+.text-10 {
+    font-size: 10px;
+    line-height: 12px;
+}
+
 .text-14 {
     font-size: 14px;
-    line-height: 1;
+    line-height: 16px;
 }
 
 .text-16 {
     font-size: 16px;
-    line-height: 1;
+    line-height: 18px;
 }
 
 .text-18 {
     font-size: 18px;
-    line-height: 1;
+    line-height: 20px;
 }
 
 .text-20 {
     font-size: 20px;
-    line-height: 1;
+    line-height: 24px;
+}
+
+/* === Extra Classes === */
+td.section {
+    padding: 24px 24px 24px 24px;
+}
+
+td.p-top {
+    padding-top: 24px;
+}
+
+td.p-bottom {
+    padding-bottom: 24px;
+}
+
+td.p-sides {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+td.p-reset {
+    padding: 0px 0px 0px 0px;
+}
+
+.show_on_mobile, .show-on-mobile {
+    width: 0;
+    max-height: 0;
+    overflow: hidden;
+    float: left;
+    display: none;
+    font-size: 0px;
+    padding: 0;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-half {
+    width: 50%;
+}
+
+.w-third {
+    width: 33.3%;
 }
 
 /* === Mobile Styles === */
 @media screen and (max-width: 600px) {
+    td.section {
+        padding: 24px 12px 24px 12px !important;
+    }
+
+    td.section.p-reset {
+    padding: 0px 0px 0px 0px !important;
+}
+
     .stack {
         width: 100% !important;
         display: block !important;
@@ -183,5 +247,48 @@ th h6 {
     .tfg,
     .stack-bottom {
         display: table-footer-group !important;
+    }
+
+    .full-width-mobile, .w-full-m {
+        width: 100% !important;
+        min-width: 0px !important;
+    }
+
+    .hide_on_mobile, .hide-on-mobile {
+        display: none !important;
+        visibility: hidden !important;
+        overflow: hidden !important;
+    }
+
+    .show_on_mobile, .show-on-mobile {
+        display: block !important;
+        width: auto !important;
+        max-height: inherit !important;
+        overflow: visible !important;
+        float: none !important;
+        visibility: visible !important;
+
+        img {
+            display: block !important;
+            margin: 0 auto;
+        }
+    }
+
+    img.show_on_mobile, img.show-on-mobile {
+        display: block !important;
+        margin: 0 auto;
+    }
+
+    tr.show_on_mobile, tr.show-on-mobile {
+        display: table-row !important;
+    }
+
+    td.show_on_mobile, td.show-on-mobile {
+        display: table-cell !important;
+    }
+
+    img.responsive {
+        width: 100% !important;
+        height: auto !important;
     }
 }
