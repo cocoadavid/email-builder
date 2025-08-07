@@ -76,10 +76,7 @@ const HomePage = () => {
       </div>
 
       {selectedEmailObj && (
-        <EmailPreviewPanel
-          email={selectedEmailObj}
-          EmailPreviewComponent={EmailPreviewComponent}
-        />
+        <EmailPreviewPanel email={selectedEmailObj} EmailPreviewComponent={EmailPreviewComponent} />
       )}
     </div>
   );

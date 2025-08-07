@@ -10,10 +10,10 @@ await Promise.all(
 
     // dinamikus import a ?raw hozzáadásával
     const contentModule = await import(/* @vite-ignore */ rawPath);
-    
+
     // contentModule default exportként tartalmazza a raw stringet
     sections[path.replace('./', '').replace('.html', '')] = contentModule.default;
-  })
+  }),
 );
 
 console.log(Object.keys(sections));

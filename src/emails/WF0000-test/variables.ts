@@ -1,5 +1,5 @@
 export const variables = {
-    images: {
-        header: '/emailheader.jpg',
-    }
-}
+  images: {
+    header: '/emailheader.jpg',
+  },
+};

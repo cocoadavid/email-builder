@@ -15,7 +15,7 @@ const EmailPreviewPanel = ({ EmailPreviewComponent, email }: EmailPreviewPanelPr
   const [viewMode, setViewMode] = useState<ViewMode>('desktop');
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className="flex flex-col items-center">
       {EmailPreviewComponent && (
         <>
           <EmailActions email={email} />
