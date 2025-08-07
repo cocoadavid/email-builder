@@ -6,8 +6,6 @@ import { updateEmailMeta } from '@/utils/updateEmailMeta';
 import { EmailSelector } from './EmailSelector';
 import EmailPreviewPanel from './EmailPreviewPanel';
 import EmailUpdateEditor from './EmailUpdateEditor';
-import type { ViewMode } from '@/types/viewmode.type';
-import ViewToggle from './ViewToggle';
 
 // Glob import Email.tsx files for preview components
 const emailPreviewModules = import.meta.glob<{ default: React.ComponentType<any> }>(
@@ -23,7 +21,6 @@ const HomePage = () => {
   const { data: emails, isPending, error } = useFetchList('http://localhost:8000/emails');
   const [localEmails, setLocalEmails] = useState<Email[]>([]);
   const [selectedEmailId, setSelectedEmailId] = useState<string>('');
-  const [viewMode, setViewMode] = useState<ViewMode>('desktop');
 
   // Derived data
   const selectedEmailObj = localEmails.find((email: Email) => email.id === selectedEmailId);
@@ -65,7 +62,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto pt-6 grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-2 items-start">
+    <div className="max-w-7xl mx-auto pt-4 grid grid-cols-1 lg:grid-cols-[1fr_800px] gap-1 items-start">
       {error && <div className="text-red-500">{error}</div>}
       {isPending && <div className="text-gray-500">Loading...</div>}
 
@@ -75,13 +72,11 @@ const HomePage = () => {
           selectedEmailId={selectedEmailId}
           onChange={setSelectedEmailId}
         />
-        <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
         {selectedEmailObj && <EmailUpdateEditor email={selectedEmailObj} onSave={handleUpdate} />}
       </div>
 
       {selectedEmailObj && (
         <EmailPreviewPanel
-          viewMode={viewMode}
           email={selectedEmailObj}
           EmailPreviewComponent={EmailPreviewComponent}
         />

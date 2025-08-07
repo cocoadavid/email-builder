@@ -16,28 +16,28 @@ const EmailActions = ({ email }: EmailActionsProps) => {
     <div className="flex gap-4 sticky top-0 justify-center">
       <button
         onClick={() => copyEmailAsHtml(email)}
-        className="mb-4 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
+        className="mb-3 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
       >
         <Copy size={16} />
         Copy HTML
       </button>
       <button
         onClick={() => downloadEmailAsHtml(email)}
-        className="mb-4 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
+        className="mb-3 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
       >
         <Download size={16} />
         Download HTML
       </button>
       <button
         onClick={() => downloadEmailAsZip(email)}
-        className="mb-4 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
+        className="mb-3 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
       >
         <Download size={16} />
         Download Zip
       </button>
       <button
         onClick={() => navigate(`/duplicate/${email.id}`)}
-        className="mb-4 px-4 py-2 bg-emerald-600 text-sm text-white rounded hover:bg-emerald-700 flex items-center gap-2"
+        className="mb-3 px-4 py-2 bg-emerald-600 text-sm text-white rounded hover:bg-emerald-700 flex items-center gap-2"
       >
         <FilePlus size={16} />
         Duplicate

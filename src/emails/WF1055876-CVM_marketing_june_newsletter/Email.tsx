@@ -1,10 +1,8 @@
 import './email.css';
 import Wrapper from '@/components/emailComponents/Wrapper';
 import EmailHeader from '@/components/emailComponents/EmailHeader';
-import { variables } from './variables';
+import EmailIntro from '@/components/emailComponents/EmailIntro';
 import type { Email } from '@/types/email.type';
-import Section from '@/components/emailComponents/Section';
-import section0 from './section0.html?raw';
 
 type EmailProps = {
   email: Email;
@@ -13,20 +11,16 @@ type EmailProps = {
 const Email = ({ email }: EmailProps) => {
   return (
     <Wrapper>
-      <EmailHeader imgUrl={variables.images.header} />
-      <Section classes="text-14">
+      <EmailHeader imgUrl={''} />
+      <EmailIntro>
         Hello David!, <br />
         <br />
-        <span className="pink">Welcomerrr to this new email builder!</span>
+        Welcome to this new email builder!
         <br />
         SL: {email.subjectLine}
         <br />
         PT: {email.previewText}
-      </Section>
-      <Section html={section0} bgColor="#e60000" classes="p-reset" />
-      <Section bgColor="yellow" classes="text-20">
-        React tsx chill
-      </Section>
+      </EmailIntro>
     </Wrapper>
   );
 };

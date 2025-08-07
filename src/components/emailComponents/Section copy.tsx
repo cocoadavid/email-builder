@@ -3,21 +3,10 @@ type SectionProps = {
   children?: React.ReactNode;
   bgColor?: string;
   classes?: string;
-  images?: Record<string, string>;
 };
 
-const Section = ({ html, children, bgColor, classes, images }: SectionProps) => {
-  // Ha van html és images, akkor cseréljük a placeholder-eket
-  let processedHtml = html;
-  if (processedHtml && images && Object.keys(images).length > 0) {
-    Object.entries(images).forEach(([key, url]) => {
-      // A placeholder szintaxist te határozhatod meg pl. {{logo}}
-      const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-      processedHtml = processedHtml?.replace(regex, url);
-    });
-  }
-
-  if (processedHtml) {
+const Section = ({ html, children, bgColor, classes }: SectionProps) => {
+  if (html) {
     return (
       <section style={{ margin: 0, padding: 0 }}>
         <table
@@ -31,7 +20,7 @@ const Section = ({ html, children, bgColor, classes, images }: SectionProps) => 
           <tbody>
             <tr>
               <td
-                dangerouslySetInnerHTML={{ __html: processedHtml }}
+                dangerouslySetInnerHTML={{ __html: html }}
                 className={`section${classes ? ' ' + classes : ''}`}
               ></td>
             </tr>

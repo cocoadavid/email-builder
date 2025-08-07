@@ -1,3 +1,4 @@
+import { Monitor, Smartphone } from 'lucide-react';
 import type { ViewMode } from '@/types/viewmode.type';
 
 type ViewToggleProps = {
@@ -7,18 +8,18 @@ type ViewToggleProps = {
 
 const ViewToggle = ({ viewMode, setViewMode }: ViewToggleProps) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex justify-end">
       <button
-        className={`p-2 rounded ${viewMode === 'desktop' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+        className={`rounded-tl-md px-3 py-1 flex items-center gap-2  ${viewMode === 'desktop' ? 'bg-sky-600 text-white' : 'bg-gray-200'}`}
         onClick={() => setViewMode('desktop')}
       >
-        💻 Desktop
+         <Monitor size={16} />
       </button>
       <button
-        className={`p-2 rounded ${viewMode === 'mobile' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+        className={`rounded-tr-md px-3 py-1 flex items-center gap-2 ${viewMode === 'mobile' ? 'bg-sky-600 text-white' : 'bg-gray-200'}`}
         onClick={() => setViewMode('mobile')}
       >
-        📱 Mobile
+        <Smartphone size={16} />
       </button>
     </div>
   );

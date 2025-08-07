@@ -29,12 +29,12 @@ const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
   }, [email.id, version]);
 
   return (
-    <div className="w-full flex justify-center overflow-x-hidden p-4">
+    <div className="w-full flex justify-center overflow-x-hidden rounder drop-shadow-xl">
       <iframe
         title="Email Preview"
         srcDoc={html}
         sandbox=""
-        className="rounded-xl border shadow-lg"
+        className="rounded-xl border"
         style={{
           width: '375px',
           height: '667px',

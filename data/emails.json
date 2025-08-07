@@ -21,6 +21,38 @@
       "templateId": "default-email",
       "sourceId": "WF0000-test",
       "suffix": "resend"
+    },
+    {
+      "id": "WF1055876-CVM_marketing_june_newsletter",
+      "wfNumber": "1055876",
+      "projectName": "CVM marketing june newsletter",
+      "subjectLine": "oyeah, new stuff is coming",
+      "previewText": "please buy this and that!",
+      "type": "eloqua",
+      "createdAt": "2025-08-07T19:49:38.282Z",
+      "templateId": "default-email"
+    },
+    {
+      "id": "WF0000-test-kepek-thirdparty",
+      "wfNumber": "0000",
+      "projectName": "test",
+      "subjectLine": "eee",
+      "previewText": "test PT",
+      "type": "thirdparty",
+      "createdAt": "2025-08-07T21:28:03.338Z",
+      "templateId": "default-email",
+      "sourceId": "WF0000-test",
+      "suffix": "képek"
+    },
+    {
+      "id": "WF3344-thirdy",
+      "wfNumber": "3344",
+      "projectName": "thirdy",
+      "subjectLine": "fghgh",
+      "previewText": "hfgh",
+      "type": "thirdparty",
+      "createdAt": "2025-08-07T21:29:37.392Z",
+      "templateId": "default-email"
     }
   ]
 }

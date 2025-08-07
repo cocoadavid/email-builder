@@ -179,6 +179,22 @@ th h6 {
   line-height: 24px;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 /* === Extra Classes === */
 td.section {
   padding: 24px 24px 24px 24px;

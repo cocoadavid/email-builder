@@ -7,8 +7,8 @@ const Navbar = () => {
     { to: '/create', label: 'New Email' },
   ];
   return (
-    <nav className="bg-white shadow-md border-b border-sky-100">
-      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+    <nav className="bg-white px-2 shadow-md border-b border-sky-100">
+      <div className="max-w-7xl mx-auto px-1 py-2 flex items-center justify-between">
         <Link to={'/'}>
           <h1 id="navbar-title" className="text-sky-700 tracking-tight">
             React Email Builder

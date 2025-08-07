@@ -33,7 +33,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
     <div className="mb-4 p-4 border bg-white shadow-lg rounded-2xl border border-sky-100">
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4">
-          <label className="w-24 text-sm">Subject:</label>
+          <label className="w-24 text-sm">Subject line:</label>
           <input
             type="text"
             value={subjectLine}
