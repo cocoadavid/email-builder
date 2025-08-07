@@ -4,12 +4,14 @@ import type { Email } from '@/types/email.type';
 import EmailActions from './EmailActions';
 import LoadingHeader from '@/components/appComponents/LoadingHeader';
 import MobileEmailPreview from './MobileEmailPreview';
+import type { ViewMode } from '@/types/viewmode.type';
 
 type EmailPreviewPanelProps = {
   email: Email;
   EmailPreviewComponent: React.ComponentType<any> | null;
+  viewMode: ViewMode;
 };
-const EmailPreviewPanel = ({ EmailPreviewComponent, email }: EmailPreviewPanelProps) => {
+const EmailPreviewPanel = ({ EmailPreviewComponent, email, viewMode }: EmailPreviewPanelProps) => {
   return (
     <div>
       {EmailPreviewComponent && (
@@ -24,8 +26,8 @@ const EmailPreviewPanel = ({ EmailPreviewComponent, email }: EmailPreviewPanelPr
               transition={{ duration: 0.5, ease: 'backInOut' }}
             >
               <Suspense fallback={<LoadingHeader />}>
-                <MobileEmailPreview email={email} />
-                <EmailPreviewComponent key={email.id} email={email} />
+                {viewMode == 'mobile' && <MobileEmailPreview email={email} />}
+                {viewMode == 'desktop' && <EmailPreviewComponent key={email.id} email={email} />}
               </Suspense>
             </motion.div>
           </AnimatePresence>

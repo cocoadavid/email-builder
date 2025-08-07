@@ -1,12 +1,13 @@
 import { useState, lazy, useEffect } from 'react';
 import { toast } from 'sonner';
 import useFetchList from '@/hooks/useFetchList';
-import type { Email, EmailType, EmailUpdateInput } from '@/types/email.type.ts';
+import type { Email, EmailUpdateInput } from '@/types/email.type.ts';
 import { updateEmailMeta } from '@/utils/updateEmailMeta';
 import { EmailSelector } from './EmailSelector';
 import EmailPreviewPanel from './EmailPreviewPanel';
 import EmailUpdateEditor from './EmailUpdateEditor';
 import type { ViewMode } from '@/types/viewmode.type';
+import ViewToggle from './ViewToggle';
 
 // Glob import Email.tsx files for preview components
 const emailPreviewModules = import.meta.glob<{ default: React.ComponentType<any> }>(
@@ -23,9 +24,11 @@ const HomePage = () => {
   const [localEmails, setLocalEmails] = useState<Email[]>([]);
   const [selectedEmailId, setSelectedEmailId] = useState<string>('');
   const [viewMode, setViewMode] = useState<ViewMode>('desktop');
+
   // Derived data
   const selectedEmailObj = localEmails.find((email: Email) => email.id === selectedEmailId);
   const EmailPreviewComponent = selectedEmailId ? getEmailPreviewComponent(selectedEmailId) : null;
+
   // Effects
   useEffect(() => {
     if (emails.length > 0) {
@@ -45,6 +48,7 @@ const HomePage = () => {
       setSelectedEmailId(exists && savedId ? savedId : localEmails[localEmails.length - 1].id);
     }
   }, [localEmails]);
+
   // Event handlers
   const handleUpdate = async (updated: EmailUpdateInput) => {
     try {
@@ -71,11 +75,16 @@ const HomePage = () => {
           selectedEmailId={selectedEmailId}
           onChange={setSelectedEmailId}
         />
+        <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
         {selectedEmailObj && <EmailUpdateEditor email={selectedEmailObj} onSave={handleUpdate} />}
       </div>
 
       {selectedEmailObj && (
-        <EmailPreviewPanel email={selectedEmailObj} EmailPreviewComponent={EmailPreviewComponent} />
+        <EmailPreviewPanel
+          viewMode={viewMode}
+          email={selectedEmailObj}
+          EmailPreviewComponent={EmailPreviewComponent}
+        />
       )}
     </div>
   );
