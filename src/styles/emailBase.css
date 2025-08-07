@@ -1,130 +1,130 @@
 .body {
-    background: #eeeeee;
+  background: #eeeeee;
 }
 
 /* === Normalize === */
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 table,
 td {
-    border-collapse: collapse;
-    mso-table-lspace: 0;
-    mso-table-rspace: 0;
+  border-collapse: collapse;
+  mso-table-lspace: 0;
+  mso-table-rspace: 0;
 }
 
 img {
-    border: 0 none;
-    height: auto;
-    line-height: 100%;
-    outline: none;
-    text-decoration: none;
-    display: block;
+  border: 0 none;
+  height: auto;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+  display: block;
 }
 
 a img {
-    border: 0 none;
+  border: 0 none;
 }
 
 .imageFix {
-    display: block;
+  display: block;
 }
 
 #bodyTable {
-    height: 100% !important;
-    margin: 0;
-    padding: 0;
-    width: 100% !important;
+  height: 100% !important;
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
 }
 
 span.MsoHyperlink {
-    color: inherit !important;
-    mso-style-priority: 99 !important;
+  color: inherit !important;
+  mso-style-priority: 99 !important;
 }
 
 span.MsoHyperlinkFollowed {
-    color: inherit !important;
-    mso-style-priority: 99 !important;
+  color: inherit !important;
+  mso-style-priority: 99 !important;
 }
 
-#root [x-apple-data-detectors=true],
-a[x-apple-data-detectors=true] {
-    color: inherit !important;
-    text-decoration: inherit !important;
+#root [x-apple-data-detectors='true'],
+a[x-apple-data-detectors='true'] {
+  color: inherit !important;
+  text-decoration: inherit !important;
 }
 
 .body {
-    word-wrap: normal;
-    word-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
 }
 
-div[style*="margin: 16px 0"] {
-    margin: 0 !important;
+div[style*='margin: 16px 0'] {
+  margin: 0 !important;
 }
 
 #message * {
-    all: revert
+  all: revert;
 }
 
 [data-markjs] {
-    color: inherit;
-    padding: 0;
-    background: none;
+  color: inherit;
+  padding: 0;
+  background: none;
 }
 
 /* === Link Resets === */
 a {
-    color: inherit !important;
-    mso-color-alt: windowtext;
-    text-decoration: none;
+  color: inherit !important;
+  mso-color-alt: windowtext;
+  text-decoration: none;
 }
 
-u+.body a {
-    color: inherit;
-    text-decoration: none;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
+u + .body a {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 a[x-apple-data-detectors] {
-    color: inherit !important;
-    text-decoration: none !important;
-    font-size: inherit !important;
-    font-family: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
 }
 
-[x-apple-data-detectors-type="calendar-event"] {
-    color: inherit !important;
-    -webkit-text-decoration-color: inherit !important;
-    text-decoration: none !important;
+[x-apple-data-detectors-type='calendar-event'] {
+  color: inherit !important;
+  -webkit-text-decoration-color: inherit !important;
+  text-decoration: none !important;
 }
 
 #MessageViewBody a {
-    color: inherit;
-    text-decoration: none;
-    font-size: inherit;
-    font-family: inherit;
-    font-weight: inherit;
-    line-height: inherit;
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 .ms-outlook-linkify {
-    color: inherit !important;
+  color: inherit !important;
 }
 
-[class=x_body] [role=link] {
-    border: none !important;
-    padding: 0 !important;
-    color: inherit !important;
+[class='x_body'] [role='link'] {
+  border: none !important;
+  padding: 0 !important;
+  color: inherit !important;
 }
 
 #WEBEXT {
-    all: revert !important;
+  all: revert !important;
 }
 
 /* === Text Styles === */
@@ -145,150 +145,157 @@ td h5,
 th h5,
 td h6,
 th h6 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
 }
 
 .text-0 {
-    font-size: 0px;
-    line-height: 0;
+  font-size: 0px;
+  line-height: 0;
 }
 
 .text-10 {
-    font-size: 10px;
-    line-height: 12px;
+  font-size: 10px;
+  line-height: 12px;
 }
 
 .text-14 {
-    font-size: 14px;
-    line-height: 16px;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .text-16 {
-    font-size: 16px;
-    line-height: 18px;
+  font-size: 16px;
+  line-height: 18px;
 }
 
 .text-18 {
-    font-size: 18px;
-    line-height: 20px;
+  font-size: 18px;
+  line-height: 20px;
 }
 
 .text-20 {
-    font-size: 20px;
-    line-height: 24px;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 /* === Extra Classes === */
 td.section {
-    padding: 24px 24px 24px 24px;
+  padding: 24px 24px 24px 24px;
 }
 
 td.p-top {
-    padding-top: 24px;
+  padding-top: 24px;
 }
 
 td.p-bottom {
-    padding-bottom: 24px;
+  padding-bottom: 24px;
 }
 
 td.p-sides {
-    padding-left: 24px;
-    padding-right: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 td.p-reset {
-    padding: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
 }
 
-.show_on_mobile, .show-on-mobile {
-    width: 0;
-    max-height: 0;
-    overflow: hidden;
-    float: left;
-    display: none;
-    font-size: 0px;
-    padding: 0;
+.show_on_mobile,
+.show-on-mobile {
+  width: 0;
+  max-height: 0;
+  overflow: hidden;
+  float: left;
+  display: none;
+  font-size: 0px;
+  padding: 0;
 }
 
 .w-full {
-    width: 100%;
+  width: 100%;
 }
 
 .w-half {
-    width: 50%;
+  width: 50%;
 }
 
 .w-third {
-    width: 33.3%;
+  width: 33.3%;
 }
 
 /* === Mobile Styles === */
 @media screen and (max-width: 600px) {
-    td.section {
-        padding: 24px 12px 24px 12px !important;
-    }
+  td.section {
+    padding: 24px 12px 24px 12px !important;
+  }
 
-    td.section.p-reset {
+  td.section.p-reset {
     padding: 0px 0px 0px 0px !important;
-}
+  }
 
-    .stack {
-        width: 100% !important;
-        display: block !important;
-        padding: 0px 0px 0px 0px !important;
+  .stack {
+    width: 100% !important;
+    display: block !important;
+    padding: 0px 0px 0px 0px !important;
+  }
+
+  .thg,
+  .stack-top {
+    display: table-header-group !important;
+  }
+
+  .tfg,
+  .stack-bottom {
+    display: table-footer-group !important;
+  }
+
+  .full-width-mobile,
+  .w-full-m {
+    width: 100% !important;
+    min-width: 0px !important;
+  }
+
+  .hide_on_mobile,
+  .hide-on-mobile {
+    display: none !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+  }
+
+  .show_on_mobile,
+  .show-on-mobile {
+    display: block !important;
+    width: auto !important;
+    max-height: inherit !important;
+    overflow: visible !important;
+    float: none !important;
+    visibility: visible !important;
+
+    img {
+      display: block !important;
+      margin: 0 auto;
     }
+  }
 
-    .thg,
-    .stack-top {
-        display: table-header-group !important;
-    }
+  img.show_on_mobile,
+  img.show-on-mobile {
+    display: block !important;
+    margin: 0 auto;
+  }
 
-    .tfg,
-    .stack-bottom {
-        display: table-footer-group !important;
-    }
+  tr.show_on_mobile,
+  tr.show-on-mobile {
+    display: table-row !important;
+  }
 
-    .full-width-mobile, .w-full-m {
-        width: 100% !important;
-        min-width: 0px !important;
-    }
+  td.show_on_mobile,
+  td.show-on-mobile {
+    display: table-cell !important;
+  }
 
-    .hide_on_mobile, .hide-on-mobile {
-        display: none !important;
-        visibility: hidden !important;
-        overflow: hidden !important;
-    }
-
-    .show_on_mobile, .show-on-mobile {
-        display: block !important;
-        width: auto !important;
-        max-height: inherit !important;
-        overflow: visible !important;
-        float: none !important;
-        visibility: visible !important;
-
-        img {
-            display: block !important;
-            margin: 0 auto;
-        }
-    }
-
-    img.show_on_mobile, img.show-on-mobile {
-        display: block !important;
-        margin: 0 auto;
-    }
-
-    tr.show_on_mobile, tr.show-on-mobile {
-        display: table-row !important;
-    }
-
-    td.show_on_mobile, td.show-on-mobile {
-        display: table-cell !important;
-    }
-
-    img.responsive {
-        width: 100% !important;
-        height: auto !important;
-    }
+  img.responsive {
+    width: 100% !important;
+    height: auto !important;
+  }
 }

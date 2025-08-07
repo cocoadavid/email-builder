@@ -1,14 +1,14 @@
 // components/MobileEmailPreview.tsx
-import { useEffect, useState } from "react";
-import { generateFullHtml } from "@/utils/generateFullHtml";
-import type { Email } from "@/types/email.type";
+import { useEffect, useState } from 'react';
+import { generateFullHtml } from '@/utils/generateFullHtml';
+import type { Email } from '@/types/email.type';
 
 type MobileEmailPreviewProps = {
   email: Email;
 };
 
 const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
-  const [html, setHtml] = useState<string | undefined>("");
+  const [html, setHtml] = useState<string | undefined>('');
   const [version, setVersion] = useState<number>(Date.now());
 
   // Trigger újragenerálás mentéskor
@@ -36,9 +36,9 @@ const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
         sandbox=""
         className="rounded-xl border shadow-lg"
         style={{
-          width: "375px",
-          height: "667px",
-          border: "none",
+          width: '375px',
+          height: '667px',
+          border: 'none',
         }}
       />
     </div>

@@ -3,5 +3,7 @@ const removeAccents = (str: string) => {
 };
 
 export const cleanProjectName = (input: string) => {
-  return removeAccents(input).replace(/\s+/g, '_').replace(/[^A-Za-z0-9_]/g, ''); ;
+  return removeAccents(input)
+    .replace(/\s+/g, '_')
+    .replace(/[^A-Za-z0-9_]/g, '');
 };

@@ -18,7 +18,6 @@ export const downloadEmailAsHtml = async (selectedEmailObj: Email) => {
     toast.success('HTML downloaded successfully.');
   } catch (error) {
     console.error('HTML download error: ', error);
-    toast.error(`An error occurred while generating the HTML file.`)
+    toast.error(`An error occurred while generating the HTML file.`);
   }
-
 };

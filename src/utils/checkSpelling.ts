@@ -9,19 +9,19 @@ export type LTMatch = {
 };
 
 export async function checkSpelling(text: string): Promise<LTMatch[]> {
-  const res = await fetch("https://api.languagetoolplus.com/v2/check", {
-    method: "POST",
+  const res = await fetch('https://api.languagetoolplus.com/v2/check', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: new URLSearchParams({
       text,
-      language: "en-gb", // Change to your desired language
+      language: 'en-gb', // Change to your desired language
     }),
   });
 
   if (!res.ok) {
-    console.error("LanguageTool API hiba:", res.statusText);
+    console.error('LanguageTool API hiba:', res.statusText);
     return [];
   }
 

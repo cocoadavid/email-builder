@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-vfRed: #e60000;
-  --color-vfPurple: #9C2AA0;
+  --color-vfPurple: #9c2aa0;
   --color-vfBlack: #000000;
 }
 /* sky-50, sky-200, sky-500, sky-600, sky-700: a Reactre emlékeztető világoskék árnyalatok. */

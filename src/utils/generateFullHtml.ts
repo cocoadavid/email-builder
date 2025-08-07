@@ -9,7 +9,6 @@ type EmailComponentProps = {
   email: Email;
 };
 
-
 export const generateFullHtml = async (selectedEmailObj: Email) => {
   const modulePath = `/src/emails/${selectedEmailObj.id}/Email.tsx`;
   const importFn = emailModules[modulePath];
@@ -18,22 +17,20 @@ export const generateFullHtml = async (selectedEmailObj: Email) => {
     return;
   }
 
-  const module = await import(
-  /* @vite-ignore */ `/src/emails/${selectedEmailObj.id}/Email.tsx?t=${Date.now()}`
-  ) as { default: React.ComponentType<EmailComponentProps> };
+  const module = (await import(
+    /* @vite-ignore */ `/src/emails/${selectedEmailObj.id}/Email.tsx?t=${Date.now()}`
+  )) as { default: React.ComponentType<EmailComponentProps> };
   const Component = module.default;
 
   let htmlContent = '';
   try {
-    htmlContent = renderToStaticMarkup(
-      React.createElement(Component, { email: selectedEmailObj })
-    );
+    htmlContent = renderToStaticMarkup(React.createElement(Component, { email: selectedEmailObj }));
   } catch (err) {
     console.error(`❌ Failed to render email component for ${selectedEmailObj.id}`, err);
     throw err;
   }
 
-  let cssContent = "";
+  let cssContent = '';
   try {
     cssContent = (await import(`../emails/${selectedEmailObj.id}/email.css?raw`)).default;
   } catch (error) {
@@ -83,6 +80,6 @@ export const generateFullHtml = async (selectedEmailObj: Email) => {
   </body>
 </html>`;
 
-  const inlinedHtml = inlineHtmlStyle(fullHtml)
+  const inlinedHtml = inlineHtmlStyle(fullHtml);
   return inlinedHtml;
-}
+};

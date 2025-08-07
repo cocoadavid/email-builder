@@ -9,18 +9,21 @@ type EmailProps = {
   email: Email;
 };
 
-const Email = ({email}: EmailProps) => {
+const Email = ({ email }: EmailProps) => {
   return (
     <Wrapper>
       <EmailHeader imgUrl={''} />
-      <Section classes='text-14'>
-        Hello David!, <br/><br/>
-        <span className='pink'>Welcomerrr to this new email builder!</span><br/>
-        SL: {email.subjectLine}<br/>
+      <Section classes="text-14">
+        Hello David!, <br />
+        <br />
+        <span className="pink">Welcomerrr to this new email builder!</span>
+        <br />
+        SL: {email.subjectLine}
+        <br />
         PT: {email.previewText}
       </Section>
-      <Section html={section0} bgColor='#e60000' classes='p-reset' />
-      <Section bgColor='yellow' classes='text-20'>
+      <Section html={section0} bgColor="#e60000" classes="p-reset" />
+      <Section bgColor="yellow" classes="text-20">
         React tsx chill
       </Section>
     </Wrapper>
