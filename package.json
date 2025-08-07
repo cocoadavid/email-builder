@@ -11,7 +11,8 @@
     "json-server": "npx json-server --watch data/emails.json --port 8000",
     "generate-emails": "node scripts/generateEmails.cjs",
     "watch-emails": "nodemon --watch data/emails.json --exec \"node scripts/generateEmails.cjs\"",
-    "start": "concurrently -n \"DEV,DB,EMAILS\" -c \"cyan,magenta,green\" \"npm run dev\" \"npm run json-server\" \"npm run watch-emails\""
+    "start": "concurrently -n \"DEV,DB,EMAILS\" -c \"cyan,magenta,green\" \"npm run dev\" \"npm run json-server\" \"npm run watch-emails\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,html}\""
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
@@ -37,6 +38,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4"

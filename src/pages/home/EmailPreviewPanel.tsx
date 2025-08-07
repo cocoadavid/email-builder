@@ -3,13 +3,14 @@ import { Suspense } from "react";
 import type { Email } from "@/types/email.type";
 import EmailActions from "./EmailActions";
 import LoadingHeader from '@/components/appComponents/LoadingHeader';
+import MobileEmailPreview from './MobileEmailPreview';
 
 type EmailPreviewPanelProps = {
     email: Email;
     EmailPreviewComponent: React.ComponentType<any> | null;
-    onSave: (updated: { type: string; subjectLine: string, previewText: string }) => void;
 }
-const EmailPreviewPanel = ({ EmailPreviewComponent, email, onSave }: EmailPreviewPanelProps) => {
+const EmailPreviewPanel = ({ EmailPreviewComponent, email }: EmailPreviewPanelProps) => {
+
     return (
         <div>
             {EmailPreviewComponent && (
@@ -23,10 +24,11 @@ const EmailPreviewPanel = ({ EmailPreviewComponent, email, onSave }: EmailPrevie
                             exit={{ scale: 0.8, opacity: 0 }}
                             transition={{ duration: 0.5, ease: 'backInOut' }}
                         >
-                            <Suspense 
-                            fallback={<LoadingHeader />}
+                            <Suspense
+                                fallback={<LoadingHeader />}
                             >
-                                <EmailPreviewComponent email={email} />
+                                <MobileEmailPreview email={email} />
+                                <EmailPreviewComponent key={email.id} email={email} />
                             </Suspense>
                         </motion.div>
                     </AnimatePresence>

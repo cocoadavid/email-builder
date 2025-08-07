@@ -4,11 +4,23 @@
       "id": "WF0000-test",
       "wfNumber": "0000",
       "projectName": "test",
-      "subjectLine": "test SL",
+      "subjectLine": "eee",
       "previewText": "test PT",
       "type": "eloqua",
       "createdAt": "2025-08-06T08:02:44.734Z",
       "templateId": "default-email"
+    },
+    {
+      "id": "WF0000-test-resend-eloqua",
+      "wfNumber": "0000",
+      "projectName": "test",
+      "subjectLine": "resend test SL",
+      "previewText": "resend test PT",
+      "type": "eloqua",
+      "createdAt": "2025-08-06T22:59:07.667Z",
+      "templateId": "default-email",
+      "sourceId": "WF0000-test",
+      "suffix": "resend"
     }
   ]
 }

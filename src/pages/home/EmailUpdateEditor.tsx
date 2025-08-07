@@ -1,29 +1,31 @@
-// src/components/EmailMetaEditor.tsx
-import type { Email } from "@/types/email.type";
+import type { Email, EmailUpdateInput } from "@/types/email.type";
 import { useState, useEffect } from "react";
+import type { EmailType } from "@/types/email.type";
 
-type EmailMetaEditorProps = {
+type EmailUpdateEditorProps = {
   email: Email;
-  onSave: (updated: { type: string; subjectLine: string, previewText: string }) => void;
+  onSave: (updated: EmailUpdateInput) => void;
 };
 
-const typeOptions = ["eloqua", "oft", "highspot", "thirdparty"];
+const typeOptions: EmailType[] = ['eloqua', 'oft', 'highspot', 'thirdparty'];
 
-const EmailMetaEditor = ({ email, onSave }: EmailMetaEditorProps) => {
-  const [type, setType] = useState(email.type || "");
-  const [subjectLine, setSubjectLine] = useState(email.subjectLine || "");
-  const [previewText, setPreviewText] = useState(email.previewText || "");
+const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
+  const [type, setType] = useState<EmailType>(email.type);
+  const [subjectLine, setSubjectLine] = useState(email.subjectLine);
+  const [previewText, setPreviewText] = useState(email.previewText);
   const [isDirty, setIsDirty] = useState(false);
 
+  const checkIsDirty = () => type !== email.type || subjectLine !== email.subjectLine || previewText !== email.previewText;
+
   useEffect(() => {
-    setType(email.type || "");
-    setSubjectLine(email.subjectLine || "");
-    setPreviewText(email.previewText || "");
+    setType(email.type);
+    setSubjectLine(email.subjectLine);
+    setPreviewText(email.previewText);
     setIsDirty(false);
   }, [email]);
 
   useEffect(() => {
-    setIsDirty(type !== email.type || subjectLine !== email.subjectLine || previewText !== email.previewText);
+    setIsDirty(checkIsDirty());
   }, [type, subjectLine, previewText, email]);
 
   return (
@@ -54,7 +56,7 @@ const EmailMetaEditor = ({ email, onSave }: EmailMetaEditorProps) => {
       <label className="w-24 text-sm">Type:</label>
       <select
         value={type}
-        onChange={(e) => setType(e.target.value)}
+        onChange={(e) => setType(e.target.value as EmailType)}
         className="flex-1 border rounded px-3 py-1"
       >
         {typeOptions.map((opt) => (
@@ -73,11 +75,11 @@ const EmailMetaEditor = ({ email, onSave }: EmailMetaEditorProps) => {
               : "bg-gray-400 cursor-not-allowed"
             }`}
         >
-          Update email data
+          Update email
         </button>
       </div>
     </div>
   );
 };
 
-export default EmailMetaEditor;
+export default EmailUpdateEditor;

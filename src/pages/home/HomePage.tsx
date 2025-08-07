@@ -1,11 +1,12 @@
 import { useState, lazy, useEffect } from 'react';
 import { toast } from "sonner";
 import useFetchList from '@/hooks/useFetchList';
-import type { Email } from '@/types/email.type.ts';
+import type { Email, EmailType, EmailUpdateInput } from '@/types/email.type.ts';
 import { updateEmailMeta } from '@/utils/updateEmailMeta';
 import { EmailSelector } from './EmailSelector';
 import EmailPreviewPanel from './EmailPreviewPanel';
-import EmailMetaEditor from "./EmailMetaEditor";
+import EmailUpdateEditor from "./EmailUpdateEditor";
+import type { ViewMode } from '@/types/viewmode.type';
 
 
 // Glob import Email.tsx files for preview components
@@ -20,6 +21,7 @@ const HomePage = () => {
     const { data: emails, isPending, error } = useFetchList('http://localhost:8000/emails');
     const [localEmails, setLocalEmails] = useState<Email[]>([]);
     const [selectedEmailId, setSelectedEmailId] = useState<string>('');
+    const [viewMode, setViewMode] = useState<ViewMode>('desktop');
     // Derived data
     const selectedEmailObj = localEmails.find((email: Email) => email.id === selectedEmailId);
     const EmailPreviewComponent = selectedEmailId ? getEmailPreviewComponent(selectedEmailId) : null;
@@ -43,7 +45,7 @@ const HomePage = () => {
         }
     }, [localEmails]);
     // Event handlers
-    const handleMetaSave = async (updated: { type: string; subjectLine: string, previewText: string }) => {
+    const handleUpdate = async (updated: EmailUpdateInput) => {
         try {
             await updateEmailMeta(selectedEmailId, updated);
             const updatedList = localEmails.map((email) =>
@@ -69,7 +71,7 @@ const HomePage = () => {
                     onChange={setSelectedEmailId}
                 />
                 {selectedEmailObj && (
-                <EmailMetaEditor email={selectedEmailObj} onSave={handleMetaSave} />
+                <EmailUpdateEditor email={selectedEmailObj} onSave={handleUpdate} />
                 )}
             </div>
 
@@ -77,7 +79,6 @@ const HomePage = () => {
                 <EmailPreviewPanel
                     email={selectedEmailObj}
                     EmailPreviewComponent={EmailPreviewComponent}
-                    onSave={handleMetaSave}
                 />
             )}
         </div>
