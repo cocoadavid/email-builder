@@ -16,6 +16,4 @@ await Promise.all(
   }),
 );
 
-console.log(Object.keys(sections));
-
 export default sections;

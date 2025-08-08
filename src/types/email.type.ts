@@ -8,7 +8,7 @@ export type EmailUpdateInput = {
 
 export type Email = {
   id: string;
-  wfNumber: number;
+  wfNumber: string;
   projectName: string;
   subjectLine: string;
   previewText: string;

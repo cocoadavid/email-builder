@@ -195,6 +195,18 @@ th h6 {
   font-weight: bold;
 }
 
+.underlined {
+  text-decoration: underline;
+}
+
+.c-vfred {
+  color: #e60000;
+}
+
+.c-white {
+  color: #ffffff;
+}
+
 /* === Extra Classes === */
 td.section {
   padding: 24px 24px 24px 24px;
@@ -238,6 +250,10 @@ td.p-reset {
 
 .w-third {
   width: 33.3%;
+}
+
+img.center {
+  margin: 0 auto;
 }
 
 /* === Mobile Styles === */

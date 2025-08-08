@@ -71,7 +71,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
           onClick={() => onSave({ type, subjectLine, previewText })}
           disabled={!isDirty}
           className={`px-4 py-2 text-sm rounded text-white ${
-            isDirty ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'
+            isDirty ? 'bg-sky-600 hover:bg-sky-700' : 'bg-gray-400 cursor-not-allowed'
           }`}
         >
           Update email

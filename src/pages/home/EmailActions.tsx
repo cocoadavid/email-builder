@@ -13,7 +13,7 @@ const EmailActions = ({ email }: EmailActionsProps) => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex gap-4 sticky top-0 justify-center">
+    <div className="flex gap-4 sticky top-0 justify-center z-100">
       <button
         onClick={() => copyEmailAsHtml(email)}
         className="mb-3 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"

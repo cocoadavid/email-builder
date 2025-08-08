@@ -10,7 +10,7 @@ const CreatePage = () => {
   const navigate = useNavigate();
   const { data: email } = useFetchSingle(`http://localhost:8000/emails/${sourceId}`);
   const [isPending, setIsPending] = useState(false);
-  const [wfNumber, setWfNumber] = useState(0);
+  const [wfNumber, setWfNumber] = useState('');
   const [projectName, setProjectName] = useState('');
   const [suffix, setSuffix] = useState('');
   const [subjectLine, setSubjectLine] = useState('');
@@ -91,7 +91,7 @@ const CreatePage = () => {
             disabled={isPending}
             type="number"
             value={wfNumber}
-            onChange={e => setWfNumber(Number(e.target.value))}
+            onChange={e => setWfNumber(e.target.value)}
             onKeyDown={e => {
               if (['e', 'E', '+', '-', '.'].includes(e.key)) {
                 e.preventDefault();

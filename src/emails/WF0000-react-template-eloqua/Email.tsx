@@ -16,7 +16,7 @@ const Email = ({ email }: EmailProps) => {
   return (
     <Wrapper>
       <EmailHeader src={images.header} srcMobile={images.headerMobile} />
-      <Section classes="text-center">
+      <Section classes="text-14 text-center">
         You can create a section just like this. Could be useful for an intro.
       </Section>
       {variables.dynamicSections &&

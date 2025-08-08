@@ -18,14 +18,10 @@ emails.forEach((email) => {
     if (fs.existsSync(sourceDir)) {
       fs.cpSync(sourceDir, emailDir, { recursive: true });
       console.log(`📁 Duplicated "${email.sourceId}" to "${email.id}"`);
-      return;
     } else {
       console.warn(`❌ Source "${email.sourceId}" does not exist.`);
     }
-  }
-
-  // If there is no 'sourceId' → copy the template folder
-  if (!fs.existsSync(emailDir)) {
+  } else if (!fs.existsSync(emailDir)) {
     fs.cpSync(templateDir, emailDir, { recursive: true });
     console.log(`✨ Generated from base-template: ${email.id}`);
   } else {
@@ -34,6 +30,7 @@ emails.forEach((email) => {
 
   // If the type is 'thirdparty', create an image folder under public
   if (email.type === 'thirdparty') {
+    console.log("third");
     const publicImageDir = path.join(__dirname, `../public/emails/${email.id}/images`);
     if (!fs.existsSync(publicImageDir)) {
       fs.mkdirSync(publicImageDir, { recursive: true });

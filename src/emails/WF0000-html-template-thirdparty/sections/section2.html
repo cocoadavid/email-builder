@@ -1,0 +1,54 @@
+<table class="w-full" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+  <tbody>
+    <tr>
+      <td class="text-14 text-center" style="padding: 0px 0px 24px 0px">
+        Below you can see how to use image variables inside HTML files.
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="w-full" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+  <tbody>
+    <tr>
+      <th class="stack text-0 text-center w-half">
+        <table
+          class="w-full"
+          width="100%"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          role="presentation"
+        >
+          <tbody>
+            <tr>
+              <td class="text-14 text-center" style="padding: 0px 0px 24px 0px">
+                Using it in the src:
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <img src="{{images.example}}" width="130" class="responsive center" alt="react" />
+      </th>
+      <th class="stack text-0 text-center w-half">
+        <table
+          class="w-full"
+          width="100%"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          role="presentation"
+        >
+          <tbody>
+            <tr>
+              <td class="text-14 text-center" style="padding: 0px 0px 24px 0px">
+                Using it in as an EmailImage:
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        {{ components.EmailImage: src={{images.example}}, sameOnMobile=true, center=true, width=130
+        }}
+      </th>
+    </tr>
+  </tbody>
+</table>

@@ -6,6 +6,7 @@ import { updateEmailMeta } from '@/utils/updateEmailMeta';
 import { EmailSelector } from './EmailSelector';
 import EmailPreviewPanel from './EmailPreviewPanel';
 import EmailUpdateEditor from './EmailUpdateEditor';
+import { EmailTypeProvider, useEmailType } from '@/context/EmailTypeContext';
 
 // Glob import Email.tsx files for preview components
 const emailPreviewModules = import.meta.glob<{ default: React.ComponentType<any> }>(
@@ -16,7 +17,7 @@ const getEmailPreviewComponent = (id: string) => {
   return mod ? lazy(mod) : null;
 };
 
-const HomePage = () => {
+const HomePageContent = () => {
   // State
   const { data: emails, isPending, error } = useFetchList('http://localhost:8000/emails');
   const [localEmails, setLocalEmails] = useState<Email[]>([]);
@@ -25,6 +26,7 @@ const HomePage = () => {
   // Derived data
   const selectedEmailObj = localEmails.find((email: Email) => email.id === selectedEmailId);
   const EmailPreviewComponent = selectedEmailId ? getEmailPreviewComponent(selectedEmailId) : null;
+  const { setEmailType } = useEmailType();
 
   // Effects
   useEffect(() => {
@@ -37,6 +39,14 @@ const HomePage = () => {
     if (!selectedEmailId) return;
     localStorage.setItem('lastSelectedEmailId', selectedEmailId);
   }, [selectedEmailId]);
+
+  useEffect(() => {
+    if (selectedEmailObj) {
+      setEmailType(selectedEmailObj.type);
+    } else {
+      setEmailType('');
+    }
+  }, [selectedEmailObj, setEmailType]);
 
   useEffect(() => {
     if (localEmails.length > 0 && !selectedEmailId) {
@@ -81,5 +91,11 @@ const HomePage = () => {
     </div>
   );
 };
+
+const HomePage = () => (
+  <EmailTypeProvider>
+    <HomePageContent />
+  </EmailTypeProvider>
+);
 
 export default HomePage;

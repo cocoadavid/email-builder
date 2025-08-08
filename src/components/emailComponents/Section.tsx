@@ -1,20 +1,52 @@
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+
 type SectionProps = {
+  variables?: Record<string, any>;
   html?: string;
   children?: React.ReactNode;
   bgColor?: string;
   classes?: string;
-  images?: Record<string, string>;
 };
 
-const Section = ({ html, children, bgColor, classes, images }: SectionProps) => {
+function replacePlaceholders(html: string, obj: Record<string, any>, prefix = ''): string {
+  let result = html;
+
+  Object.entries(obj).forEach(([key, value]) => {
+    const fullKey = prefix ? `${prefix}.${key}` : key;
+    const regex = new RegExp(`{{\\s*${fullKey}(?::([^}]+))?\\s*}}`, 'g');
+
+    if (React.isValidElement(value)) {
+      result = result.replace(regex, () =>
+        ReactDOMServer.renderToStaticMarkup(React.createElement(React.Fragment, null, value)),
+      );
+    } else if (typeof value === 'function') {
+      result = result.replace(regex, (_, propsString) => {
+        let props: Record<string, any> = {};
+        if (propsString) {
+          propsString.split(',').forEach((pair: string) => {
+            const [propKey, propValue] = pair.split('=');
+            props[propKey.trim()] = propValue.trim();
+          });
+        }
+        return ReactDOMServer.renderToStaticMarkup(React.createElement(value, props));
+      });
+    } else if (typeof value === 'string' || typeof value === 'number') {
+      result = result.replace(regex, String(value));
+    } else if (typeof value === 'object' && value !== null) {
+      // 🔹 Rekurzív feldolgozás, de ugyanazon result-on
+      result = replacePlaceholders(result, value, fullKey);
+    }
+  });
+
+  return result;
+}
+
+const Section = ({ html, children, bgColor, classes, variables }: SectionProps) => {
   // Ha van html és images, akkor cseréljük a placeholder-eket
   let processedHtml = html;
-  if (processedHtml && images && Object.keys(images).length > 0) {
-    Object.entries(images).forEach(([key, url]) => {
-      // A placeholder szintaxist te határozhatod meg pl. {{logo}}
-      const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-      processedHtml = processedHtml?.replace(regex, url);
-    });
+  if (processedHtml && variables) {
+    processedHtml = replacePlaceholders(processedHtml, variables);
   }
 
   if (processedHtml) {
