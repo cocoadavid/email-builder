@@ -1,13 +1,13 @@
 const emailHeaderImage = '/emailheader.jpg';
 import { useEmailType } from '@/context/EmailTypeContext';
 
-type EmailHeaderProps = {
+type HeaderImageProps = {
   src: string;
   srcMobile?: string;
   altText?: string;
 };
 
-const EmailHeader = ({ src, altText, srcMobile }: EmailHeaderProps) => {
+const HeaderImage = ({ src, altText, srcMobile }: HeaderImageProps) => {
   const { emailType } = useEmailType();
 
   return (
@@ -57,4 +57,4 @@ const EmailHeader = ({ src, altText, srcMobile }: EmailHeaderProps) => {
   );
 };
 
-export default EmailHeader;
+export default HeaderImage;

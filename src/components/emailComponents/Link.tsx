@@ -1,9 +1,9 @@
-type EmailLinkProps = {
+type LinkProps = {
   text: string;
   url: string;
   classes?: string;
 };
-const EmailLink = ({ text, url, classes }: EmailLinkProps) => {
+const Link = ({ text, url, classes }: LinkProps) => {
   return (
     <a href={url || 'https://reallygoodemails.com/'} target="_blank" className={classes}>
       <span className={classes}>{text || 'placeholder'}</span>
@@ -11,4 +11,4 @@ const EmailLink = ({ text, url, classes }: EmailLinkProps) => {
   );
 };
 
-export default EmailLink;
+export default Link;

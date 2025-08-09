@@ -12,7 +12,8 @@
     "generate-emails": "node scripts/generateEmails.cjs",
     "watch-emails": "nodemon --watch data/emails.json --exec \"node scripts/generateEmails.cjs\"",
     "start": "concurrently -n \"DEV,DB,EMAILS\" -c \"cyan,magenta,green\" \"npm run dev\" \"npm run json-server\" \"npm run watch-emails\"",
-    "prettier": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,html}\""
+    "prettier": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,html}\"",
+    "generate-email-index": "node scripts/generateEmailIndex.cjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",

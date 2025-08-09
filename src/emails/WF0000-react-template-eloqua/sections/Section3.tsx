@@ -1,8 +1,8 @@
-import Section from '@/components/emailComponents/Section';
+import * as Email from '@/components/emailComponents';
 
 const EmailSection = () => {
   return (
-    <Section classes="text-center" bgColor="#e0f2fe">
+    <Email.Section classes="text-center" bgColor="#e0f2fe">
       <table
         className="w-full"
         width="100%"
@@ -21,7 +21,7 @@ const EmailSection = () => {
           </td>
         </tr>
       </table>
-    </Section>
+    </Email.Section>
   );
 };
 

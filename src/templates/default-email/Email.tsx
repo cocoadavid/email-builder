@@ -1,10 +1,8 @@
 import './email.css';
 import type { Email } from '@/types/email.type';
-import Wrapper from '@/components/emailComponents/Wrapper';
-import EmailHeader from '@/components/emailComponents/EmailHeader';
+import { Wrapper, HeaderImage, Section } from '@/components/emailComponents/'
 import { variables } from './variables.ts';
 import sections from './sections';
-import Section from '@/components/emailComponents/Section';
 
 type EmailProps = {
   email: Email;
@@ -15,8 +13,8 @@ const Email = ({ email }: EmailProps) => {
 
   return (
     <Wrapper>
-      <EmailHeader src={images.header} srcMobile={images.headerMobile} />
-      <Section classes="text-center">
+      <HeaderImage src={images.header} srcMobile={images.headerMobile} />
+      <Section classes="text-14 text-center">
         You can create a section just like this. Could be useful for an intro.
       </Section>
       {variables.dynamicSections &&

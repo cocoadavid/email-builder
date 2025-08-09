@@ -1,9 +1,16 @@
-import Section from '@/components/emailComponents/Section';
+import * as Email from '@/components/emailComponents';
 
 const EmailSection = () => {
   return (
-    <Section classes="text-center" bgColor="#e0f2fe">
-      <table width="100%" cellPadding={0} cellSpacing={0} border={0} role="presentation">
+    <Email.Section classes="text-center" bgColor="#e0f2fe">
+      <table
+        className="w-full"
+        width="100%"
+        cellPadding={0}
+        cellSpacing={0}
+        border={0}
+        role="presentation"
+      >
         <tr>
           <td className="text-18">The order of the sections...</td>
           <td className="text-16" style={{ padding: '12px 0px 0px 0px' }}>
@@ -14,7 +21,7 @@ const EmailSection = () => {
           </td>
         </tr>
       </table>
-    </Section>
+    </Email.Section>
   );
 };
 

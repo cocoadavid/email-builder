@@ -1,6 +1,6 @@
 import { useEmailType } from '@/context/EmailTypeContext';
 
-type EmailImageProps = {
+type ImageProps = {
   src: string;
   srcMobile?: string;
   sameOnMobile: boolean;
@@ -9,14 +9,14 @@ type EmailImageProps = {
   center?: boolean;
 };
 
-const EmailImage = ({
+const Image = ({
   src,
   srcMobile,
   sameOnMobile = false,
   alt = '',
   center = false,
   width,
-}: EmailImageProps) => {
+}: ImageProps) => {
   const { emailType } = useEmailType();
   const desktopClassName = [srcMobile ? 'hide-on-mobile' : null, center ? 'center' : null]
     .filter(Boolean)
@@ -63,4 +63,4 @@ const EmailImage = ({
   );
 };
 
-export default EmailImage;
+export default Image;

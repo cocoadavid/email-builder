@@ -1,5 +1,4 @@
-import EmailImage from '@/components/emailComponents/EmailImage';
-import EmailLink from '@/components/emailComponents/EmailLink';
+import * as Email from '@/components/emailComponents';
 const imgPath = `/emails/${localStorage.getItem('lastSelectedEmailId')}/images`;
 
 export const variables = {
@@ -14,7 +13,7 @@ export const variables = {
     example: '/react-icon.png',
   },
   components: {
-    EmailLink: EmailLink,
-    EmailImage: EmailImage,
+    Link: Email.Link,
+    Image: Email.Image,
   },
 };
