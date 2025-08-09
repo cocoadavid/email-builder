@@ -23,6 +23,16 @@
       "templateId": "default-email",
       "sourceId": "WF0000-html-template-thirdparty",
       "suffix": "template"
+    },
+    {
+      "id": "WF0001-megyek_alidni",
+      "wfNumber": "0001",
+      "projectName": "megyek alidni",
+      "subjectLine": "csááá",
+      "previewText": "ddffsd",
+      "type": "eloqua",
+      "createdAt": "2025-08-09T22:25:10.105Z",
+      "templateId": "default-email"
     }
   ]
 }

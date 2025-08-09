@@ -22,28 +22,16 @@ const EmailPreviewPanel = ({ EmailPreviewComponent, email }: EmailPreviewPanelPr
           <AnimatePresence mode="wait">
             <motion.div
               key={email.id}
-              initial={{ scaleX: 0.0 }}
-              animate={{ scaleX: 1 }}
-              exit={{ scaleX: 0.0 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              style={{ originX: 0.5 }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.5, ease: 'backInOut' }}
             >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={viewMode}
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  exit={{ scaleX: 0 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ originX: 0.5 }}
-                >
-                  <Suspense fallback={<LoadingHeader />}>
-                    <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
-                    {viewMode === 'mobile' && <MobileEmailPreview email={email} />}
-                    {viewMode === 'desktop' && <EmailPreviewComponent key={email.id} email={email} />}
-                  </Suspense>
-                </motion.div>
-              </AnimatePresence>
+              <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
+              <Suspense fallback={<LoadingHeader />}>
+                {viewMode == 'mobile' && <MobileEmailPreview email={email} />}
+                {viewMode == 'desktop' && <EmailPreviewComponent key={email.id} email={email} />}
+              </Suspense>
             </motion.div>
           </AnimatePresence>
         </>

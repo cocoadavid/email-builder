@@ -2,25 +2,24 @@ import * as Email from '@/components/emailComponents';
 
 const EmailSection = () => {
   return (
-    <Email.Section classes="text-center" bgColor="#e0f2fe">
-      <table
-        className="w-full"
-        width="100%"
-        cellPadding={0}
-        cellSpacing={0}
-        border={0}
-        role="presentation"
-      >
+    <Email.Section bgColor="#7dd3fc">
+      <Email.Table>
         <tr>
-          <td className="text-18">The order of the sections...</td>
-          <td className="text-16" style={{ padding: '12px 0px 0px 0px' }}>
-            is determined by...
-          </td>
-          <td className="text-14" style={{ padding: '24px 0px 0px 0px' }}>
-            ...the name of the section
-          </td>
+          <Email.Td>
+            But I also created React Components like this for the table and td.
+          </Email.Td>
         </tr>
-      </table>
+        <tr>
+          <Email.Td padding='12px 0px 12px 0px'>
+            It's up to you.
+            <Email.Link
+              text='This is a link'
+              url='https://reallygoodemails.com/'
+              color='#4c1d95'
+              className='underlined' />
+          </Email.Td>
+        </tr>
+      </Email.Table>
     </Email.Section>
   );
 };

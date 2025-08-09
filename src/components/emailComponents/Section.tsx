@@ -4,9 +4,9 @@ import ReactDOMServer from 'react-dom/server';
 type SectionProps = {
   variables?: Record<string, any>;
   html?: string;
-  children?: React.ReactNode;
   bgColor?: string;
-  classes?: string;
+  className?: string;
+  children?: React.ReactNode;
 };
 
 function replacePlaceholders(html: string, obj: Record<string, any>, prefix = ''): string {
@@ -24,7 +24,7 @@ function replacePlaceholders(html: string, obj: Record<string, any>, prefix = ''
       result = result.replace(regex, (_, propsString) => {
         let props: Record<string, any> = {};
         if (propsString) {
-          propsString.split(',').forEach((pair: string) => {
+          propsString.split(';').forEach((pair: string) => {
             const [propKey, propValue] = pair.split('=');
             props[propKey.trim()] = propValue.trim();
           });
@@ -42,7 +42,7 @@ function replacePlaceholders(html: string, obj: Record<string, any>, prefix = ''
   return result;
 }
 
-const Section = ({ html, children, bgColor, classes, variables }: SectionProps) => {
+const Section = ({ html, children, bgColor, className, variables }: SectionProps) => {
   // Ha van html és images, akkor cseréljük a placeholder-eket
   let processedHtml = html;
   if (processedHtml && variables) {
@@ -51,7 +51,7 @@ const Section = ({ html, children, bgColor, classes, variables }: SectionProps) 
 
   if (processedHtml) {
     return (
-      <section style={{ margin: 0, padding: 0 }}>
+      <section style={{ margin: 0, padding: 0}}>
         <table
           width={'100%'}
           cellPadding="0"
@@ -64,7 +64,7 @@ const Section = ({ html, children, bgColor, classes, variables }: SectionProps) 
             <tr>
               <td
                 dangerouslySetInnerHTML={{ __html: processedHtml }}
-                className={`section${classes ? ' ' + classes : ''}`}
+                className={`section${className ? ' ' + className : ''}`}
               ></td>
             </tr>
           </tbody>
@@ -73,7 +73,7 @@ const Section = ({ html, children, bgColor, classes, variables }: SectionProps) 
     );
   }
   return (
-    <section style={{ margin: 0, padding: 0 }}>
+    <section style={{ margin: 0, padding: 0, fontSize: '14px', lineHeight: '16px'  }}>
       <table
         width={'100%'}
         cellPadding="0"
@@ -84,7 +84,7 @@ const Section = ({ html, children, bgColor, classes, variables }: SectionProps) 
       >
         <tbody>
           <tr>
-            <td className={`section${classes ? ' ' + classes : ''}`}>{children}</td>
+            <td className={`section${className ? ' ' + className : ''}`}>{children}</td>
           </tr>
         </tbody>
       </table>

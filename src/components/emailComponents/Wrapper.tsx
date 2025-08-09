@@ -1,6 +1,6 @@
 type WrapperProps = {
-  children?: React.ReactNode;
-  width?: string;
+  children: React.ReactNode;
+  width?: number;
 };
 
 const Wrapper = ({ children, width }: WrapperProps) => {
@@ -20,12 +20,12 @@ const Wrapper = ({ children, width }: WrapperProps) => {
         <tr>
           <td align="center">
             <table
-              width="600"
+              width={width || "600"}
               cellPadding={0}
               cellSpacing={0}
               className="drop-shadow-xl full-width-mobile"
               style={{
-                width: width || '600px',
+                width: `${width}px` || '600px',
                 backgroundColor: '#ffffff',
                 borderCollapse: 'collapse',
               }}
