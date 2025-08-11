@@ -12,13 +12,13 @@ export const EmailSelector = ({ emails, selectedEmailId, onChange }: EmailSelect
       <select
         value={selectedEmailId}
         onChange={e => onChange(e.target.value)}
-        className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white text-gray-800"
+        className="w-full px-4 py-2 border text-sm border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white text-gray-800"
       >
         <option value="">-- Select an email --</option>
         {emails.length > 0 ? (
           emails
             .slice()
-            .sort((a, b) => b.wfNumber - a.wfNumber)
+            .sort((a, b) => Number(b.wfNumber) - Number(a.wfNumber))
             .map((email: Email) => (
               <option key={email.id} value={email.id}>
                 {email.id} | {email.type}

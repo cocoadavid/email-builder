@@ -15,29 +15,48 @@ const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setVersion(Date.now()); // ez trükkösen "kikényszeríti" az újrahívást, ha a fájl változik
-    }, 1000); // vagy: 500ms, ha gyorsan akarsz reagálni
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     const renderHtml = async () => {
-      const html = await generateFullHtml(email);
-      setHtml(html ?? '');
+      const baseHtml = await generateFullHtml(email);
+      const injectedHtml = baseHtml?.replace(
+        /<\/head>/i,
+        `
+          <style>
+            html, body {
+              margin: 0;
+              padding: 0;
+              overflow: auto;
+              -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+              scrollbar-width: none; /* Firefox */
+            }
+            ::-webkit-scrollbar {
+              display: none; /* Chrome, Safari, Edge */
+            }
+          </style>
+        </head>
+        `
+      );
+
+      setHtml(injectedHtml ?? '');
     };
     renderHtml();
   }, [email.id, version]);
 
   return (
-    <div className="w-full flex justify-center overflow-x-hidden rounder drop-shadow-xl">
+    <div className="w-full flex justify-center overflow-x-hidden shadow-xl rounded-xl border border-gray-200">
       <iframe
         title="Email Preview"
         srcDoc={html}
-        className="rounded-xl border"
+        className="rounded-xl"
         style={{
           width: '375px',
           height: '667px',
-          border: 'none',
+          border: 'none'
         }}
       />
     </div>

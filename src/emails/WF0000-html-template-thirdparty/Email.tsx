@@ -1,6 +1,6 @@
 import './email.css';
 import type { Email } from '@/types/email.type';
-import { Wrapper, HeaderImage, Section } from '@/components/emailComponents/'
+import { Wrapper, HeaderImage, Section } from '@/components/emailComponents/';
 import { variables } from './variables';
 import sections from './sections';
 

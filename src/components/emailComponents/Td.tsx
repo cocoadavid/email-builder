@@ -12,10 +12,9 @@ const cleanStyleValue = (value: string): string => {
   return value.replace(/;$/, '');
 };
 
-
 const Td = ({ children, height, padding, style, className }: TdProps) => {
   const baseStyle: React.CSSProperties = {};
-  
+
   if (height !== undefined) {
     baseStyle.height = `${height}px`;
   }
@@ -32,15 +31,11 @@ const Td = ({ children, height, padding, style, className }: TdProps) => {
         return [key, cleanStyleValue(value)];
       }
       return [key, value];
-    })
+    }),
   );
 
   return (
-    <td
-      className={className || "text-14"}
-      style={cleanedStyle}
-      height={height}
-    >
+    <td className={className || 'text-14'} style={cleanedStyle} height={height}>
       {children}
     </td>
   );

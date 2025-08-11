@@ -20,7 +20,7 @@ const Wrapper = ({ children, width }: WrapperProps) => {
         <tr>
           <td align="center">
             <table
-              width={width || "600"}
+              width={width || '600'}
               cellPadding={0}
               cellSpacing={0}
               className="drop-shadow-xl full-width-mobile"

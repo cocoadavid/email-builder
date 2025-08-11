@@ -22,18 +22,17 @@ const EmailPreviewPanel = ({ EmailPreviewComponent, email }: EmailPreviewPanelPr
           <AnimatePresence mode="wait">
             <motion.div
               key={`${email.id}-${viewMode}`}
-              initial={{ rotateY: "90deg" }}
-              animate={{ rotateY: "0deg" }}
-              exit={{ rotateY: "90deg" }}
+              initial={{ rotateY: '90deg' }}
+              animate={{ rotateY: '0deg' }}
+              exit={{ rotateY: '90deg' }}
               transition={{ duration: 0.4, ease: 'easeInOut' }}
-              style={{ originX: 0.5 }}
             >
-                  <Suspense fallback={<LoadingHeader />}>
-                    <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
-                    {viewMode === 'mobile' && <MobileEmailPreview email={email} />}
-                    {viewMode === 'desktop' && <EmailPreviewComponent key={email.id} email={email} />}
-                  </Suspense>
-                </motion.div>
+              <Suspense fallback={<LoadingHeader />}>
+                <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
+                {viewMode === 'mobile' && <MobileEmailPreview email={email} />}
+                {viewMode === 'desktop' && <EmailPreviewComponent key={email.id} email={email} />}
+              </Suspense>
+            </motion.div>
           </AnimatePresence>
         </>
       )}

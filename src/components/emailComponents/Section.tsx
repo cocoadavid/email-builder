@@ -51,7 +51,7 @@ const Section = ({ html, children, bgColor, className, variables }: SectionProps
 
   if (processedHtml) {
     return (
-      <section style={{ margin: 0, padding: 0}}>
+      <section style={{ margin: 0, padding: 0 }}>
         <table
           width={'100%'}
           cellPadding="0"
@@ -73,7 +73,7 @@ const Section = ({ html, children, bgColor, className, variables }: SectionProps
     );
   }
   return (
-    <section style={{ margin: 0, padding: 0, fontSize: '14px', lineHeight: '16px'  }}>
+    <section style={{ margin: 0, padding: 0, fontSize: '14px', lineHeight: '16px' }}>
       <table
         width={'100%'}
         cellPadding="0"
