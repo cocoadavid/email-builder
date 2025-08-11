@@ -33,7 +33,6 @@ const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
       <iframe
         title="Email Preview"
         srcDoc={html}
-        sandbox=""
         className="rounded-xl border"
         style={{
           width: '375px',
