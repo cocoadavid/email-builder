@@ -16,6 +16,7 @@ const CreatePage = () => {
   const [subjectLine, setSubjectLine] = useState('');
   const [previewText, setPreviewText] = useState('');
   const [type, setType] = useState('');
+  const [templateId, setTemplateId] = useState('default-email');
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -26,6 +27,7 @@ const CreatePage = () => {
       setSubjectLine(email.subjectLine);
       setPreviewText(email.previewText);
       setType(email.type);
+      setTemplateId(email.templateId);
     }
   }, [sourceId, email]);
 
@@ -44,7 +46,6 @@ const CreatePage = () => {
     }
 
     const createdAt = new Date().toISOString();
-    const templateId = 'default-email';
     const newId = `WF${wfNumber}-${cleanProjectName(projectName)}-${cleanProjectName(suffix)}`;
 
     try {

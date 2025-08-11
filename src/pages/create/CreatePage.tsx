@@ -11,6 +11,8 @@ const CreatePage = () => {
   const [subjectLine, setSubjectLine] = useState('');
   const [previewText, setPreviewText] = useState('');
   const [type, setType] = useState('');
+  const [templateId, setTemplateId] = useState('default-email');
+
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -31,7 +33,6 @@ const CreatePage = () => {
     }
 
     const createdAt = new Date().toISOString();
-    const templateId = 'default-email';
     const newId = `WF${wfNumber}-${cleanProjectName(projectName)}`;
 
     // Ellenőrizzük, hogy van-e már ilyen ID
@@ -166,6 +167,21 @@ const CreatePage = () => {
             <option value="oft">oft</option>
             <option value="highspot">highspot</option>
             <option value="thirdparty">thirdparty</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Email Template</label>
+          <select
+            disabled={isPending}
+            value={templateId}
+            onChange={e => setTemplateId(e.target.value)}
+            required
+            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white text-gray-800"
+          >
+            <option value="">Select email template</option>
+            <option value="default-email">react (recommended)</option>
+            <option value="html-email">html</option>
           </select>
         </div>
 
