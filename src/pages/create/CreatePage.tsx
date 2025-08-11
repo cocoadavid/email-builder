@@ -16,24 +16,52 @@ const CreatePage = () => {
 
   useEffect(() => {
     return () => {
-      // Component unmountn cleanup
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (timeoutRef.current) {
-      return; // There is already a timeout
+      // Már van futó request, ne csináljunk újat
+      return;
     }
-    setIsPending(true);
+
     const createdAt = new Date().toISOString();
     const templateId = 'default-email';
+    const newId = `WF${wfNumber}-${cleanProjectName(projectName)}`;
+
+    // Ellenőrizzük, hogy van-e már ilyen ID
+    try {
+      const res = await fetch('http://localhost:8000/emails');
+      if (!res.ok) {
+        throw new Error('Failed to fetch emails');
+      }
+      const existingEmails = await res.json();
+
+      const alreadyExists = existingEmails.some((em: any) => em.id === newId);
+      if (alreadyExists) {
+        toast.error(
+          `Email with ID "${newId}" already exists! Please try with a different project name.`,
+          { duration: 4500 },
+        );
+        return; // Kilépünk, nem fut tovább
+      }
+    } catch (err) {
+      console.error('Error checking existing emails:', err);
+      toast.error('Could not check for duplicate ID.', { duration: 4000 });
+      return;
+    }
+
+    // Csak ha nincs duplikátum, állítjuk be a pending állapotot
+    setIsPending(true);
+
     const emailData = {
-      id: `WF${wfNumber}-${cleanProjectName(projectName)}`,
-      wfNumber: wfNumber,
+      id: newId,
+      wfNumber,
       projectName,
       subjectLine,
       previewText,
@@ -41,7 +69,8 @@ const CreatePage = () => {
       createdAt,
       templateId,
     };
-    const toastId = toast.loading('generating new email...');
+
+    // Azonnal állítsuk be timeoutRef-et, hogy ne legyen race condition
     timeoutRef.current = setTimeout(() => {
       fetch('http://localhost:8000/emails', {
         method: 'POST',
@@ -50,14 +79,16 @@ const CreatePage = () => {
       })
         .then(() => {
           setIsPending(false);
-          toast.success('New email created', { id: toastId });
+          toast.success('New email created', { id: emailData.id });
           localStorage.setItem('lastSelectedEmailId', emailData.id);
           navigate('/');
+          timeoutRef.current = null; // tisztítjuk a timeout referenciát
         })
         .catch(err => {
           setIsPending(false);
           console.error('Error creating email:', err);
-          toast.error('Something went wrong.', { id: toastId });
+          toast.error('Something went wrong.', { id: emailData.id });
+          timeoutRef.current = null; // tisztítjuk a timeout referenciát
         });
     }, 500);
   };

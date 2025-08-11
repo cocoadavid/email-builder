@@ -31,24 +31,48 @@ const CreatePage = () => {
 
   useEffect(() => {
     return () => {
-      // Component unmountn cleanup
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (timeoutRef.current) {
-      return; /// There is already a timeout
+      return; // már fut egy request
     }
-    setIsPending(true);
+
     const createdAt = new Date().toISOString();
     const templateId = 'default-email';
+    const newId = `WF${wfNumber}-${cleanProjectName(projectName)}-${cleanProjectName(suffix)}`;
+
+    try {
+      const res = await fetch('http://localhost:8000/emails');
+      if (!res.ok) {
+        throw new Error('Failed to fetch emails');
+      }
+      const existingEmails = await res.json();
+
+      const alreadyExists = existingEmails.some((em: any) => em.id === newId);
+      if (alreadyExists) {
+        toast.error(
+          `Email with ID "${newId}" already exists! Please try with a different suffix.`,
+          { duration: 4500 },
+        );
+        return;
+      }
+    } catch (err) {
+      console.error('Error checking existing emails:', err);
+      toast.error('Could not check for duplicate ID.', { duration: 4000 });
+      return;
+    }
+
+    setIsPending(true);
+
     const emailData = {
-      id: `WF${wfNumber}-${cleanProjectName(projectName)}-${cleanProjectName(suffix)}-${type}`,
-      wfNumber: wfNumber,
+      id: newId,
+      wfNumber,
       projectName,
       subjectLine,
       previewText,
@@ -58,7 +82,8 @@ const CreatePage = () => {
       sourceId,
       suffix,
     };
-    const toastId = toast.loading('generating email...');
+
+    const toastId = toast.loading('Generating email...');
     timeoutRef.current = setTimeout(() => {
       fetch('http://localhost:8000/emails', {
         method: 'POST',
@@ -70,11 +95,13 @@ const CreatePage = () => {
           toast.success('New email created', { id: toastId });
           localStorage.setItem('lastSelectedEmailId', emailData.id);
           navigate('/');
+          timeoutRef.current = null;
         })
         .catch(err => {
           setIsPending(false);
           console.error('Error creating email:', err);
           toast.error('Something went wrong.', { id: toastId });
+          timeoutRef.current = null;
         });
     }, 500);
   };

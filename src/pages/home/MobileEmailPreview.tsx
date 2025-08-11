@@ -39,7 +39,7 @@ const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
             }
           </style>
         </head>
-        `
+        `,
       );
 
       setHtml(injectedHtml ?? '');
@@ -56,7 +56,7 @@ const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
         style={{
           width: '375px',
           height: '667px',
-          border: 'none'
+          border: 'none',
         }}
       />
     </div>
