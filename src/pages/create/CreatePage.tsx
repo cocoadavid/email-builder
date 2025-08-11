@@ -13,7 +13,6 @@ const CreatePage = () => {
   const [type, setType] = useState('');
   const [templateId, setTemplateId] = useState('default-email');
 
-
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {

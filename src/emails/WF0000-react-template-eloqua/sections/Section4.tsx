@@ -3,26 +3,25 @@ import * as Email from '@/components/emailComponents';
 const EmailSection = () => {
   return (
     <Email.Section className="text-center" bgColor="#e0f2fe">
-      <table
-        className="w-full"
-        width="100%"
-        cellPadding={0}
-        cellSpacing={0}
-        border={0}
-        role="presentation"
-      >
-        <tbody>
-          <tr>
-            <td className="text-18">The order of the sections...</td>
-            <td className="text-16" style={{ padding: '12px 0px 0px 0px' }}>
-              is determined by...
-            </td>
-            <td className="text-14" style={{ padding: '24px 0px 0px 0px' }}>
-              ...the name of the section
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <Email.Table>
+        <tr>
+          <Email.Td padding="0px 0px 24px 0px">
+            Sections are imported dynamically, ordered by their name.
+          </Email.Td>
+        </tr>
+        <tr>
+          <Email.Td>
+            <Email.CTA
+              text="I am a CTA"
+              href="https://reallygoodemails.com"
+              bgColor="#0c4a6e"
+              color="#FFF"
+              borderRadius={6}
+              width={132}
+            />
+          </Email.Td>
+        </tr>
+      </Email.Table>
     </Email.Section>
   );
 };

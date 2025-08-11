@@ -2,7 +2,7 @@ import * as Email from '@/components/emailComponents';
 
 const EmailSection = () => {
   return (
-    <Email.Section bgColor="#7dd3fc">
+    <Email.Section bgColor="#7dd3fc" className="text-center">
       <Email.Table>
         <tr>
           <Email.Td>But I also created React Components like this for the table and td.</Email.Td>

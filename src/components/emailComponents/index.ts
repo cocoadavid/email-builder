@@ -1,3 +1,4 @@
+export { default as CTA } from './CTA';
 export { default as HeaderImage } from './HeaderImage';
 export { default as Image } from './Image';
 export { default as Link } from './Link';

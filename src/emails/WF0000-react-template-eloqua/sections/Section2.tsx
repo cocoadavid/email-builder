@@ -7,16 +7,14 @@ const EmailSection = () => {
         <tbody>
           <tr>
             <td className="text-14" style={{ padding: '0px 0px 8px 0px' }}>
-              Here you can see how you to write more traditional table and td elements.
-              <br />
-              If you write code like this, tbody is a must have.
+              Here you can see how to write more traditional table and td elements.
             </td>
           </tr>
           <tr>
             <td className="text-14" style={{ background: '#FFFFFF', padding: '4px 4px 4px 4px' }}>
-              Here you can see how you to write more traditional table and td elements.
+              If you write code like this, tbody is a must have, unfortunately.
               <br />
-              If you write code like this, tbody is a must have.
+              Otherwise typescript whines.
             </td>
           </tr>
         </tbody>
