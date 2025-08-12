@@ -4,6 +4,7 @@ import { copyEmailAsHtml } from '@/utils/copyEmailAsHtml.ts';
 import { useNavigate } from 'react-router-dom';
 import type { Email } from '@/types/email.type';
 import { downloadEmailAsZip } from '@/utils/downloadEmailAsZip';
+import Button3D from '@/components/appComponents/Button3D';
 
 type EmailActionsProps = {
   email: Email;
@@ -13,35 +14,23 @@ const EmailActions = ({ email }: EmailActionsProps) => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex gap-4 sticky top-0 justify-center z-100">
-      <button
-        onClick={() => copyEmailAsHtml(email)}
-        className="mb-3 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
-      >
+    <div className="flex gap-4 sticky top-0 justify-center z-100 mb-4">
+      <Button3D onClick={() => copyEmailAsHtml(email)}>
         <Copy size={16} />
         Copy HTML
-      </button>
-      <button
-        onClick={() => downloadEmailAsHtml(email)}
-        className="mb-3 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
-      >
+      </Button3D>
+      <Button3D onClick={() => downloadEmailAsHtml(email)}>
         <Download size={16} />
         Download HTML
-      </button>
-      <button
-        onClick={() => downloadEmailAsZip(email)}
-        className="mb-3 px-4 py-2 bg-sky-600 text-sm text-white rounded hover:bg-sky-700 flex items-center gap-2"
-      >
+      </Button3D>
+      <Button3D onClick={() => downloadEmailAsZip(email)}>
         <Download size={16} />
         Download Zip
-      </button>
-      <button
-        onClick={() => navigate(`/duplicate/${email.id}`)}
-        className="mb-3 px-4 py-2 bg-emerald-600 text-sm text-white rounded hover:bg-emerald-700 flex items-center gap-2"
-      >
+      </Button3D>
+      <Button3D onClick={() => navigate(`/duplicate/${email.id}`)}>
         <FilePlus size={16} />
         Duplicate
-      </button>
+      </Button3D>
     </div>
   );
 };

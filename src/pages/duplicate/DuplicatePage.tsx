@@ -1,9 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { LoaderCircle } from 'lucide-react';
+import { toast } from 'sonner';
 import useFetchSingle from '@/hooks/useFetchSingle';
 import { cleanProjectName } from '@/utils/cleanProjectName.ts';
-import { toast } from 'sonner';
+import Button3D from '@/components/appComponents/Button3D';
+
 
 const CreatePage = () => {
   const { sourceId } = useParams<{ sourceId: string }>();
@@ -104,7 +107,7 @@ const CreatePage = () => {
           toast.error('Something went wrong.', { id: toastId });
           timeoutRef.current = null;
         });
-    }, 500);
+    }, 1000);
   };
 
   return (
@@ -197,20 +200,15 @@ const CreatePage = () => {
         </div>
 
         {!isPending ? (
-          <button
-            type="submit"
-            className="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 rounded-md transition duration-200"
-          >
+          <Button3D type='submit' className='w-full'>
             Create Email
-          </button>
+          </Button3D>
         ) : (
-          <button
-            disabled
-            className="w-full bg-gray-300 text-gray-600 font-semibold py-2 rounded-md"
-          >
-            Creating email...
-          </button>
-        )}
+          <Button3D type='submit' className='w-full' disabled>
+            <LoaderCircle className='animate-spin' size={16} /> Creating email...
+          </Button3D>
+        )
+        }
       </form>
     </div>
   );

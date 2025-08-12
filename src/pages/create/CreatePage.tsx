@@ -1,7 +1,10 @@
-import { cleanProjectName } from '@/utils/cleanProjectName';
+import { LoaderCircle } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { cleanProjectName } from '@/utils/cleanProjectName';
+import Button3D from '@/components/appComponents/Button3D';
+
 
 const CreatePage = () => {
   const navigate = useNavigate();
@@ -90,7 +93,7 @@ const CreatePage = () => {
           toast.error('Something went wrong.', { id: emailData.id });
           timeoutRef.current = null; // tisztítjuk a timeout referenciát
         });
-    }, 500);
+    }, 1000);
   };
 
   return (
@@ -183,22 +186,16 @@ const CreatePage = () => {
             <option value="html-email">html</option>
           </select>
         </div>
-
         {!isPending ? (
-          <button
-            type="submit"
-            className="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 rounded-md transition duration-200"
-          >
+          <Button3D type='submit' className='w-full'>
             Create Email
-          </button>
+          </Button3D>
         ) : (
-          <button
-            disabled
-            className="w-full bg-gray-300 text-gray-600 font-semibold py-2 rounded-md"
-          >
-            Creating email...
-          </button>
-        )}
+          <Button3D type='submit' className='w-full' disabled>
+            <LoaderCircle className='animate-spin' size={16} /> Creating email...
+          </Button3D>
+        )
+        }
       </form>
     </div>
   );

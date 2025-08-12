@@ -1,6 +1,7 @@
 import type { Email, EmailUpdateInput } from '@/types/email.type';
 import { useState, useEffect } from 'react';
 import type { EmailType } from '@/types/email.type';
+import Button3D from '@/components/appComponents/Button3D';
 
 type EmailUpdateEditorProps = {
   email: Email;
@@ -67,15 +68,12 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
           </select>
         </div>
 
-        <button
+        <Button3D
           onClick={() => onSave({ type, subjectLine, previewText })}
           disabled={!isDirty}
-          className={`px-4 py-2 text-sm rounded text-white ${
-            isDirty ? 'bg-sky-600 hover:bg-sky-700' : 'bg-gray-400 cursor-not-allowed'
-          }`}
         >
           Update email
-        </button>
+        </Button3D>
       </div>
     </div>
   );

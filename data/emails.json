@@ -23,6 +23,38 @@
       "templateId": "default-email",
       "sourceId": "WF0000-html-template-thirdparty",
       "suffix": "template"
+    },
+    {
+      "id": "WF2334-455",
+      "wfNumber": "2334",
+      "projectName": "455",
+      "subjectLine": "tertre",
+      "previewText": "rtert",
+      "type": "eloqua",
+      "createdAt": "2025-08-12T13:34:35.025Z",
+      "templateId": "default-email"
+    },
+    {
+      "id": "WF989-deletemeplease",
+      "wfNumber": "989",
+      "projectName": "deletemeplease",
+      "subjectLine": "ohyeah",
+      "previewText": "erwere",
+      "type": "eloqua",
+      "createdAt": "2025-08-12T13:35:17.848Z",
+      "templateId": "default-email"
+    },
+    {
+      "id": "WF989-deletemeplease-resend",
+      "wfNumber": "989",
+      "projectName": "deletemeplease",
+      "subjectLine": "ohyeah",
+      "previewText": "erwere",
+      "type": "eloqua",
+      "createdAt": "2025-08-12T13:43:49.257Z",
+      "templateId": "default-email",
+      "sourceId": "WF989-deletemeplease",
+      "suffix": "resend"
     }
   ]
 }
