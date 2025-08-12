@@ -15,19 +15,19 @@ const EmailActions = ({ email }: EmailActionsProps) => {
 
   return (
     <div className="flex gap-4 sticky top-0 justify-center z-100 mb-4">
-      <Button3D onClick={() => copyEmailAsHtml(email)}>
+      <Button3D className="bg-[#EEE]" onClick={() => copyEmailAsHtml(email)}>
         <Copy size={16} />
         Copy HTML
       </Button3D>
-      <Button3D onClick={() => downloadEmailAsHtml(email)}>
+      <Button3D className="bg-[#EEE]" onClick={() => downloadEmailAsHtml(email)}>
         <Download size={16} />
         Download HTML
       </Button3D>
-      <Button3D onClick={() => downloadEmailAsZip(email)}>
+      <Button3D className="bg-[#EEE]" onClick={() => downloadEmailAsZip(email)}>
         <Download size={16} />
         Download Zip
       </Button3D>
-      <Button3D onClick={() => navigate(`/duplicate/${email.id}`)}>
+      <Button3D className="bg-[#EEE]" onClick={() => navigate(`/duplicate/${email.id}`)}>
         <FilePlus size={16} />
         Duplicate
       </Button3D>

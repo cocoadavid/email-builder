@@ -6,6 +6,7 @@ import HomePage from '@/pages/home/HomePage';
 import CreatePage from '@/pages/create/CreatePage';
 import DuplicatePage from '@/pages/duplicate/DuplicatePage';
 import { Toaster } from 'sonner';
+import ColorGuide from './pages/colorGuide/ColorGuide';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/create" element={<CreatePage />} />
           <Route path="/duplicate/:sourceId" element={<DuplicatePage />} />
+          <Route path="/colorguide" element={<ColorGuide />} />
         </Routes>
       </div>
     </Router>

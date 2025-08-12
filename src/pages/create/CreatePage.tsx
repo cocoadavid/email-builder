@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { cleanProjectName } from '@/utils/cleanProjectName';
 import Button3D from '@/components/appComponents/Button3D';
+import Card from '@/components/appComponents/Card';
 
 const CreatePage = () => {
   const navigate = useNavigate();
@@ -96,7 +97,7 @@ const CreatePage = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-4 bg-white shadow-lg rounded-2xl p-6 space-y-4 border border-sky-100">
+    <Card className="max-w-xl mx-auto">
       <h2 className="text-2xl font-bold text-sky-700 border-b border-sky-200 pb-2">
         Create New Email
       </h2>
@@ -195,7 +196,7 @@ const CreatePage = () => {
           </Button3D>
         )}
       </form>
-    </div>
+    </Card>
   );
 };
 

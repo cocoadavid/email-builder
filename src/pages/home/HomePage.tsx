@@ -72,7 +72,7 @@ const HomePageContent = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto pt-4 grid grid-cols-1 lg:grid-cols-[1fr_800px] gap-1 items-start">
+    <div className="max-w-7xl px-1 mx-auto grid grid-cols-1 lg:grid-cols-[1fr_800px] gap-1 items-start">
       {error && <div className="text-red-500">{error}</div>}
       {isPending && <div className="text-gray-500">Loading...</div>}
 

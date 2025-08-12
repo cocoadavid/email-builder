@@ -1,4 +1,4 @@
-const emailHeaderImage = '/emailheader.jpg';
+const emailHeaderImage = '/email-header-600x250.PNG';
 import { useEmailType } from '@/context/EmailTypeContext';
 
 type HeaderImageProps = {

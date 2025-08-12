@@ -1,3 +1,4 @@
+import Card from '@/components/appComponents/Card';
 import type { Email } from '@/types/email.type.ts';
 
 type EmailSelectorProps = {
@@ -8,11 +9,11 @@ type EmailSelectorProps = {
 
 export const EmailSelector = ({ emails, selectedEmailId, onChange }: EmailSelectorProps) => {
   return (
-    <div className="flex items-center gap-4">
+    <Card className="flex items-center py-0 px-0">
       <select
         value={selectedEmailId}
         onChange={e => onChange(e.target.value)}
-        className="w-full px-4 py-2 border text-sm border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white text-gray-800"
+        className="w-full p-2 text-sm focus:outline-none focus:ring-2 focus:ring-vsBlack bg-white"
       >
         <option value="">-- Select an email --</option>
         {emails.length > 0 ? (
@@ -28,6 +29,6 @@ export const EmailSelector = ({ emails, selectedEmailId, onChange }: EmailSelect
           <option disabled>No emails available</option>
         )}
       </select>
-    </div>
+    </Card>
   );
 };

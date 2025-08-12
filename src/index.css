@@ -1,9 +1,18 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-vfRed: #e60000;
-  --color-vfPurple: #9c2aa0;
-  --color-vfBlack: #000000;
+  --color-vsRed: #e60000;
+  --color-vsRedDark: #820000;
+  --color-vsBlack: #000000;
+  --color-vsBlackLight: #333333;
+  --color-vsPurple: #9c2aa0;
+  --color-vsGrayDark: #4a4d4e;
+  --color-vsGrayLight: #d2d2d2;
+  --color-vsGray: #a6a6a6;
+  --color-vsWhite: #f2f2f2;
+  --color-vsBlue: #00b0ca;
+  --color-vsGreen: #a8b400;
+  --color-vsYellow: #fecb00;
 }
 /* sky-50, sky-200, sky-500, sky-600, sky-700: a Reactre emlékeztető világoskék árnyalatok. */
 

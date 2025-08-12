@@ -13,12 +13,19 @@ const Button3D = ({
   disabled = false,
   type = 'button',
 }: Button3DProps) => {
+  let initialClasses = `relative inline-flex items-center gap-2 justify-center px-4 py-2 shadow-xl text-sm font-semibold text-vsBlackLight
+        border-2 border-vsRed hover:bg-linear-to-r hover:from-vsRed hover:via-vsRed hover:to-vsPurple hover:text-white`;
+  if (disabled) {
+    initialClasses = `relative inline-flex items-center gap-2 justify-center px-4 py-2 shadow-xl text-sm font-semibold text-vsGrayDark
+        border-2 border-transparent bg-vsGrayLight/50`;
+  }
+
   return (
     <button
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={`group text-sm text-white font-semibold relative inline-flex h-8 items-center gap-2 justify-center overflow-hidden rounded-md ${!disabled ? 'bg-sky-600 [box-shadow:0px_4px_1px_#075985]' : 'bg-gray-400 cursor-not-allowed'} px-4 transition-all active:translate-y-[2px] active:shadow-none ${className}`}
+      className={`${initialClasses} ${className}`}
     >
       {children}
     </button>

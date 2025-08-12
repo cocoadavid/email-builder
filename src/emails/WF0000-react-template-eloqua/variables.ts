@@ -2,13 +2,13 @@ const imgPath = `/emails/${localStorage.getItem('lastSelectedEmailId')}/images`;
 
 export const variables = {
   images: {
-    header: '/emailheader.jpg',
-    headerMobile: '/emailheader.jpg',
+    header: '/email-header-600x250.PNG',
+    headerMobile: '/email-header-600x250.PNG',
     example: '/react-icon.png',
   },
   thirdpartyImages: {
-    header: `${imgPath}/emailheader.jpg`,
-    headerMobile: `${imgPath}/emailheader.jpg`,
+    header: `${imgPath}/email-header-600x250.PNG`,
+    headerMobile: `${imgPath}/email-header-600x250.PNG`,
   },
   dynamicSections: true, // import sections dynamically
 };

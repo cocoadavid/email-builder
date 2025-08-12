@@ -2,6 +2,7 @@ import type { Email, EmailUpdateInput } from '@/types/email.type';
 import { useState, useEffect } from 'react';
 import type { EmailType } from '@/types/email.type';
 import Button3D from '@/components/appComponents/Button3D';
+import Card from '@/components/appComponents/Card';
 
 type EmailUpdateEditorProps = {
   email: Email;
@@ -31,7 +32,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
   }, [type, subjectLine, previewText, email]);
 
   return (
-    <div className="mb-4 p-4 border bg-white shadow-lg rounded-2xl border border-sky-100 text-sm">
+    <Card>
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4">
           <label className="w-24 text-sm">Subject line:</label>
@@ -39,7 +40,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
             type="text"
             value={subjectLine}
             onChange={e => setSubjectLine(e.target.value)}
-            className="flex-1 border rounded px-3 py-1"
+            className="flex-1 border px-3 py-1"
           />
         </div>
 
@@ -49,7 +50,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
             type="text"
             value={previewText}
             onChange={e => setPreviewText(e.target.value)}
-            className="flex-1 border rounded px-3 py-1"
+            className="flex-1 border px-3 py-1"
           />
         </div>
 
@@ -58,7 +59,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
           <select
             value={type}
             onChange={e => setType(e.target.value as EmailType)}
-            className="flex-1 border rounded px-3 py-1"
+            className="flex-1 border px-3 py-1"
           >
             {typeOptions.map(opt => (
               <option key={opt} value={opt}>
@@ -72,7 +73,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
           Update email
         </Button3D>
       </div>
-    </div>
+    </Card>
   );
 };
 
