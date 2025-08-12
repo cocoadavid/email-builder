@@ -4,6 +4,7 @@ export const variables = {
   images: {
     header: '/emailheader.jpg',
     headerMobile: '/emailheader.jpg',
+    example: '/react-icon.png',
   },
   thirdpartyImages: {
     header: `${imgPath}/emailheader.jpg`,

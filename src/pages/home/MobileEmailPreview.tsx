@@ -22,7 +22,7 @@ const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
 
   useEffect(() => {
     const renderHtml = async () => {
-      const baseHtml = await generateFullHtml(email);
+      const baseHtml = await generateFullHtml(email, false);
       const injectedHtml = baseHtml?.replace(
         /<\/head>/i,
         `

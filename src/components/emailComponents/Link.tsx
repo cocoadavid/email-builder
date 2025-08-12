@@ -1,13 +1,13 @@
 type LinkProps = {
   text: string;
-  url: string;
+  href: string;
   className?: string;
   color?: string;
 };
-const Link = ({ text, url, className, color }: LinkProps) => {
+const Link = ({ text, href, className, color }: LinkProps) => {
   return (
     <a
-      href={url || 'https://reallygoodemails.com/'}
+      href={href || 'https://reallygoodemails.com/'}
       target="_blank"
       className={className}
       style={{ color }}

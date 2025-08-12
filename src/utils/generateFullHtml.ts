@@ -4,6 +4,7 @@ import type { Email } from '@/types/email.type';
 import { inlineHtmlStyle } from './inlineHtmlStyle';
 import baseCss from '@/styles/emailBase.css?raw';
 import { EmailTypeProvider } from '@/context/EmailTypeContext';
+import { html as beautifyHtml } from 'js-beautify';
 
 const emailModules = import.meta.glob('/src/emails/*/Email.tsx');
 
@@ -11,7 +12,7 @@ type EmailComponentProps = {
   email: Email;
 };
 
-export const generateFullHtml = async (selectedEmailObj: Email) => {
+export const generateFullHtml = async (selectedEmailObj: Email, clean: boolean = true) => {
   const modulePath = `/src/emails/${selectedEmailObj.id}/Email.tsx`;
   const importFn = emailModules[modulePath];
   if (!importFn) {
@@ -32,6 +33,7 @@ export const generateFullHtml = async (selectedEmailObj: Email) => {
         children: React.createElement(Component, { email: selectedEmailObj }),
       }),
     );
+    htmlContent = beautifyHtml(htmlContent, { indent_size: 2, preserve_newlines: true });
   } catch (err) {
     console.error(`❌ Failed to render email component for ${selectedEmailObj.id}`, err);
     throw err;
@@ -70,9 +72,7 @@ export const generateFullHtml = async (selectedEmailObj: Email) => {
       </style>
     <![endif]--> 
     <style type="text/css">
-      /* Base styles */
       ${baseCss}
-      /* Email-specific styles */
       ${cssContent}
     </style>
   </head>
@@ -87,6 +87,6 @@ export const generateFullHtml = async (selectedEmailObj: Email) => {
   </body>
 </html>`;
 
-  const inlinedHtml = inlineHtmlStyle(fullHtml);
+  const inlinedHtml = inlineHtmlStyle(fullHtml, clean);
   return inlinedHtml;
 };

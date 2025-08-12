@@ -2,7 +2,7 @@ import * as Email from '@/components/emailComponents';
 
 const EmailSection = () => {
   return (
-    <Email.Section className="text-14 text-center" bgColor="#bae6fd">
+    <Email.Section className="text-14 text-center" bgColor="#7dd3fc">
       <table width="100%" cellPadding={0} cellSpacing={0} border={0} role="presentation">
         <tbody>
           <tr>
@@ -11,10 +11,9 @@ const EmailSection = () => {
             </td>
           </tr>
           <tr>
-            <td className="text-14" style={{ background: '#FFFFFF', padding: '4px 4px 4px 4px' }}>
-              If you write code like this, tbody is a must have, unfortunately.
-              <br />
-              Otherwise typescript whines.
+            <td className="text-14" style={{ background: '#bae6fd', padding: '4px 24px 4px 24px' }}>
+              If you write code like this, tbody is a must have, unfortunately. Otherwise typescript
+              whines.
             </td>
           </tr>
         </tbody>

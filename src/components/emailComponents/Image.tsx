@@ -3,9 +3,9 @@ import { useEmailType } from '@/context/EmailTypeContext';
 type ImageProps = {
   src: string;
   srcMobile?: string;
-  sameOnMobile: boolean;
+  sameOnMobile?: boolean;
   alt: string;
-  width: number;
+  width?: number;
   height?: number;
   center?: boolean;
 };
