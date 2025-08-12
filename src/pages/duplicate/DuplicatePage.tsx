@@ -86,7 +86,6 @@ const CreatePage = () => {
       suffix,
     };
 
-    const toastId = toast.loading('Generating email...');
     timeoutRef.current = setTimeout(() => {
       fetch('http://localhost:8000/emails', {
         method: 'POST',
@@ -95,7 +94,7 @@ const CreatePage = () => {
       })
         .then(() => {
           setIsPending(false);
-          toast.success('New email created', { id: toastId });
+          toast.success('New email created');
           localStorage.setItem('lastSelectedEmailId', emailData.id);
           navigate('/');
           timeoutRef.current = null;
@@ -103,7 +102,7 @@ const CreatePage = () => {
         .catch(err => {
           setIsPending(false);
           console.error('Error creating email:', err);
-          toast.error('Something went wrong.', { id: toastId });
+          toast.error('Something went wrong.');
           timeoutRef.current = null;
         });
     }, 1000);

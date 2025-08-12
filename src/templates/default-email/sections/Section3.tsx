@@ -3,20 +3,21 @@ import { variables } from '../variables';
 
 const EmailSection = () => {
   return (
-    <Email.Section className="text-center">
+    <Email.Section className="text-center" bgColor="#e0f2fe">
       <Email.Table>
         <tr>
-          <Email.Td>But I also created React Components like this for the table and td.</Email.Td>
+          <Email.Td>But I also created React Components like Table and Td.</Email.Td>
         </tr>
         <tr>
           <Email.Td padding="12px 0px 12px 0px">
-            For example this Link, or the Image below.
+            Or{' '}
             <Email.Link
-              text="This is a link"
+              text="this link"
               href="https://reallygoodemails.com/"
               color="#4c1d95"
               className="underlined"
-            />
+            />{' '}
+            and the Image below.
           </Email.Td>
         </tr>
         <tr>

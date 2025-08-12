@@ -15,5 +15,6 @@ export const variables = {
   components: {
     Link: Email.Link,
     Image: Email.Image,
+    CTA: Email.CTA,
   },
 };
