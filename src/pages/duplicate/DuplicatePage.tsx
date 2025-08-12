@@ -7,7 +7,6 @@ import useFetchSingle from '@/hooks/useFetchSingle';
 import { cleanProjectName } from '@/utils/cleanProjectName.ts';
 import Button3D from '@/components/appComponents/Button3D';
 
-
 const CreatePage = () => {
   const { sourceId } = useParams<{ sourceId: string }>();
   const navigate = useNavigate();
@@ -200,15 +199,14 @@ const CreatePage = () => {
         </div>
 
         {!isPending ? (
-          <Button3D type='submit' className='w-full'>
+          <Button3D type="submit" className="w-full">
             Create Email
           </Button3D>
         ) : (
-          <Button3D type='submit' className='w-full' disabled>
-            <LoaderCircle className='animate-spin' size={16} /> Creating email...
+          <Button3D type="submit" className="w-full" disabled>
+            <LoaderCircle className="animate-spin" size={16} /> Creating email...
           </Button3D>
-        )
-        }
+        )}
       </form>
     </div>
   );

@@ -5,7 +5,6 @@ import { toast } from 'sonner';
 import { cleanProjectName } from '@/utils/cleanProjectName';
 import Button3D from '@/components/appComponents/Button3D';
 
-
 const CreatePage = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false);
@@ -187,15 +186,14 @@ const CreatePage = () => {
           </select>
         </div>
         {!isPending ? (
-          <Button3D type='submit' className='w-full'>
+          <Button3D type="submit" className="w-full">
             Create Email
           </Button3D>
         ) : (
-          <Button3D type='submit' className='w-full' disabled>
-            <LoaderCircle className='animate-spin' size={16} /> Creating email...
+          <Button3D type="submit" className="w-full" disabled>
+            <LoaderCircle className="animate-spin" size={16} /> Creating email...
           </Button3D>
-        )
-        }
+        )}
       </form>
     </div>
   );

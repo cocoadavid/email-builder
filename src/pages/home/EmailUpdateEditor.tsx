@@ -68,10 +68,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
           </select>
         </div>
 
-        <Button3D
-          onClick={() => onSave({ type, subjectLine, previewText })}
-          disabled={!isDirty}
-        >
+        <Button3D onClick={() => onSave({ type, subjectLine, previewText })} disabled={!isDirty}>
           Update email
         </Button3D>
       </div>

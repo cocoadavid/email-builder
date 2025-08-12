@@ -10,12 +10,14 @@ const EmailSection = () => {
         </tr>
         <tr>
           <Email.Td padding="12px 0px 12px 0px">
-           Or <Email.Link
+            Or{' '}
+            <Email.Link
               text="this link"
               href="https://reallygoodemails.com/"
               color="#4c1d95"
               className="underlined"
-            />{' '}and the Image below.
+            />{' '}
+            and the Image below.
           </Email.Td>
         </tr>
         <tr>
