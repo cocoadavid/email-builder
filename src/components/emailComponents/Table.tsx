@@ -3,11 +3,15 @@ import React from 'react';
 type TableProps = {
   width?: number;
   style?: React.CSSProperties;
+  bgColor?: string;
+  className?: string;
   children: React.ReactNode;
 };
 
-const Table = ({ children, width, style }: TableProps) => {
-  const baseStyle: React.CSSProperties = width ? { width: `${width}px` } : { width: '100%' };
+const Table = ({ children, width, style, bgColor, className }: TableProps) => {
+  const baseStyle: React.CSSProperties = width
+    ? { width: `${width}px`, background: bgColor }
+    : { width: '100%', background: bgColor };
   const combinedStyle = { ...baseStyle, ...style };
 
   // Ellenőrzés: ha children egy tömb vagy egy elem, ellenőrizzük a típust
@@ -34,9 +38,11 @@ const Table = ({ children, width, style }: TableProps) => {
     <table
       width={width ? width : '100%'}
       style={combinedStyle}
+      className={className}
       cellPadding={0}
       cellSpacing={0}
       border={0}
+      bgcolor={bgColor}
       role="presentation"
     >
       <tbody>{children}</tbody>

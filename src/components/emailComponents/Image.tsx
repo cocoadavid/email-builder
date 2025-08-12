@@ -6,6 +6,7 @@ type ImageProps = {
   sameOnMobile: boolean;
   alt: string;
   width: number;
+  height?: number;
   center?: boolean;
 };
 
@@ -16,6 +17,7 @@ const Image = ({
   alt = '',
   center = false,
   width,
+  height,
 }: ImageProps) => {
   const { emailType } = useEmailType();
   const desktopClassName = [srcMobile ? 'hide-on-mobile' : null, center ? 'center' : null]
@@ -31,6 +33,7 @@ const Image = ({
         src={src}
         alt={alt}
         width={width}
+        height={height}
         style={{
           display: 'block',
           width: `${width}px`,

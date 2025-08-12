@@ -13,7 +13,7 @@ const Email = ({ email }: EmailProps) => {
 
   return (
     <Wrapper>
-      <HeaderImage src={images.header} srcMobile={images.headerMobile} />
+      <HeaderImage src={images.header} srcMobile={images.headerMobile} altText="banner image" />
       <Section html={sections.section1} variables={variables} bgColor="#bae6fd" />
       <Section html={sections.section2} variables={variables} />
     </Wrapper>

@@ -10,8 +10,16 @@ const EmailTypeContext = createContext<EmailTypeContextType>({
   setEmailType: () => {},
 });
 
-export const EmailTypeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [emailType, setEmailType] = useState<string | null>(null);
+type EmailTypeProviderProps = {
+  children: React.ReactNode;
+  initialEmailType?: string | null;
+};
+
+export const EmailTypeProvider: React.FC<EmailTypeProviderProps> = ({
+  children,
+  initialEmailType = null,
+}) => {
+  const [emailType, setEmailType] = useState<string | null>(initialEmailType);
 
   return (
     <EmailTypeContext.Provider value={{ emailType, setEmailType }}>

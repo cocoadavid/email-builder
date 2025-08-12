@@ -11,6 +11,7 @@ const Link = ({ text, url, className, color }: LinkProps) => {
       target="_blank"
       className={className}
       style={{ color }}
+      role="link"
     >
       <span className={className} style={{ color }}>
         {text || 'placeholder'}

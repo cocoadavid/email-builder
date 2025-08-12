@@ -199,12 +199,20 @@ th h6 {
   text-decoration: underline;
 }
 
+.undecorated {
+  text-decoration: none !important;
+}
+
 .c-vfred {
   color: #e60000;
 }
 
 .c-white {
   color: #ffffff;
+}
+
+.c-greycc {
+  color: #cccccc;
 }
 
 /* === Extra Classes === */

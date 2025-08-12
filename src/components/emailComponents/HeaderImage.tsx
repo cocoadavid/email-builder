@@ -11,7 +11,7 @@ const HeaderImage = ({ src, altText, srcMobile }: HeaderImageProps) => {
   const { emailType } = useEmailType();
 
   return (
-    <table width="100%" cellPadding={0} cellSpacing={0} border={0} role="banner">
+    <table className="w-full" width="100%" cellPadding={0} cellSpacing={0} border={0} role="banner">
       <tbody>
         <tr>
           <td align="center" className="p-reset text-0" valign="top">
