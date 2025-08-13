@@ -2,18 +2,24 @@ import * as Email from '@/components/emailComponents';
 
 const EmailSection = () => {
   return (
-    <Email.Section className="text-14 text-center" bgColor="#7dd3fc">
+    <Email.Section className="text-14 text-center" bgColor="#f2f2f2">
       <table width="100%" cellPadding={0} cellSpacing={0} border={0} role="presentation">
         <tbody>
           <tr>
-            <td className="text-14" style={{ padding: '0px 0px 8px 0px' }}>
+            <td
+              className="text-14 w-half"
+              style={{ padding: '4px 12px 4px 12px', borderRight: '2px solid #e60000' }}
+            >
               Here you can see how to write more traditional table and td elements.
+            </td>
+            <td className="text-14 w-half" style={{ padding: '4px 12px 4px 12px' }}>
+              Please note: if you write code like this, tbody is a must have.
             </td>
           </tr>
           <tr>
-            <td className="text-14" style={{ background: '#bae6fd', padding: '4px 24px 4px 24px' }}>
-              If you write code like this, tbody is a must have, unfortunately. Otherwise typescript
-              whines.
+            <td colSpan={2} style={{ padding: '24px 0px 0px 0px' }}>
+              Sections are imported <span className="bold c-vfred">dynamically</span>, ordered by
+              their name.
             </td>
           </tr>
         </tbody>

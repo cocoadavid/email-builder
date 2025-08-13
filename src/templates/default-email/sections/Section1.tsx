@@ -2,7 +2,7 @@ import * as Email from '@/components/emailComponents';
 
 const EmailSection = () => {
   return (
-    <Email.Section className="text-14 text-center" bgColor="#38bdf8">
+    <Email.Section className="text-14 text-center">
       <Email.Salutation />
       <br />
       <br />

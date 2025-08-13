@@ -19,7 +19,7 @@ const CTA = ({
   bgColor = '#e60000',
   color = '#FFFFFF',
   fontWeight = 'normal',
-  fontSize = 18,
+  fontSize = 16,
   width,
   height = 50,
   borderRadius = 6,

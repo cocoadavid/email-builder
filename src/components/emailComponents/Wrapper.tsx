@@ -3,7 +3,7 @@ type WrapperProps = {
   width?: number;
 };
 
-const Wrapper = ({ children, width }: WrapperProps) => {
+const Wrapper = ({ children, width = 600 }: WrapperProps) => {
   return (
     <table
       width="100%"
@@ -20,12 +20,12 @@ const Wrapper = ({ children, width }: WrapperProps) => {
         <tr>
           <td align="center">
             <table
-              width={width || '600'}
+              width={width}
               cellPadding={0}
               cellSpacing={0}
               className="drop-shadow-xl full-width-mobile"
               style={{
-                width: `${width}px` || '600px',
+                width: `${width}px`,
                 backgroundColor: '#ffffff',
                 borderCollapse: 'collapse',
               }}

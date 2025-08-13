@@ -220,6 +220,10 @@ td.section {
   padding: 24px 24px 24px 24px;
 }
 
+td.section.pt-0 {
+  padding: 0px 24px 24px 24px;
+}
+
 td.p-top {
   padding-top: 24px;
 }
