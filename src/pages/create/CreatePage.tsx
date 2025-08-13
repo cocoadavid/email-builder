@@ -75,7 +75,7 @@ const CreatePage = () => {
       previewText,
       type,
       createdAt,
-      templateId: type === "thirdparty" ? `${templateId}-thirdparty` : templateId,
+      templateId: type === 'thirdparty' ? `${templateId}-thirdparty` : templateId,
     };
 
     // Azonnal állítsuk be timeoutRef-et, hogy ne legyen race condition

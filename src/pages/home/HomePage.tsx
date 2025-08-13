@@ -30,8 +30,10 @@ const HomePageContent = () => {
 
   // Derived data
   const selectedEmailObj = localEmails.find((email: Email) => email.id === selectedEmailId);
-  const projectFolder = `${selectedEmailObj?.wfNumber}-${selectedEmailObj?.projectName}`
-  const EmailPreviewComponent = selectedEmailObj ? getEmailPreviewComponent(projectFolder, selectedEmailObj.suffix) : null;
+  const projectFolder = `${selectedEmailObj?.wfNumber}-${selectedEmailObj?.projectName}`;
+  const EmailPreviewComponent = selectedEmailObj
+    ? getEmailPreviewComponent(projectFolder, selectedEmailObj.suffix)
+    : null;
   const { setEmailType } = useEmailType();
 
   // Effects

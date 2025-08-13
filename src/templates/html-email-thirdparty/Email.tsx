@@ -9,10 +9,13 @@ type EmailProps = {
 };
 
 const Email = ({ email }: EmailProps) => {
-
   return (
     <Wrapper>
-      <HeaderImage src={variables.images.header} srcMobile={variables.images.headerMobile} altText="banner image" />
+      <HeaderImage
+        src={variables.images.header}
+        srcMobile={variables.images.headerMobile}
+        altText="banner image"
+      />
       <Section html={sections.section1} variables={variables} bgColor="#f2f2f2" />
       <Section html={sections.section2} variables={variables} />
     </Wrapper>

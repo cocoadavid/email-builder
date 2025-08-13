@@ -7,7 +7,10 @@ import { EmailTypeProvider } from '@/context/EmailTypeContext';
 import { html as beautifyHtml } from 'js-beautify';
 
 const emailModules = import.meta.glob('/src/emails/**/Email.tsx');
-const cssModules = import.meta.glob<string>('/src/emails/**/email.css', { query: '?raw', import: 'default' });
+const cssModules = import.meta.glob<string>('/src/emails/**/email.css', {
+  query: '?raw',
+  import: 'default',
+});
 
 type EmailComponentProps = {
   email: Email;

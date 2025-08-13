@@ -10,11 +10,14 @@ type EmailProps = {
 };
 
 const Email = ({ email }: EmailProps) => {
-
   return (
     <Wrapper>
       <Top />
-      <HeaderImage src={variables.images.header} srcMobile={variables.images.headerMobile} altText="banner image" />
+      <HeaderImage
+        src={variables.images.header}
+        srcMobile={variables.images.headerMobile}
+        altText="banner image"
+      />
       {variables.dynamicSections &&
         Object.entries(sections).map(([name, Section], i) => <Section key={`${name}-${i}`} />)}
     </Wrapper>

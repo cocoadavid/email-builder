@@ -91,7 +91,7 @@ const CreatePage = () => {
       previewText,
       type,
       createdAt,
-      templateId: type === "thirdparty" ? `${templateId}-thirdparty` : templateId,
+      templateId: type === 'thirdparty' ? `${templateId}-thirdparty` : templateId,
       sourceId,
     };
 
