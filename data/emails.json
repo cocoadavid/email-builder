@@ -5,10 +5,10 @@
       "wfNumber": "WF0001",
       "projectName": "react_template",
       "suffix": "email1",
-      "subjectLine": "react SL",
-      "previewText": "react PT",
+      "subjectLine": "eloqua sl",
+      "previewText": "eloqua pt",
       "type": "eloqua",
-      "createdAt": "2025-08-13T09:42:24.359Z",
+      "createdAt": "2025-08-13T18:48:06.012Z",
       "templateId": "default-email"
     },
     {
@@ -16,46 +16,23 @@
       "wfNumber": "WF0001",
       "projectName": "react_template",
       "suffix": "email2",
-      "subjectLine": "react SL",
-      "previewText": "react PT",
-      "type": "oft",
-      "createdAt": "2025-08-13T09:53:25.454Z",
-      "templateId": "default-email",
-      "sourceId": "WF0001-react_template-email1"
-    },
-    {
-      "id": "WF0002-thirdparty_projekt-email1",
-      "wfNumber": "WF0002",
-      "projectName": "thirdparty_projekt",
-      "suffix": "email1",
-      "subjectLine": "Sl",
-      "previewText": "PT",
-      "type": "thirdparty",
-      "createdAt": "2025-08-13T09:56:16.660Z",
-      "templateId": "default-email"
-    },
-    {
-      "id": "WF0003-thirdparty_ketto-email1",
-      "wfNumber": "WF0003",
-      "projectName": "thirdparty_ketto",
-      "suffix": "email1",
       "subjectLine": "sl",
       "previewText": "pt",
-      "type": "thirdparty",
-      "createdAt": "2025-08-13T10:00:40.637Z",
-      "templateId": "html-email"
-    },
-    {
-      "id": "WF0001-react_template-resend",
-      "wfNumber": "WF0001",
-      "projectName": "react_template",
-      "suffix": "resend",
-      "subjectLine": "resend react SL",
-      "previewText": "resend react PT",
-      "type": "eloqua",
-      "createdAt": "2025-08-13T10:04:41.776Z",
+      "type": "oft",
+      "createdAt": "2025-08-13T18:48:43.109Z",
       "templateId": "default-email",
       "sourceId": "WF0001-react_template-email1"
+    },
+    {
+      "id": "WF0002-thirdparty_project-email1",
+      "wfNumber": "WF0002",
+      "projectName": "thirdparty_project",
+      "suffix": "email1",
+      "subjectLine": "SL",
+      "previewText": "PT",
+      "type": "thirdparty",
+      "createdAt": "2025-08-13T18:49:21.087Z",
+      "templateId": "default-email-thirdparty"
     }
   ]
 }

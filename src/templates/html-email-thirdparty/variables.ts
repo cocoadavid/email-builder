@@ -3,18 +3,14 @@ const imgPath = `/assets/${localStorage.getItem('lastSelectedEmailId')}/images`;
 
 export const variables = {
   images: {
-    header: '/email-header-600x250.PNG',
-    headerMobile: '/email-header-600x250.PNG',
-    example: '/example.jpg',
-  },
-  thirdpartyImages: {
     header: `${imgPath}/email-header-600x250.PNG`,
     headerMobile: `${imgPath}/email-header-600x250.PNG`,
-    example: '/example.jpg',
+    example: `${imgPath}/example.jpg`,
   },
   components: {
-    Link: Email.Link,
-    Image: Email.Image,
     CTA: Email.CTA,
+    Image: Email.Image,
+    Link: Email.Link,
+    Salutation: Email.Salutation,
   },
 };

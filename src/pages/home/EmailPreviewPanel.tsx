@@ -14,6 +14,7 @@ type EmailPreviewPanelProps = {
 const EmailPreviewPanel = ({ EmailPreviewComponent, email }: EmailPreviewPanelProps) => {
   const [viewMode, setViewMode] = useState<ViewMode>('desktop');
 
+  if (!EmailPreviewComponent) return <div>No available preview</div>;
   return (
     <div className="flex flex-col items-center">
       {EmailPreviewComponent && (

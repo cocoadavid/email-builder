@@ -21,9 +21,9 @@ const EmailSection = () => {
         <tr>
           <Email.Td className="w-half">
             <Email.Image
-              width={130}
               src={variables.images.example}
               alt="logo"
+              width={130}
               sameOnMobile
               center
             />

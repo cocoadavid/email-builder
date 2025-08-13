@@ -31,6 +31,7 @@ const CreatePage = () => {
     if (sourceId && email) {
       setWfNumber(email.wfNumber.substring(2));
       setProjectName(email.projectName);
+      setSuffix(email.suffix);
       setSubjectLine(email.subjectLine);
       setPreviewText(email.previewText);
       setType(email.type);
@@ -68,8 +69,8 @@ const CreatePage = () => {
       const alreadyExists = existingEmails.some((em: any) => em.id === newId);
       if (alreadyExists) {
         toast.error(
-          `Email with ID "${newId}" already exists! Please try with a different suffix.`,
-          { duration: 4500 },
+          `Email with this name: "${suffix}" already exists in this project! Please try with a different suffix.`,
+          { duration: 5000 },
         );
         return;
       }
@@ -90,7 +91,7 @@ const CreatePage = () => {
       previewText,
       type,
       createdAt,
-      templateId,
+      templateId: type === "thirdparty" ? `${templateId}-thirdparty` : templateId,
       sourceId,
     };
 
@@ -113,7 +114,7 @@ const CreatePage = () => {
           toast.error('Something went wrong.');
           timeoutRef.current = null;
         });
-    }, 750);
+    }, 500);
   };
 
   return (

@@ -7,6 +7,7 @@ import { EmailTypeProvider } from '@/context/EmailTypeContext';
 import { html as beautifyHtml } from 'js-beautify';
 
 const emailModules = import.meta.glob('/src/emails/**/Email.tsx');
+const cssModules = import.meta.glob<string>('/src/emails/**/email.css', { query: '?raw', import: 'default' });
 
 type EmailComponentProps = {
   email: Email;
@@ -40,11 +41,16 @@ export const generateFullHtml = async (selectedEmailObj: Email, clean: boolean =
     throw err;
   }
 
+  const cssPath = `/src/emails/${emailFolder}/email.css`;
+  const cssImportFn = cssModules[cssPath];
   let cssContent = '';
-  try {
-    cssContent = (await import(`../emails/${emailFolder}/email.css?raw`)).default;
-  } catch (error) {
-    console.error(`Failed to load CSS for ${selectedEmailObj.id}`, error);
+
+  if (cssImportFn) {
+    cssContent = await cssImportFn();
+  } else {
+    console.log(Object.keys(cssModules));
+    console.warn(cssPath);
+    console.warn(`No CSS found for ${selectedEmailObj.id}`);
   }
 
   const fullHtml = `<!DOCTYPE html>

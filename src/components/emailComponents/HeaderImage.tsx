@@ -1,4 +1,4 @@
-const emailHeaderImage = '/email-header-600x250.PNG';
+const fallbackImage = '/assets/example/email-header-600x250.PNG';
 import { useEmailType } from '@/context/EmailTypeContext';
 
 type HeaderImageProps = {
@@ -10,6 +10,10 @@ type HeaderImageProps = {
 const HeaderImage = ({ src, altText, srcMobile }: HeaderImageProps) => {
   const { emailType } = useEmailType();
 
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = fallbackImage;
+  };
+
   return (
     <table className="w-full" width="100%" cellPadding={0} cellSpacing={0} border={0} role="banner">
       <tbody>
@@ -17,7 +21,7 @@ const HeaderImage = ({ src, altText, srcMobile }: HeaderImageProps) => {
           <td align="center" className="p-reset text-0" valign="top">
             <img
               className={['highspot', 'oft'].includes(emailType ?? '') ? '' : 'hide-on-mobile'}
-              src={src || emailHeaderImage}
+              src={src}
               alt={altText || 'Email Header Image'}
               width="600"
               style={{
@@ -29,13 +33,14 @@ const HeaderImage = ({ src, altText, srcMobile }: HeaderImageProps) => {
                 fontSize: 0,
                 border: 0,
               }}
+              onError={handleError}
             />
             {(emailType ?? '') !== 'highspot' && (emailType ?? '') !== 'oft' && (
               <>
                 <div dangerouslySetInnerHTML={{ __html: '<!--[if !mso]><!-->' }}></div>
                 <img
                   className="show-on-mobile responsive"
-                  src={srcMobile || src || emailHeaderImage}
+                  src={srcMobile || src}
                   alt={altText || 'Email Header Image'}
                   style={{
                     display: 'block',

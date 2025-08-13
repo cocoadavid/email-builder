@@ -75,7 +75,7 @@ const CreatePage = () => {
       previewText,
       type,
       createdAt,
-      templateId,
+      templateId: type === "thirdparty" ? `${templateId}-thirdparty` : templateId,
     };
 
     // Azonnal állítsuk be timeoutRef-et, hogy ne legyen race condition
@@ -98,7 +98,7 @@ const CreatePage = () => {
           toast.error('Something went wrong.', { id: emailData.id });
           timeoutRef.current = null;
         });
-    }, 750);
+    }, 500);
   };
 
   return (

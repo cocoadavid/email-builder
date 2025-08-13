@@ -6,8 +6,6 @@ const EmailSection = () => {
       <Email.Salutation />
       <br />
       <br />
-      This is email 2
-      <br/>
       You can create a section just like this. Could be useful for an intro.
     </Email.Section>
   );
