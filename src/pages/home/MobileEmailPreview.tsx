@@ -11,10 +11,9 @@ const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
   const [html, setHtml] = useState<string | undefined>('');
   const [version, setVersion] = useState<number>(Date.now());
 
-  // Trigger újragenerálás mentéskor
   useEffect(() => {
     const interval = setInterval(() => {
-      setVersion(Date.now()); // ez trükkösen "kikényszeríti" az újrahívást, ha a fájl változik
+      setVersion(Date.now()); // force reload if file changes so it can be seen on the preview
     }, 1000);
 
     return () => clearInterval(interval);

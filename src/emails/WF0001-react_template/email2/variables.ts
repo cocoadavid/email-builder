@@ -1,4 +1,4 @@
-const imgPath = `/emails/${localStorage.getItem('lastSelectedEmailId')}/images`;
+const imgPath = `/assets/${localStorage.getItem('lastSelectedEmailId')}/images`;
 
 export const variables = {
   images: {

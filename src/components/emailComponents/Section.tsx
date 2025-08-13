@@ -34,7 +34,6 @@ function replacePlaceholders(html: string, obj: Record<string, any>, prefix = ''
     } else if (typeof value === 'string' || typeof value === 'number') {
       result = result.replace(regex, String(value));
     } else if (typeof value === 'object' && value !== null) {
-      // 🔹 Rekurzív feldolgozás, de ugyanazon result-on
       result = replacePlaceholders(result, value, fullKey);
     }
   });
@@ -43,7 +42,7 @@ function replacePlaceholders(html: string, obj: Record<string, any>, prefix = ''
 }
 
 const Section = ({ html, children, bgColor, className, variables }: SectionProps) => {
-  // Ha van html és images, akkor cseréljük a placeholder-eket
+  // If html and images, replace placeholders
   let processedHtml = html;
   if (processedHtml && variables) {
     processedHtml = replacePlaceholders(processedHtml, variables);

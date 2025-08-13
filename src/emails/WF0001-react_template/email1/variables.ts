@@ -1,5 +1,4 @@
-import * as Email from '@/components/emailComponents';
-const imgPath = `/emails/${localStorage.getItem('lastSelectedEmailId')}/images`;
+const imgPath = `/assets/${localStorage.getItem('lastSelectedEmailId')}/images`;
 
 export const variables = {
   images: {
@@ -10,11 +9,6 @@ export const variables = {
   thirdpartyImages: {
     header: `${imgPath}/email-header-600x250.PNG`,
     headerMobile: `${imgPath}/email-header-600x250.PNG`,
-    example: '/example.jpg',
   },
-  components: {
-    Link: Email.Link,
-    Image: Email.Image,
-    CTA: Email.CTA,
-  },
+  dynamicSections: true, // import sections dynamically
 };

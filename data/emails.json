@@ -1,28 +1,61 @@
 {
   "emails": [
     {
-      "id": "WF0000-html-template-thirdparty",
-      "wfNumber": "0000",
-      "projectName": "html",
+      "id": "WF0001-react_template-email1",
+      "wfNumber": "WF0001",
+      "projectName": "react_template",
+      "suffix": "email1",
+      "subjectLine": "react SL",
+      "previewText": "react PT",
+      "type": "eloqua",
+      "createdAt": "2025-08-13T09:42:24.359Z",
+      "templateId": "default-email"
+    },
+    {
+      "id": "WF0001-react_template-email2",
+      "wfNumber": "WF0001",
+      "projectName": "react_template",
+      "suffix": "email2",
+      "subjectLine": "react SL",
+      "previewText": "react PT",
+      "type": "oft",
+      "createdAt": "2025-08-13T09:53:25.454Z",
+      "templateId": "default-email",
+      "sourceId": "WF0001-react_template-email1"
+    },
+    {
+      "id": "WF0002-thirdparty_projekt-email1",
+      "wfNumber": "WF0002",
+      "projectName": "thirdparty_projekt",
+      "suffix": "email1",
+      "subjectLine": "Sl",
+      "previewText": "PT",
+      "type": "thirdparty",
+      "createdAt": "2025-08-13T09:56:16.660Z",
+      "templateId": "default-email"
+    },
+    {
+      "id": "WF0003-thirdparty_ketto-email1",
+      "wfNumber": "WF0003",
+      "projectName": "thirdparty_ketto",
+      "suffix": "email1",
       "subjectLine": "sl",
       "previewText": "pt",
       "type": "thirdparty",
-      "createdAt": "2025-08-08T15:00:03.453Z",
-      "templateId": "default-email",
-      "sourceId": "WF0000-test-kepek-thirdparty",
-      "suffix": "template"
+      "createdAt": "2025-08-13T10:00:40.637Z",
+      "templateId": "html-email"
     },
     {
-      "id": "WF0000-react-template-eloqua",
-      "wfNumber": "0000",
-      "projectName": "react",
-      "subjectLine": "sl",
-      "previewText": "pt",
+      "id": "WF0001-react_template-resend",
+      "wfNumber": "WF0001",
+      "projectName": "react_template",
+      "suffix": "resend",
+      "subjectLine": "resend react SL",
+      "previewText": "resend react PT",
       "type": "eloqua",
-      "createdAt": "2025-08-08T15:38:13.137Z",
+      "createdAt": "2025-08-13T10:04:41.776Z",
       "templateId": "default-email",
-      "sourceId": "WF0000-html-template-thirdparty",
-      "suffix": "template"
+      "sourceId": "WF0001-react_template-email1"
     }
   ]
 }

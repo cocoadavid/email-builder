@@ -6,14 +6,15 @@ import baseCss from '@/styles/emailBase.css?raw';
 import { EmailTypeProvider } from '@/context/EmailTypeContext';
 import { html as beautifyHtml } from 'js-beautify';
 
-const emailModules = import.meta.glob('/src/emails/*/Email.tsx');
+const emailModules = import.meta.glob('/src/emails/**/Email.tsx');
 
 type EmailComponentProps = {
   email: Email;
 };
 
 export const generateFullHtml = async (selectedEmailObj: Email, clean: boolean = true) => {
-  const modulePath = `/src/emails/${selectedEmailObj.id}/Email.tsx`;
+  const emailFolder = `${selectedEmailObj.wfNumber}-${selectedEmailObj.projectName}/${selectedEmailObj.suffix}`;
+  const modulePath = `/src/emails/${emailFolder}/Email.tsx`;
   const importFn = emailModules[modulePath];
   if (!importFn) {
     console.error(`Email component not found at: ${modulePath}`);
@@ -21,7 +22,7 @@ export const generateFullHtml = async (selectedEmailObj: Email, clean: boolean =
   }
 
   const module = (await import(
-    /* @vite-ignore */ `/src/emails/${selectedEmailObj.id}/Email.tsx?t=${Date.now()}`
+    /* @vite-ignore */ `/src/emails/${emailFolder}/Email.tsx?t=${Date.now()}`
   )) as { default: React.ComponentType<EmailComponentProps> };
   const Component = module.default;
 
@@ -41,7 +42,7 @@ export const generateFullHtml = async (selectedEmailObj: Email, clean: boolean =
 
   let cssContent = '';
   try {
-    cssContent = (await import(`../emails/${selectedEmailObj.id}/email.css?raw`)).default;
+    cssContent = (await import(`../emails/${emailFolder}/email.css?raw`)).default;
   } catch (error) {
     console.error(`Failed to load CSS for ${selectedEmailObj.id}`, error);
   }

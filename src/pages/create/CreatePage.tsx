@@ -15,6 +15,7 @@ const CreatePage = () => {
   const [isPending, setIsPending] = useState(false);
   const [wfNumber, setWfNumber] = useState('');
   const [projectName, setProjectName] = useState('');
+  const [suffix, setSuffix] = useState('');
   const [subjectLine, setSubjectLine] = useState('');
   const [previewText, setPreviewText] = useState('');
   const [type, setType] = useState('');
@@ -34,14 +35,14 @@ const CreatePage = () => {
     e.preventDefault();
 
     if (timeoutRef.current) {
-      // Már van futó request, ne csináljunk újat
       return;
     }
-
+    const cleanedProjectName = cleanProjectName(projectName);
+    const cleanedSuffix = cleanProjectName(suffix);
     const createdAt = new Date().toISOString();
-    const newId = `WF${wfNumber}-${cleanProjectName(projectName)}`;
+    const newId = `WF${wfNumber}-${cleanedProjectName}-${cleanedSuffix}`;
 
-    // Ellenőrizzük, hogy van-e már ilyen ID
+    // Check if ID already exists
     try {
       const res = await fetch('http://localhost:8000/emails');
       if (!res.ok) {
@@ -55,7 +56,7 @@ const CreatePage = () => {
           `Email with ID "${newId}" already exists! Please try with a different project name.`,
           { duration: 4500 },
         );
-        return; // Kilépünk, nem fut tovább
+        return;
       }
     } catch (err) {
       console.error('Error checking existing emails:', err);
@@ -63,13 +64,13 @@ const CreatePage = () => {
       return;
     }
 
-    // Csak ha nincs duplikátum, állítjuk be a pending állapotot
     setIsPending(true);
 
     const emailData = {
       id: newId,
-      wfNumber,
-      projectName,
+      wfNumber: `WF${wfNumber}`,
+      projectName: cleanedProjectName,
+      suffix: cleanedSuffix,
       subjectLine,
       previewText,
       type,
@@ -89,15 +90,15 @@ const CreatePage = () => {
           toast.success('New email created', { id: emailData.id });
           localStorage.setItem('lastSelectedEmailId', emailData.id);
           navigate('/');
-          timeoutRef.current = null; // tisztítjuk a timeout referenciát
+          timeoutRef.current = null;
         })
         .catch(err => {
           setIsPending(false);
           console.error('Error creating email:', err);
           toast.error('Something went wrong.', { id: emailData.id });
-          timeoutRef.current = null; // tisztítjuk a timeout referenciát
+          timeoutRef.current = null;
         });
-    }, 1000);
+    }, 750);
   };
 
   return (
@@ -131,6 +132,19 @@ const CreatePage = () => {
             value={projectName}
             onChange={e => setProjectName(e.target.value)}
             required
+            className={inputClassName}
+          />
+        </div>
+
+        <div>
+          <label className={labelClassName}>Suffix</label>
+          <input
+            disabled={isPending}
+            type="text"
+            value={suffix}
+            onChange={e => setSuffix(e.target.value)}
+            required
+            placeholder="eg. email1"
             className={inputClassName}
           />
         </div>

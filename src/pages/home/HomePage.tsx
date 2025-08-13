@@ -10,11 +10,17 @@ import { EmailTypeProvider, useEmailType } from '@/context/EmailTypeContext';
 
 // Glob import Email.tsx files for preview components
 const emailPreviewModules = import.meta.glob<{ default: React.ComponentType<any> }>(
-  '/src/emails/*/Email.tsx',
+  '/src/emails/*/*/Email.tsx',
 );
-const getEmailPreviewComponent = (id: string) => {
-  const mod = emailPreviewModules[`/src/emails/${id}/Email.tsx`];
+const getEmailPreviewComponent = (projectFolder: string | undefined, suffix: string | undefined) => {
+  if(projectFolder && suffix){
+  const mod = emailPreviewModules[`/src/emails/${projectFolder}/${suffix}/Email.tsx`];
   return mod ? lazy(mod) : null;
+  } else {
+    console.log("could not find this email in the emails folder");
+    return null;
+  }
+
 };
 
 const HomePageContent = () => {
@@ -25,7 +31,8 @@ const HomePageContent = () => {
 
   // Derived data
   const selectedEmailObj = localEmails.find((email: Email) => email.id === selectedEmailId);
-  const EmailPreviewComponent = selectedEmailId ? getEmailPreviewComponent(selectedEmailId) : null;
+  const projectFolder = `${selectedEmailObj?.wfNumber}-${selectedEmailObj?.projectName}`
+  const EmailPreviewComponent = selectedEmailId ? getEmailPreviewComponent(projectFolder, selectedEmailObj?.suffix) : null;
   const { setEmailType } = useEmailType();
 
   // Effects

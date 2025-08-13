@@ -8,14 +8,12 @@ const emails = emailsData.emails;
 const outputBaseDir = path.join(__dirname, '../src/emails');
 
 emails.forEach((email) => {
-  const projectFolderName = `${email.wfNumber}-${email.projectName}`;
-  const emailDir = path.join(outputBaseDir, projectFolderName, email.suffix);
+  const emailDir = path.join(outputBaseDir, `${email.id}`);
   const templateDir = path.join(__dirname, '../src/templates', email.templateId || 'default-email');
 
   // If 'sourceId' exists and the target does not yet exist, copy
   if (email.sourceId && !fs.existsSync(emailDir)) {
-    const [srcWf, srcProject, srcSuffix] = email.sourceId.split('-');
-    const sourceDir = path.join(outputBaseDir, `${srcWf}-${srcProject}`, srcSuffix);
+    const sourceDir = path.join(outputBaseDir, email.sourceId);
 
     if (fs.existsSync(sourceDir)) {
       fs.cpSync(sourceDir, emailDir, { recursive: true });
@@ -32,7 +30,8 @@ emails.forEach((email) => {
 
   // If the type is 'thirdparty', create an image folder under public
   if (email.type === 'thirdparty') {
-    const publicImageDir = path.join(__dirname, `../public/assets/${email.id}/images`);
+    console.log("third");
+    const publicImageDir = path.join(__dirname, `../public/emails/${email.id}/images`);
     if (!fs.existsSync(publicImageDir)) {
       fs.mkdirSync(publicImageDir, { recursive: true });
       console.log(`🖼️ Created image folder for thirdparty: ${publicImageDir}`);

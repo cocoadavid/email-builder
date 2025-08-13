@@ -10,11 +10,11 @@ export type Email = {
   id: string;
   wfNumber: string;
   projectName: string;
+  suffix: string;
   subjectLine: string;
   previewText: string;
   type: EmailType;
   createdAt: string;
   templateId: string;
   sourceId?: string;
-  suffix?: string;
 };

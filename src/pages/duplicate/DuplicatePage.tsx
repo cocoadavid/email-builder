@@ -29,7 +29,7 @@ const CreatePage = () => {
 
   useEffect(() => {
     if (sourceId && email) {
-      setWfNumber(email.wfNumber);
+      setWfNumber(email.wfNumber.substring(2));
       setProjectName(email.projectName);
       setSubjectLine(email.subjectLine);
       setPreviewText(email.previewText);
@@ -49,12 +49,15 @@ const CreatePage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (timeoutRef.current) {
-      return; // már fut egy request
+      return;
     }
 
+    const cleanedProjectName = cleanProjectName(projectName);
+    const cleanedSuffix = cleanProjectName(suffix);
     const createdAt = new Date().toISOString();
-    const newId = `WF${wfNumber}-${cleanProjectName(projectName)}-${cleanProjectName(suffix)}`;
+    const newId = `WF${wfNumber}-${cleanedProjectName}-${cleanedSuffix}`;
 
+    //Check if ID already exists
     try {
       const res = await fetch('http://localhost:8000/emails');
       if (!res.ok) {
@@ -80,15 +83,15 @@ const CreatePage = () => {
 
     const emailData = {
       id: newId,
-      wfNumber,
-      projectName,
+      wfNumber: `WF${wfNumber}`,
+      projectName: cleanedProjectName,
+      suffix: cleanedSuffix,
       subjectLine,
       previewText,
       type,
       createdAt,
       templateId,
       sourceId,
-      suffix,
     };
 
     timeoutRef.current = setTimeout(() => {
@@ -110,13 +113,13 @@ const CreatePage = () => {
           toast.error('Something went wrong.');
           timeoutRef.current = null;
         });
-    }, 1000);
+    }, 750);
   };
 
   return (
     <Card className="max-w-xl mx-auto">
       <h2 className="text-2xl font-bold text-vsRed border-b border-vsGray pb-2 mb-4">
-        Duplicate Email | WF{wfNumber}
+        Duplicate Email | {wfNumber}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
