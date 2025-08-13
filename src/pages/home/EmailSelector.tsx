@@ -19,7 +19,7 @@ export const EmailSelector = ({ emails, selectedEmailId, onChange }: EmailSelect
         {emails.length > 0 ? (
           emails
             .slice()
-            .sort((a, b) => Number(b.wfNumber) - Number(a.wfNumber))
+            .sort((a, b) => Number(b.wfNumber.substring(2)) - Number(a.wfNumber.substring(2)))
             .map((email: Email) => (
               <option key={email.id} value={email.id}>
                 {email.id} | {email.type}
