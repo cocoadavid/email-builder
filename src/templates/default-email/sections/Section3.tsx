@@ -15,7 +15,7 @@ const EmailSection = () => {
               className="underlined"
             />
             . They come with prebuilt useful stuff. If you hover an element in the code editor, you
-            can see the attributes that can be set. Below you can see and Image and a CTA component.
+            can see the attributes that can be set. Below you can see an Image and a CTA component.
           </Email.Td>
         </tr>
         <tr>

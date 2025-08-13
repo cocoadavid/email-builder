@@ -16,7 +16,7 @@ const Button3D = ({
   let initialClasses = `relative inline-flex items-center gap-2 justify-center px-4 py-2 shadow-xl text-sm font-semibold text-vsBlackLight
         border-2 border-vsRed hover:bg-linear-to-r hover:from-vsRed hover:via-vsRed hover:to-vsPurple hover:text-white`;
   if (disabled) {
-    initialClasses = `relative inline-flex items-center gap-2 justify-center px-4 py-2 shadow-xl text-sm font-semibold text-vsGrayDark
+    initialClasses = `relative inline-flex items-center gap-2 justify-center px-4 py-2 text-sm font-semibold text-vsGrayDark
         border-2 border-transparent bg-vsGrayLight/50`;
   }
 

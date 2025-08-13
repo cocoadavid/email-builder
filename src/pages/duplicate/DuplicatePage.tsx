@@ -6,6 +6,11 @@ import { toast } from 'sonner';
 import useFetchSingle from '@/hooks/useFetchSingle';
 import { cleanProjectName } from '@/utils/cleanProjectName.ts';
 import Button3D from '@/components/appComponents/Button3D';
+import Card from '@/components/appComponents/Card';
+
+const inputClassName = `w-full px-4 py-2 border border-vsGrayLight focus:outline-none focus:ring-2 focus:ring-vsGrayDark bg-vsWhite/50`;
+const labelClassName = `block text-sm font-semibold text-vsGrayDark mb-1`;
+const selectClassName = `w-full px-4 py-2 border border-vsGrayLight focus:outline-none focus:ring-2 focus:ring-vsGrayDark bg-white`;
 
 const CreatePage = () => {
   const { sourceId } = useParams<{ sourceId: string }>();
@@ -109,13 +114,13 @@ const CreatePage = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-4 bg-white shadow-lg rounded-2xl p-6 space-y-4 border border-sky-100">
-      <h2 className="text-2xl font-bold text-sky-700 border-b border-sky-200 pb-2">
+    <Card className="max-w-xl mx-auto">
+      <h2 className="text-2xl font-bold text-vsRed border-b border-vsGray pb-2 mb-4">
         Duplicate Email | WF{wfNumber}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Workfront Number</label>
+          <label className={labelClassName}>Workfront Number</label>
           <input
             disabled={isPending}
             type="number"
@@ -127,24 +132,24 @@ const CreatePage = () => {
               }
             }}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Project Name</label>
+          <label className={labelClassName}>Project Name</label>
           <input
             disabled={isPending}
             type="text"
             value={projectName}
             onChange={e => setProjectName(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Suffix</label>
+          <label className={labelClassName}>Suffix</label>
           <input
             disabled={isPending}
             type="text"
@@ -152,42 +157,42 @@ const CreatePage = () => {
             onChange={e => setSuffix(e.target.value)}
             required
             placeholder="eg. resend"
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Subject Line</label>
+          <label className={labelClassName}>Subject Line</label>
           <input
             disabled={isPending}
             type="text"
             value={subjectLine}
             onChange={e => setSubjectLine(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Preview Text</label>
+          <label className={labelClassName}>Preview Text</label>
           <input
             disabled={isPending}
             type="text"
             value={previewText}
             onChange={e => setPreviewText(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+          <label className={labelClassName}>Type</label>
           <select
             disabled={isPending}
             value={type}
             onChange={e => setType(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white text-gray-800"
+            className={selectClassName}
           >
             <option value="">Select type</option>
             <option value="eloqua">Eloqua</option>
@@ -207,7 +212,7 @@ const CreatePage = () => {
           </Button3D>
         )}
       </form>
-    </div>
+    </Card>
   );
 };
 

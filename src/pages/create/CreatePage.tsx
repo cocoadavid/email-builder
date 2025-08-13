@@ -6,6 +6,10 @@ import { cleanProjectName } from '@/utils/cleanProjectName';
 import Button3D from '@/components/appComponents/Button3D';
 import Card from '@/components/appComponents/Card';
 
+const inputClassName = `w-full px-4 py-2 border border-vsGrayLight focus:outline-none focus:ring-2 focus:ring-vsGrayDark bg-vsWhite/50`;
+const labelClassName = `block text-sm font-semibold text-vsGrayDark mb-1`;
+const selectClassName = `w-full px-4 py-2 border border-vsGrayLight focus:outline-none focus:ring-2 focus:ring-vsGrayDark bg-white`;
+
 const CreatePage = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false);
@@ -98,12 +102,12 @@ const CreatePage = () => {
 
   return (
     <Card className="max-w-xl mx-auto">
-      <h2 className="text-2xl font-bold text-sky-700 border-b border-sky-200 pb-2">
+      <h2 className="text-2xl font-bold text-vsRed border-b border-vsGray pb-2 mb-4">
         Create New Email
       </h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Workfront Number</label>
+          <label className={labelClassName}>Workfront Number</label>
           <input
             disabled={isPending}
             type="number"
@@ -115,54 +119,54 @@ const CreatePage = () => {
               }
             }}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Project Name</label>
+          <label className={labelClassName}>Project Name</label>
           <input
             disabled={isPending}
             type="text"
             value={projectName}
             onChange={e => setProjectName(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Subject Line</label>
+          <label className={labelClassName}>Subject Line</label>
           <input
             disabled={isPending}
             type="text"
             value={subjectLine}
             onChange={e => setSubjectLine(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Preview Text</label>
+          <label className={labelClassName}>Preview Text</label>
           <input
             disabled={isPending}
             type="text"
             value={previewText}
             onChange={e => setPreviewText(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-sky-50"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+          <label className={labelClassName}>Type</label>
           <select
             disabled={isPending}
             value={type}
             onChange={e => setType(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white text-gray-800"
+            className={selectClassName}
           >
             <option value="">Select email type</option>
             <option value="eloqua">eloqua</option>
@@ -173,13 +177,13 @@ const CreatePage = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Email Template</label>
+          <label className={labelClassName}>Email Template</label>
           <select
             disabled={isPending}
             value={templateId}
             onChange={e => setTemplateId(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white text-gray-800"
+            className={selectClassName}
           >
             <option value="">Select email template</option>
             <option value="default-email">react (recommended)</option>
