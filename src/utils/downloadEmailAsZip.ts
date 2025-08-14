@@ -3,7 +3,6 @@ import type { Email } from '@/types/email.type.ts';
 import { generateFullHtml } from './generateFullHtml';
 import { toast } from 'sonner';
 
-// Segítség: lekéri a képeket blobként
 const fetchImageAsBlob = async (url: string): Promise<[string, Blob | null]> => {
   try {
     const response = await fetch(url);

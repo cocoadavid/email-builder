@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "22.18.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -13,7 +17,7 @@
     "watch-emails": "nodemon --watch data/emails.json --exec \"node scripts/generateEmails.cjs\"",
     "start": "concurrently -n \"DEV,DB,EMAILS\" -c \"cyan,magenta,green\" \"npm run dev\" \"npm run json-server\" \"npm run watch-emails\"",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,html}\"",
-    "generate-email-index": "node scripts/generateEmailIndex.cjs"
+    "generate-email-idx": "node scripts/generateEmailIndex.cjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",

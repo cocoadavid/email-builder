@@ -24,7 +24,7 @@ const getEmailPreviewComponent = (projectFolder?: string, suffix?: string) => {
 
 const HomePageContent = () => {
   // State
-  const { data: emails, isPending, error } = useFetchList('http://localhost:8000/emails');
+  const { data: emails, isPending, error } = useFetchList('/api/emails');
   const [localEmails, setLocalEmails] = useState<Email[]>([]);
   const [selectedEmailId, setSelectedEmailId] = useState<string>('');
 

@@ -15,7 +15,7 @@ const selectClassName = `w-full px-4 py-2 border border-vsGrayLight focus:outlin
 const CreatePage = () => {
   const { sourceId } = useParams<{ sourceId: string }>();
   const navigate = useNavigate();
-  const { data: email } = useFetchSingle(`http://localhost:8000/emails/${sourceId}`);
+  const { data: email } = useFetchSingle(`/api/emails/${sourceId}`);
   const [isPending, setIsPending] = useState(false);
   const [wfNumber, setWfNumber] = useState('');
   const [projectName, setProjectName] = useState('');
@@ -60,7 +60,7 @@ const CreatePage = () => {
 
     //Check if ID already exists
     try {
-      const res = await fetch('http://localhost:8000/emails');
+      const res = await fetch('/api/emails');
       if (!res.ok) {
         throw new Error('Failed to fetch emails');
       }
@@ -96,7 +96,7 @@ const CreatePage = () => {
     };
 
     timeoutRef.current = setTimeout(() => {
-      fetch('http://localhost:8000/emails', {
+      fetch('/api/emails', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(emailData),

@@ -44,7 +44,7 @@ const CreatePage = () => {
 
     // Check if ID already exists
     try {
-      const res = await fetch('http://localhost:8000/emails');
+      const res = await fetch('/api/emails');
       if (!res.ok) {
         throw new Error('Failed to fetch emails');
       }
@@ -80,7 +80,7 @@ const CreatePage = () => {
 
     // Azonnal állítsuk be timeoutRef-et, hogy ne legyen race condition
     timeoutRef.current = setTimeout(() => {
-      fetch('http://localhost:8000/emails', {
+      fetch('/api/emails', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(emailData),

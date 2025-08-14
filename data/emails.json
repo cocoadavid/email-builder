@@ -33,6 +33,17 @@
       "type": "thirdparty",
       "createdAt": "2025-08-13T18:49:21.087Z",
       "templateId": "default-email-thirdparty"
+    },
+    {
+      "id": "WF1111-new_node_test-email1",
+      "wfNumber": "WF1111",
+      "projectName": "new_node_test",
+      "suffix": "email1",
+      "subjectLine": "sl",
+      "previewText": "pt",
+      "type": "eloqua",
+      "createdAt": "2025-08-14T14:40:59.813Z",
+      "templateId": "default-email"
     }
   ]
 }
