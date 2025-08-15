@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-1 flex items-center justify-between">
         <Link to={'/'}>
           <h1 id="navbar-title" className="text-vsWhite">
-            VOIS Email Builder
+            <span className="tracking-widest font-semibold">VOIS</span> Email Builder
           </h1>
         </Link>
         <ul className="flex space-x-4 ml-6 font-medium">

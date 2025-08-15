@@ -44,6 +44,17 @@
       "type": "eloqua",
       "createdAt": "2025-08-14T14:40:59.813Z",
       "templateId": "default-email"
+    },
+    {
+      "id": "WF1212-test-email1",
+      "wfNumber": "WF1212",
+      "projectName": "test",
+      "suffix": "email1",
+      "subjectLine": "SL",
+      "previewText": "PT",
+      "type": "eloqua",
+      "createdAt": "2025-08-14T15:02:31.119Z",
+      "templateId": "default-email"
     }
   ]
 }
