@@ -37,7 +37,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
     <Card>
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4">
-          <label className="w-24 text-sm">Subject line:</label>
+          <label className="w-20 text-sm">Subject line:</label>
           <input
             type="text"
             value={subjectLine}
@@ -47,7 +47,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <label className="w-24 text-sm">Preview text:</label>
+          <label className="w-20 text-sm">Preview text:</label>
           <input
             type="text"
             value={previewText}
@@ -57,7 +57,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
         </div>
 
         <div className="flex items-center gap-4 mb-1">
-          <label className="w-24 text-sm">Type:</label>
+          <label className="w-20 text-sm">Type:</label>
           <select
             value={type}
             onChange={e => setType(e.target.value as EmailType)}
