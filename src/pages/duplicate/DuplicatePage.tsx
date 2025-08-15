@@ -10,7 +10,7 @@ import Card from '@/components/appComponents/Card';
 
 const inputClassName = `w-full px-4 py-2 border border-vsGrayLight focus:outline-none focus:ring-2 focus:ring-vsGrayDark bg-vsWhite/50`;
 const labelClassName = `block text-sm font-semibold text-vsGrayDark mb-1`;
-const selectClassName = `w-full px-4 py-2 border border-vsGrayLight focus:outline-none focus:ring-2 focus:ring-vsGrayDark bg-white`;
+const selectClassName = `w-full px-4 py-2 border border-vsGrayLight focus:outline-none focus:ring-2 focus:ring-vsGrayDark bg-vsWhite/50`;
 
 const CreatePage = () => {
   const { sourceId } = useParams<{ sourceId: string }>();

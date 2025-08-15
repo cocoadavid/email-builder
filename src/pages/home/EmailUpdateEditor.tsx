@@ -10,6 +10,8 @@ type EmailUpdateEditorProps = {
 };
 
 const typeOptions: EmailType[] = ['eloqua', 'oft', 'highspot', 'thirdparty'];
+const inputClassName = `flex-1 px-2 py-1 border border-vsGrayLight focus:outline-solid focus:ring-1 focus:ring-vsGrayDark bg-vsWhite/25`;
+const selectClassName = `flex-1 px-1 py-1 border border-vsGrayLight focus:outline-solid focus:ring-1 focus:ring-vsGrayDark bg-vsWhite/25`;
 
 const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
   const [type, setType] = useState<EmailType>(email.type);
@@ -40,7 +42,7 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
             type="text"
             value={subjectLine}
             onChange={e => setSubjectLine(e.target.value)}
-            className="flex-1 border px-3 py-1"
+            className={`${inputClassName}`}
           />
         </div>
 
@@ -50,16 +52,16 @@ const EmailUpdateEditor = ({ email, onSave }: EmailUpdateEditorProps) => {
             type="text"
             value={previewText}
             onChange={e => setPreviewText(e.target.value)}
-            className="flex-1 border px-3 py-1"
+            className={`${inputClassName}`}
           />
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 mb-1">
           <label className="w-24 text-sm">Type:</label>
           <select
             value={type}
             onChange={e => setType(e.target.value as EmailType)}
-            className="flex-1 border px-3 py-1"
+            className={`${selectClassName}`}
           >
             {typeOptions.map(opt => (
               <option key={opt} value={opt}>
