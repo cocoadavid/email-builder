@@ -11,6 +11,8 @@ const Wrapper = ({ children, width = 600 }: WrapperProps) => {
       cellSpacing={0}
       style={{
         width: '100%',
+        minWidth: '100%',
+        maxWidth: '100%',
         borderCollapse: 'collapse',
         margin: '0 auto',
         backgroundColor: '#eeeeee',
@@ -23,7 +25,7 @@ const Wrapper = ({ children, width = 600 }: WrapperProps) => {
               width={width}
               cellPadding={0}
               cellSpacing={0}
-              className="drop-shadow-xl full-width-mobile"
+              className="shadow-lg full-width-mobile"
               style={{
                 width: `${width}px`,
                 backgroundColor: '#ffffff',

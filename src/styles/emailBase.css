@@ -81,7 +81,7 @@ a {
   text-decoration: none;
 }
 
-u+.body a {
+u + .body a {
   color: inherit;
   text-decoration: none;
   font-size: inherit;
@@ -269,13 +269,13 @@ img.center {
 }
 
 .bg-mobile {
-    width: 0;
-    max-height: 0;
-    overflow: hidden;
-    float: left;
-    display: none;
-    font-size: 0px;
-    padding: 0;
+  width: 0;
+  max-height: 0;
+  overflow: hidden;
+  float: left;
+  display: none;
+  font-size: 0px;
+  padding: 0;
 }
 /* === Mobile Styles === */
 @media screen and (max-width: 600px) {

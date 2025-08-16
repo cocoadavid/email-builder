@@ -7,14 +7,22 @@ type TdProps = {
   className?: string;
   colspan?: number;
   children: React.ReactNode;
-  valign?: "top" | "middle" | "bottom";
+  valign?: 'top' | 'middle' | 'bottom';
 };
 
 const cleanStyleValue = (value: string): string => {
   return value.replace(/;$/, '');
 };
 
-const Td = ({ children, height, padding, style, className, colspan = 1, valign="top" }: TdProps) => {
+const Td = ({
+  children,
+  height,
+  padding,
+  style,
+  className,
+  colspan = 1,
+  valign = 'top',
+}: TdProps) => {
   const baseStyle: React.CSSProperties = {};
 
   if (height !== undefined) {
@@ -37,7 +45,13 @@ const Td = ({ children, height, padding, style, className, colspan = 1, valign="
   );
 
   return (
-    <td className={className || 'text-14'} style={cleanedStyle} height={height} colSpan={colspan} valign={valign}>
+    <td
+      className={className || 'text-14'}
+      style={cleanedStyle}
+      height={height}
+      colSpan={colspan}
+      valign={valign}
+    >
       {children}
     </td>
   );

@@ -57,7 +57,13 @@ const Section = ({ html, children, bgColor, className, variables }: SectionProps
           cellSpacing="0"
           role="presentation"
           bgcolor={bgColor || '#FFFFFF'}
-          style={{ borderCollapse: 'collapse', width: '100%', background: bgColor || '#FFFFFF' }}
+          style={{
+            borderCollapse: 'collapse',
+            width: '100%',
+            minWidth: '100%',
+            maxWidth: '100%',
+            backgroundColor: bgColor || '#FFFFFF',
+          }}
         >
           <tbody>
             <tr>
@@ -79,7 +85,7 @@ const Section = ({ html, children, bgColor, className, variables }: SectionProps
         cellSpacing="0"
         role="presentation"
         bgcolor={bgColor || '#FFFFFF'}
-        style={{ borderCollapse: 'collapse', width: '100%', background: bgColor || '#FFFFFF' }}
+        style={{ borderCollapse: 'collapse', width: '100%', backgroundColor: bgColor || '#FFFFFF' }}
       >
         <tbody>
           <tr>

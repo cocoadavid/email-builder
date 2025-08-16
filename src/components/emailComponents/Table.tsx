@@ -10,8 +10,8 @@ type TableProps = {
 
 const Table = ({ children, width, style, bgColor, className }: TableProps) => {
   const baseStyle: React.CSSProperties = width
-    ? { width: `${width}px`, background: bgColor }
-    : { width: '100%', background: bgColor };
+    ? { width: `${width}px`, backgroundColor: bgColor }
+    : { width: '100%', backgroundColor: bgColor };
   const combinedStyle = { ...baseStyle, ...style };
 
   // Ellenőrzés: ha children egy tömb vagy egy elem, ellenőrizzük a típust

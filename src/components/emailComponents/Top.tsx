@@ -11,7 +11,7 @@ const Top = ({ bgColor = '#4A4D4E' }: TopProperties) => {
     return;
   } else {
     return (
-      <Table bgColor={bgColor}>
+      <Table bgColor={bgColor} style={{ minWidth: '100%', maxWidth: '100%' }}>
         {emailType === 'eloqua' ? (
           <tr>
             <td className="text-right text-10" style={{ padding: '4px 24px 4px 24px' }}>

@@ -47,7 +47,7 @@ const MobileEmailPreview = ({ email }: MobileEmailPreviewProps) => {
   }, [email.id, version]);
 
   return (
-    <div className="w-full flex justify-center overflow-x-hidden shadow-xl rounded-xl border border-gray-200">
+    <div className="w-full flex justify-center overflow-x-hidden shadow-lg rounded-xl border border-gray-200">
       <iframe
         title="Email Preview"
         srcDoc={html}
