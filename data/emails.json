@@ -55,6 +55,17 @@
       "type": "eloqua",
       "createdAt": "2025-08-14T15:02:31.119Z",
       "templateId": "default-email"
+    },
+    {
+      "id": "WF5555-gmail_html_test-email1",
+      "wfNumber": "WF5555",
+      "projectName": "gmail_html_test",
+      "suffix": "email1",
+      "subjectLine": "sl",
+      "previewText": "pt",
+      "type": "eloqua",
+      "createdAt": "2025-08-16T18:14:19.574Z",
+      "templateId": "html-email"
     }
   ]
 }

@@ -28,7 +28,7 @@ const EmailSection = () => {
           <tr>
             <Email.Td
               className="text-20 bold text-center"
-              padding="24px 24px 24px 24px"
+              padding="24px 12px 24px 12px"
               valign="middle"
               style={{ color: '#FECB00' }}
             >

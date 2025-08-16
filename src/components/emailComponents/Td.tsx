@@ -44,6 +44,19 @@ const Td = ({
     }),
   );
 
+  if(className?.includes("stack")){
+    return (
+      <th
+      className={className}
+      style={cleanedStyle}
+      colSpan={colspan}
+      {...({ valign, height } as any)}
+    >
+      {children}
+    </th>
+    )
+  }
+
   return (
     <td
       className={className || 'text-14'}

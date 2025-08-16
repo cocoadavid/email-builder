@@ -1,0 +1,8 @@
+/* === additional css here === */
+
+@media only screen and (max-width: 600px) {
+  .px-0-m {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

@@ -13,7 +13,7 @@ const exampleImg = 'https://i.imgur.com/6AjemMV.png';
 
 const SectionWithBgImg = ({
   bgImgSrc = exampleImg,
-  bgImgSrcMobile = exampleImg,
+  bgImgSrcMobile,
   width = 600,
   height,
   bgColor,

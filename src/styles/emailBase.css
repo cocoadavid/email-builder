@@ -81,7 +81,7 @@ a {
   text-decoration: none;
 }
 
-u + .body a {
+u+.body a {
   color: inherit;
   text-decoration: none;
   font-size: inherit;
@@ -277,8 +277,9 @@ img.center {
   font-size: 0px;
   padding: 0;
 }
+
 /* === Mobile Styles === */
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   td.section {
     padding: 24px 12px 24px 12px !important;
   }
@@ -324,11 +325,12 @@ img.center {
     overflow: visible !important;
     float: none !important;
     visibility: visible !important;
+  }
 
-    img {
-      display: block !important;
-      margin: 0 auto;
-    }
+  .show_on_mobile img,
+  .show-on-mobile img {
+    display: block !important;
+    margin: 0 auto !important;
   }
 
   img.show_on_mobile,
