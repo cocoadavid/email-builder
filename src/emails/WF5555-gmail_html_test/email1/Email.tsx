@@ -17,7 +17,7 @@ const Email = ({ email }: EmailProps) => {
         altText="banner image"
       />
       <Section html={sections.section1} variables={variables} bgColor="#f2f2f2" />
-      <Section html={sections.section2} variables={variables} className='p-reset' />
+      <Section html={sections.section2} variables={variables} className="p-reset" />
     </Wrapper>
   );
 };

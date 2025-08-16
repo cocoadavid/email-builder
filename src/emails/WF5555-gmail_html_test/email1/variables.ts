@@ -3,7 +3,7 @@ import * as Email from '@/components/emailComponents';
 
 export const variables = {
   images: {
-     header: 'https://i.imgur.com/jJxVWiN.png',
+    header: 'https://i.imgur.com/jJxVWiN.png',
     headerMobile: 'https://i.imgur.com/jJxVWiN.png',
     example: '/assets/example/example.jpg',
   },
