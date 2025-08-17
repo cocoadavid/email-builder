@@ -1,3 +1,5 @@
+import { useEmailType } from "@/context/EmailTypeContext";
+
 type SectionWithBgImgProps = {
   bgImgSrc: string;
   bgImgSrcMobile?: string;
@@ -21,8 +23,18 @@ const SectionWithBgImg = ({
   desktopContent,
   mobileContent,
 }: SectionWithBgImgProps) => {
+  const {emailType} = useEmailType();
   const widthInPt = `${width * 0.75}pt`;
   const heightInPt = `${height * 0.75}pt`;
+
+  if(emailType === "oft"){
+    return(
+      <div className="border border-dotted text-center text-lg text-orange p-4">
+        <span className="text-orange-600 font-bold">WARNING</span><br/>
+        Background images do not work in OFTs, do not use this component with type: oft.
+      </div>
+    )
+  }
 
   return (
     <section style={{ margin: 0, padding: 0, width: '100%', minWidth: '100%', maxWidth: '100%' }}>
