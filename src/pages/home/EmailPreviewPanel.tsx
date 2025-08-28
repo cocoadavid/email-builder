@@ -26,7 +26,7 @@ const EmailPreviewPanel = ({ EmailPreviewComponent, email }: EmailPreviewPanelPr
               initial={{ rotateY: '90deg' }}
               animate={{ rotateY: '0deg' }}
               exit={{ rotateY: '90deg' }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
               <Suspense fallback={<LoadingHeader />}>
                 <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />

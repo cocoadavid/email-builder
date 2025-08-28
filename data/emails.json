@@ -66,6 +66,17 @@
       "type": "eloqua",
       "createdAt": "2025-08-16T18:14:19.574Z",
       "templateId": "html-email"
+    },
+    {
+      "id": "WF878789-express_test-email1",
+      "wfNumber": "WF878789",
+      "projectName": "express_test",
+      "suffix": "email1",
+      "subjectLine": "eximexi",
+      "previewText": "teszti",
+      "type": "highspot",
+      "createdAt": "2025-08-28T19:56:10.935Z",
+      "templateId": "default-email"
     }
   ]
 }
