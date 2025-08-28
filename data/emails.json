@@ -35,28 +35,6 @@
       "templateId": "default-email-thirdparty"
     },
     {
-      "id": "WF1111-new_node_test-email1",
-      "wfNumber": "WF1111",
-      "projectName": "new_node_test",
-      "suffix": "email1",
-      "subjectLine": "sl",
-      "previewText": "pt",
-      "type": "highspot",
-      "createdAt": "2025-08-14T14:40:59.813Z",
-      "templateId": "default-email"
-    },
-    {
-      "id": "WF1212-test-email1",
-      "wfNumber": "WF1212",
-      "projectName": "test",
-      "suffix": "email1",
-      "subjectLine": "SL",
-      "previewText": "PT",
-      "type": "eloqua",
-      "createdAt": "2025-08-14T15:02:31.119Z",
-      "templateId": "default-email"
-    },
-    {
       "id": "WF5555-gmail_html_test-email1",
       "wfNumber": "WF5555",
       "projectName": "gmail_html_test",
@@ -66,17 +44,6 @@
       "type": "eloqua",
       "createdAt": "2025-08-16T18:14:19.574Z",
       "templateId": "html-email"
-    },
-    {
-      "id": "WF878789-express_test-email1",
-      "wfNumber": "WF878789",
-      "projectName": "express_test",
-      "suffix": "email1",
-      "subjectLine": "eximexi",
-      "previewText": "teszti",
-      "type": "highspot",
-      "createdAt": "2025-08-28T19:56:10.935Z",
-      "templateId": "default-email"
     }
   ]
 }
